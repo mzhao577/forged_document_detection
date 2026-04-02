@@ -1,0 +1,81 @@
+Index,Paragraph_Index,Sentence_Index,Classification,Confidence,AI_Probability,Human_Probability,Word_Count,Text
+p1s1,p1,s1,AI-written,0.9749,0.9749,0.0251,32,"China's High-Tech Leap: A New Era of Innovation (2020-2026)
+In just six years, China has transformed from a manufacturing powerhouse into a global technology leader, making breakthroughs that are reshaping industries worldwide."
+p1s2,p1,s2,AI-written,0.9357,0.9357,0.0643,16,"From artificial intelligence to quantum computing, Chinese innovation is no longer playing catch-up—it's setting the pace."
+p1s3,p1,s3,Human-written,0.8166,0.1834,0.8166,32,"Quantum Computing: Breaking the Impossible
+December 2020 marked a watershed moment when Chinese scientists at the University of Science and Technology of China achieved ""quantum supremacy"" with their photonic quantum computer, Jiuzhang."
+p1s4,p1,s4,AI-written,0.9617,0.9617,0.0383,15,The machine performed calculations in 200 seconds that would take the world's fastest supercomputer 2.
+p1s5,p1,s5,Too short,0.0000,0.0000,0.0000,3,5 billion years.
+p1s6,p1,s6,AI-written,0.8807,0.8807,0.1193,9,"By 2023, they had pushed further with Jiuzhang 3."
+p1s7,p1,s7,Human-written,0.8764,0.1236,0.8764,12,"0, demonstrating a million-fold speed advantage over classical computers for specific tasks."
+p1s8,p1,s8,AI-written,0.8232,0.8232,0.1768,5,This wasn't just academic achievement.
+p1s9,p1,s9,AI-written,0.9697,0.9697,0.0303,21,"In 2024, China launched the world's first quantum communication satellite network, creating an unhackable communication system spanning Beijing, Shanghai, and Vienna."
+p1s10,p1,s10,AI-written,0.9978,0.9978,0.0022,24,"The technology promises to revolutionize everything from financial transactions to national security, and China currently holds more quantum computing patents than any other nation."
+p1s11,p1,s11,Human-written,0.9358,0.0642,0.9358,22,"Artificial Intelligence: Racing to the Top
+While Silicon Valley grabbed headlines with ChatGPT, Chinese AI companies were quietly building their own empire."
+p1s12,p1,s12,Human-written,0.6383,0.3617,0.6383,18,"Baidu's ERNIE Bot, Alibaba's Tongyi Qianwen, and ByteDance's AI models now serve hundreds of millions of users daily."
+p1s13,p1,s13,AI-written,0.9595,0.9595,0.0405,20,"By 2025, China had trained over 200 large language models, with some matching or exceeding Western counterparts in Chinese-language tasks."
+p1s14,p1,s14,AI-written,0.9816,0.9816,0.0184,8,But China's AI ambitions extend far beyond chatbots.
+p1s15,p1,s15,Human-written,0.6721,0.3279,0.6721,14,Facial recognition technology developed by SenseTime and Megvii has achieved accuracy rates exceeding 99.
+p1s16,p1,s16,Human-written,0.9505,0.0495,0.9505,11,"8%, now deployed in everything from subway systems to retail stores."
+p1s17,p1,s17,AI-written,0.9873,0.9873,0.0127,31,"In healthcare, Chinese AI systems are diagnosing diseases from medical images with accuracy rivaling experienced radiologists, with Alibaba's AI detecting liver cancer with 92% accuracy compared to 86% for human doctors."
+p1s18,p1,s18,Too short,0.0000,0.0000,0.0000,3,The real game-changer?
+p1s19,p1,s19,Too short,0.0000,0.0000,0.0000,2,AI-powered manufacturing.
+p1s20,p1,s20,AI-written,0.5222,0.5222,0.4778,7,"By 2024, China had deployed over 1."
+p1s21,p1,s21,AI-written,0.6203,0.6203,0.3797,28,"6 million industrial robots—more than the rest of the world combined—many controlled by homegrown AI systems that optimize production in real-time, cutting defect rates by up to 40%."
+p1s22,p1,s22,Human-written,0.8689,0.1311,0.8689,21,"5G and Beyond: Building the Infrastructure
+While much of the world was still rolling out 5G, China had already deployed 3."
+p1s23,p1,s23,Human-written,0.6754,0.3246,0.6754,12,6 million 5G base stations by 2025—roughly 60% of the global total.
+p1s24,p1,s24,AI-written,0.9030,0.9030,0.0970,11,"Huawei and ZTE, despite facing Western sanctions, continued advancing the technology."
+p1s25,p1,s25,AI-written,0.9139,0.9139,0.0861,22,"Cities like Shenzhen became 5G showcases, with autonomous vehicles, smart traffic systems, and connected hospitals demonstrating what's possible with ultra-fast, low-latency networks."
+p1s26,p1,s26,Human-written,0.7230,0.2770,0.7230,9,"Now, Chinese companies are leading the charge toward 6G."
+p1s27,p1,s27,AI-written,0.9839,0.9839,0.0161,19,"In 2023, China launched the world's first 6G satellite, achieving terabit-per-second data rates in tests—100 times faster than 5G."
+p1s28,p1,s28,AI-written,0.7695,0.7695,0.2305,17,"If current trajectories hold, China aims for commercial 6G networks by 2030, years ahead of most competitors."
+p1s29,p1,s29,Human-written,0.9445,0.0555,0.9445,16,"Space Exploration: Reaching New Heights
+China's space program has achieved what seemed impossible just decades ago."
+p1s30,p1,s30,AI-written,0.9487,0.9487,0.0513,16,"The Tiangong space station, completed in 2022, now orbits Earth with Chinese astronauts conducting cutting-edge research."
+p1s31,p1,s31,AI-written,0.9923,0.9923,0.0077,27,"In 2024, China became the first nation to retrieve samples from the far side of the moon with the Chang'e-6 mission, unlocking geological secrets never before accessible."
+p1s32,p1,s32,AI-written,0.9415,0.9415,0.0585,14,"The Tianwen-1 Mars rover, landing in 2021, continues sending data from the Red Planet."
+p1s33,p1,s33,AI-written,0.9809,0.9809,0.0191,31,"By 2025, China had launched over 200 satellites for its BeiDou navigation system, providing GPS-like services to over 120 countries and achieving positioning accuracy within centimeters—surpassing GPS in the Asia-Pacific region."
+p1s34,p1,s34,AI-written,0.5191,0.5191,0.4809,19,"Perhaps most ambitious: China's plan for a solar power station in space, capable of beaming clean energy to Earth."
+p1s35,p1,s35,AI-written,0.9987,0.9987,0.0013,18,"Early-stage tests began in 2025, with full deployment targeted for the 2030s—a project that could revolutionize global energy."
+p1s36,p1,s36,Human-written,0.9706,0.0294,0.9706,14,"Electric Vehicles and Green Tech
+China didn't just join the EV revolution—it dominated it."
+p1s37,p1,s37,AI-written,0.9564,0.9564,0.0436,12,"By 2025, Chinese manufacturers produced over 60% of the world's electric vehicles."
+p1s38,p1,s38,AI-written,0.5448,0.5448,0.4552,24,"BYD surpassed Tesla in global EV sales, while NIO, XPeng, and Li Auto pushed innovations in battery swapping, autonomous driving, and connected car technology."
+p1s39,p1,s39,Human-written,0.9580,0.0420,0.9580,5,Battery technology drove this success.
+p1s40,p1,s40,AI-written,0.7940,0.7940,0.2060,21,"CATL, the world's largest battery manufacturer, developed sodium-ion batteries offering cheaper alternatives to lithium-ion, and solid-state batteries promising 50% more range."
+p1s41,p1,s41,AI-written,0.9712,0.9712,0.0288,16,"By 2024, Chinese EVs could travel over 1,000 kilometers on a single charge—making range anxiety obsolete."
+p1s42,p1,s42,Human-written,0.9305,0.0695,0.9305,7,The green tech boom extended beyond cars.
+p1s43,p1,s43,Human-written,0.5192,0.4808,0.5192,20,"China installed more solar panels in 2024 than the entire world did in 2022, manufacturing 85% of global solar panels."
+p1s44,p1,s44,AI-written,0.9960,0.9960,0.0040,19,"Wind turbine production similarly skyrocketed, with Chinese companies developing offshore turbines generating 18 megawatts—enough to power 20,000 homes each."
+p1s45,p1,s45,Human-written,0.8485,0.1515,0.8485,20,"Semiconductors: The Great Challenge
+Western sanctions aimed to slow China's chip industry, but the response was fierce investment and innovation."
+p1s46,p1,s46,AI-written,0.9915,0.9915,0.0085,30,"By 2025, China's semiconductor industry had grown by 30% annually, with companies like SMIC achieving 7-nanometer chip production—not matching Taiwan's cutting-edge 3nm, but closing the gap faster than experts predicted."
+p1s47,p1,s47,Human-written,0.8228,0.1772,0.8228,17,"China now produces over 60% of legacy chips (above 28nm) used in cars, appliances, and industrial equipment."
+p1s48,p1,s48,AI-written,0.8326,0.8326,0.1674,24,"The government invested over $150 billion in semiconductor development between 2020-2025, building entirely new supply chains for chip-making equipment previously imported from the West."
+p1s49,p1,s49,Human-written,0.8975,0.1025,0.8975,24,"Biotechnology and Health Innovation
+Chinese scientists made global headlines with CRISPR gene-editing breakthroughs, developing treatments for genetic blood disorders and conducting world-first clinical trials."
+p1s50,p1,s50,AI-written,0.9460,0.9460,0.0540,22,"In 2024, a Chinese team successfully used base editing to cure a genetic form of deafness in children—a milestone in gene therapy."
+p1s51,p1,s51,Human-written,0.8525,0.1475,0.8525,8,The country's response to COVID-19 accelerated biotech capabilities.
+p1s52,p1,s52,AI-written,0.8078,0.8078,0.1922,24,"By 2025, China had developed mRNA vaccine technology, synthetic biology platforms, and AI-driven drug discovery systems cutting pharmaceutical development time from years to months."
+p1s53,p1,s53,AI-written,0.9538,0.9538,0.0462,18,"Chinese biotech companies now rank among the world's most valuable, with over 400 drugs in clinical trials globally."
+p1s54,p1,s54,Human-written,0.7586,0.2414,0.7586,9,"The Road Ahead
+China's high-tech surge isn't without challenges."
+p1s55,p1,s55,Human-written,0.6264,0.3736,0.6264,22,"Quality sometimes lags behind quantity, indigenous innovation battles with technology copying accusations, and geopolitical tensions threaten access to global markets and collaborations."
+p1s56,p1,s56,AI-written,0.9796,0.9796,0.0204,11,Brain drain remains an issue as top talent seeks opportunities abroad.
+p1s57,p1,s57,AI-written,0.9748,0.9748,0.0252,5,Yet the momentum is undeniable.
+p1s58,p1,s58,Human-written,0.7550,0.2450,0.7550,11,"With over 3 million STEM graduates annually, R&D spending exceeding 2."
+p1s59,p1,s59,Human-written,0.5123,0.4877,0.5123,20,"5% of GDP, and a government committed to technological self-reliance, China is positioned to shape the 21st century's technological landscape."
+p1s60,p1,s60,AI-written,0.9561,0.9561,0.0439,23,The question is no longer whether China can innovate at the highest levels—it's how the world will respond to a new technology superpower.
+p1s61,p1,s61,AI-written,0.8530,0.8530,0.1470,20,"From quantum computers to space stations, from AI to green energy, China's recent technological advances represent more than national achievement."
+p1s62,p1,s62,AI-written,0.9988,0.9988,0.0012,20,"They signal a fundamental shift in global innovation geography, one that will define opportunities and challenges for decades to come."
+p2s1,p2,s1,AI-written,0.8420,0.8420,0.1580,6,China's high-tech surge isn't without challenges.
+p2s2,p2,s2,Human-written,0.6264,0.3736,0.6264,22,"Quality sometimes lags behind quantity, indigenous innovation battles with technology copying accusations, and geopolitical tensions threaten access to global markets and collaborations."
+p2s3,p2,s3,AI-written,0.9796,0.9796,0.0204,11,Brain drain remains an issue as top talent seeks opportunities abroad.
+p2s4,p2,s4,AI-written,0.9748,0.9748,0.0252,5,Yet the momentum is undeniable.
+p2s5,p2,s5,Human-written,0.7550,0.2450,0.7550,11,"With over 3 million STEM graduates annually, R&D spending exceeding 2."
+p2s6,p2,s6,Human-written,0.5123,0.4877,0.5123,20,"5% of GDP, and a government committed to technological self-reliance, China is positioned to shape the 21st century's technological landscape."
+p2s7,p2,s7,AI-written,0.9561,0.9561,0.0439,23,The question is no longer whether China can innovate at the highest levels—it's how the world will respond to a new technology superpower.
+p2s8,p2,s8,AI-written,0.8530,0.8530,0.1470,20,"From quantum computers to space stations, from AI to green energy, China's recent technological advances represent more than national achievement."
+p2s9,p2,s9,AI-written,0.9988,0.9988,0.0012,20,"They signal a fundamental shift in global innovation geography, one that will define opportunities and challenges for decades to come."

@@ -1,0 +1,4 @@
+ would like to create a web app for the AI Text detection model called "fakespot-ai/roberta-base-ai-text-detection-v1".  Could you do the following for me?
+
+1) Download the model
+2) develop a Web App uysing this model. The input should be a text with multiple paragraphs,  the output sgould be whether it is an AI-Text or human-written text, together with a probibility/  If possible, I would like to see the perplexity and burstiness along with other statistics.
