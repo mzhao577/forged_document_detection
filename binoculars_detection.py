@@ -278,10 +278,11 @@ def load_models_cli(model_size="auto", offline=False):
         )
 
         # Set pad token if not present (required for Falcon and some other models)
-        if tokenizer.pad_token is None:
+        if tokenizer.pad_token is None or tokenizer.pad_token_id is None:
             tokenizer.pad_token = tokenizer.eos_token
-        if tokenizer.pad_token_id is None:
             tokenizer.pad_token_id = tokenizer.eos_token_id
+            # Also update the model config if needed
+            tokenizer.padding_side = "left"
 
         # Use float16 for MPS (Apple Silicon), bfloat16 for CUDA
         model_dtype = torch.float16 if device == "mps" else torch.bfloat16
@@ -405,13 +406,13 @@ def compute_binoculars_score(text, tokenizer, observer, performer, device, max_l
 
     Lower scores indicate AI-generated text.
     """
-    # Tokenize
+    # Tokenize (padding=False for single text input to avoid pad token issues)
     inputs = tokenizer(
         text,
         return_tensors="pt",
         truncation=True,
         max_length=max_length,
-        padding=True
+        padding=False
     )
 
     input_ids = inputs["input_ids"].to(device)
