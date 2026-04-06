@@ -243,11 +243,15 @@ def select_best_model(requested_model="auto"):
     return "small"
 
 
-def load_models_cli(model_size="auto"):
+def load_models_cli(model_size="auto", offline=False):
     """Load observer and performer models for Binoculars detection.
 
     If model_size is "auto", attempts to load the best model for the system,
     starting with Falcon-7B and falling back to smaller models if needed.
+
+    Args:
+        model_size: Model size to use ('auto', 'falcon', 'large', 'medium', 'small')
+        offline: If True, use only locally cached models (no network requests)
     """
     # Auto-select or validate model
     if model_size == "auto":
@@ -265,7 +269,9 @@ def load_models_cli(model_size="auto"):
     try:
         # Load tokenizer
         print(f"  Loading tokenizer from {model_config['observer']}...")
-        tokenizer = AutoTokenizer.from_pretrained(model_config["observer"])
+        if offline:
+            print("  (Offline mode: using only local cache)")
+        tokenizer = AutoTokenizer.from_pretrained(model_config["observer"], local_files_only=offline)
 
         # Set pad token if not present
         if tokenizer.pad_token is None:
@@ -283,17 +289,19 @@ def load_models_cli(model_size="auto"):
                 observer = AutoModelForCausalLM.from_pretrained(
                     model_config["observer"],
                     torch_dtype=model_dtype,
-                    device_map="auto"
+                    device_map="auto",
+                    local_files_only=offline
                 )
             except ImportError:
                 # Fallback: load without device_map and manually move to device
                 observer = AutoModelForCausalLM.from_pretrained(
                     model_config["observer"],
-                    torch_dtype=model_dtype
+                    torch_dtype=model_dtype,
+                    local_files_only=offline
                 )
                 observer = observer.to(device)
         else:
-            observer = AutoModelForCausalLM.from_pretrained(model_config["observer"])
+            observer = AutoModelForCausalLM.from_pretrained(model_config["observer"], local_files_only=offline)
             observer = observer.to(device)
         observer.eval()
 
@@ -305,16 +313,18 @@ def load_models_cli(model_size="auto"):
                 performer = AutoModelForCausalLM.from_pretrained(
                     model_config["performer"],
                     torch_dtype=model_dtype,
-                    device_map="auto"
+                    device_map="auto",
+                    local_files_only=offline
                 )
             except ImportError:
                 performer = AutoModelForCausalLM.from_pretrained(
                     model_config["performer"],
-                    torch_dtype=model_dtype
+                    torch_dtype=model_dtype,
+                    local_files_only=offline
                 )
                 performer = performer.to(device)
         else:
-            performer = AutoModelForCausalLM.from_pretrained(model_config["performer"])
+            performer = AutoModelForCausalLM.from_pretrained(model_config["performer"], local_files_only=offline)
             performer = performer.to(device)
 
     except (RuntimeError, torch.cuda.OutOfMemoryError, Exception) as e:
@@ -328,7 +338,7 @@ def load_models_cli(model_size="auto"):
             for fallback_model in FALLBACK_ORDER[current_idx + 1:]:
                 print(f"  Attempting fallback to: {fallback_model}")
                 try:
-                    return load_models_cli(fallback_model)
+                    return load_models_cli(fallback_model, offline=offline)
                 except Exception:
                     continue
 
@@ -776,8 +786,12 @@ def analyze_sentences_api(text, observer_client, performer_client, threshold=DEF
 
 
 def run_cli_analysis(input_file, output_dir=None, output_prefix="binoculars", model_size="auto",
-                     threshold=None, use_api=False, hf_token=None):
-    """Run CLI analysis and output results to CSV files."""
+                     threshold=None, use_api=False, hf_token=None, offline=False):
+    """Run CLI analysis and output results to CSV files.
+
+    Args:
+        offline: If True, use only locally cached models (no network requests)
+    """
     # Read input file
     if not os.path.exists(input_file):
         print(f"Error: Input file not found: {input_file}")
@@ -824,7 +838,7 @@ def run_cli_analysis(input_file, output_dir=None, output_prefix="binoculars", mo
 
     else:
         # Use local models
-        tokenizer, observer, performer, device, actual_model = load_models_cli(model_size)
+        tokenizer, observer, performer, device, actual_model = load_models_cli(model_size, offline=offline)
 
         # Use model-specific threshold if not explicitly set
         if threshold is None:
@@ -882,6 +896,9 @@ Examples:
 
   # Specify output directory and prefix
   python binoculars_detection.py --output_result --input mytext.txt --output_dir ./results --output_prefix myanalysis
+
+  # Use locally cached Falcon models (offline mode, no network requests)
+  python binoculars_detection.py --output_result --input mytext.txt --model_size falcon --offline
 
 API Setup:
   1. Create a free account at https://huggingface.co
@@ -945,6 +962,12 @@ API Setup:
         help='Hugging Face API token. Can also be set via HF_TOKEN environment variable.'
     )
 
+    parser.add_argument(
+        '--offline',
+        action='store_true',
+        help='Use only locally cached models (no network requests). Models must be pre-downloaded to ~/.cache/huggingface/hub'
+    )
+
     return parser.parse_args()
 
 
@@ -964,7 +987,8 @@ if __name__ == "__main__":
             model_size=args.model_size,
             threshold=args.threshold,
             use_api=args.use_api,
-            hf_token=args.hf_token
+            hf_token=args.hf_token,
+            offline=args.offline
         )
     else:
         print("Usage: python binoculars_detection.py --output_result --input <input_file>")
@@ -977,9 +1001,13 @@ if __name__ == "__main__":
         print("  --threshold        Detection threshold (default: auto per model, e.g. 0.85 for falcon)")
         print("  --use_api          Use Hugging Face API (no local memory needed, requires HF token)")
         print("  --hf_token         Hugging Face API token (or set HF_TOKEN env var)")
+        print("  --offline          Use only locally cached models (no network requests)")
         print("\nExamples:")
         print("  # Local model (auto-selects based on available memory)")
         print("  python binoculars_detection.py --output_result --input sample.txt")
         print("")
         print("  # Use Hugging Face API for Falcon-7B (no local memory needed)")
         print("  python binoculars_detection.py --output_result --input sample.txt --use_api")
+        print("")
+        print("  # Use locally cached Falcon models (offline mode, no network)")
+        print("  python binoculars_detection.py --output_result --input sample.txt --model_size falcon --offline")
