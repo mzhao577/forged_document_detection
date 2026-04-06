@@ -1,0 +1,73 @@
+# Fast Tokenizer Troubleshooting Guide
+
+If you encounter the error "Couldn't instantiate the backend tokenizer" or slow tokenizer issues,
+follow these diagnostic steps:
+
+## Step 1: Test if tokenizers works directly
+
+```bash
+python -c "from tokenizers import Tokenizer; t = Tokenizer.from_file('$(ls ~/.cache/huggingface/hub/models--tiiuae--falcon-7b-instruct/snapshots/*/tokenizer.json)'); print('Success!')"
+```
+
+## Step 2: Check architecture compatibility
+
+```bash
+# Check your Mac's architecture
+uname -m
+
+# Check Python architecture
+python -c "import platform; print(platform.machine())"
+
+# Check tokenizers library architecture
+file $(python -c "import tokenizers as t; print(t.__file__.replace('__init__.py', 'tokenizers.cpython-*.so'))" 2>/dev/null | head -1)
+```
+
+## Step 3: Check tokenizers version and installation
+
+```bash
+pip show tokenizers
+```
+
+## Step 4: Reinstall tokenizers for your architecture
+
+```bash
+pip uninstall tokenizers -y
+pip install --no-cache-dir --force-reinstall tokenizers
+```
+
+## Common Causes
+
+The most likely cause is an architecture mismatch (e.g., x86_64 tokenizers running under Rosetta on an ARM Mac).
+
+## Additional Solutions
+
+### Solution A: Clear and re-download tokenizer files
+
+```bash
+# Clear the cached Falcon tokenizer files
+rm -rf ~/.cache/huggingface/hub/models--tiiuae--falcon-7b-instruct/
+rm -rf ~/.cache/huggingface/hub/models--tiiuae--falcon-7b/
+
+# Re-download with fast tokenizer (requires internet)
+python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('tiiuae/falcon-7b-instruct', use_fast=True)"
+python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('tiiuae/falcon-7b', use_fast=True)"
+```
+
+### Solution B: Verify tokenizer.json exists
+
+```bash
+ls ~/.cache/huggingface/hub/models--tiiuae--falcon-7b-instruct/snapshots/*/tokenizer.json
+```
+
+### Solution C: Reinstall tokenizers with Rust support
+
+```bash
+pip uninstall tokenizers
+pip install --no-cache-dir tokenizers
+```
+
+### Solution D: Update both transformers and tokenizers
+
+```bash
+pip install --upgrade transformers tokenizers
+```
