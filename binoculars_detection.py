@@ -267,11 +267,15 @@ def load_models_cli(model_size="auto", offline=False):
     print(f"Loading models ({model_config['description']})...")
 
     try:
-        # Load tokenizer
+        # Load tokenizer (use_fast=True for Rust-based fast tokenizer)
         print(f"  Loading tokenizer from {model_config['observer']}...")
         if offline:
             print("  (Offline mode: using only local cache)")
-        tokenizer = AutoTokenizer.from_pretrained(model_config["observer"], local_files_only=offline)
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_config["observer"],
+            local_files_only=offline,
+            use_fast=True
+        )
 
         # Set pad token if not present
         if tokenizer.pad_token is None:
