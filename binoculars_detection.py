@@ -277,9 +277,11 @@ def load_models_cli(model_size="auto", offline=False):
             use_fast=True
         )
 
-        # Set pad token if not present
+        # Set pad token if not present (required for Falcon and some other models)
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
+        if tokenizer.pad_token_id is None:
+            tokenizer.pad_token_id = tokenizer.eos_token_id
 
         # Use float16 for MPS (Apple Silicon), bfloat16 for CUDA
         model_dtype = torch.float16 if device == "mps" else torch.bfloat16
