@@ -271,15 +271,27 @@ def load_models_cli(model_size="auto"):
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
 
+        # Use float16 for MPS (Apple Silicon), bfloat16 for CUDA
+        model_dtype = torch.float16 if device == "mps" else torch.bfloat16
+
         # Load observer model
         print(f"  Loading observer model: {model_config['observer']}...")
         if model_size == "falcon":
-            observer = AutoModelForCausalLM.from_pretrained(
-                model_config["observer"],
-                torch_dtype=torch.bfloat16,
-                trust_remote_code=True,
-                device_map="auto"
-            )
+            # Check if accelerate is available for device_map="auto"
+            try:
+                import accelerate
+                observer = AutoModelForCausalLM.from_pretrained(
+                    model_config["observer"],
+                    torch_dtype=model_dtype,
+                    device_map="auto"
+                )
+            except ImportError:
+                # Fallback: load without device_map and manually move to device
+                observer = AutoModelForCausalLM.from_pretrained(
+                    model_config["observer"],
+                    torch_dtype=model_dtype
+                )
+                observer = observer.to(device)
         else:
             observer = AutoModelForCausalLM.from_pretrained(model_config["observer"])
             observer = observer.to(device)
@@ -288,12 +300,19 @@ def load_models_cli(model_size="auto"):
         # Load performer model
         print(f"  Loading performer model: {model_config['performer']}...")
         if model_size == "falcon":
-            performer = AutoModelForCausalLM.from_pretrained(
-                model_config["performer"],
-                torch_dtype=torch.bfloat16,
-                trust_remote_code=True,
-                device_map="auto"
-            )
+            try:
+                import accelerate
+                performer = AutoModelForCausalLM.from_pretrained(
+                    model_config["performer"],
+                    torch_dtype=model_dtype,
+                    device_map="auto"
+                )
+            except ImportError:
+                performer = AutoModelForCausalLM.from_pretrained(
+                    model_config["performer"],
+                    torch_dtype=model_dtype
+                )
+                performer = performer.to(device)
         else:
             performer = AutoModelForCausalLM.from_pretrained(model_config["performer"])
             performer = performer.to(device)
@@ -301,8 +320,8 @@ def load_models_cli(model_size="auto"):
     except (RuntimeError, torch.cuda.OutOfMemoryError, Exception) as e:
         # If loading fails (e.g., out of memory), try falling back to smaller model
         error_msg = str(e).lower()
-        if "memory" in error_msg or "cuda" in error_msg or "mps" in error_msg:
-            print(f"\n  Warning: Failed to load {model_size} model (memory issue)")
+        if "memory" in error_msg or "cuda" in error_msg or "mps" in error_msg or "out of" in error_msg or "oom" in error_msg:
+            print(f"\n  Warning: Failed to load {model_size} model (memory issue: {e})")
 
             # Find next smaller model in fallback order
             current_idx = FALLBACK_ORDER.index(model_size) if model_size in FALLBACK_ORDER else 0
