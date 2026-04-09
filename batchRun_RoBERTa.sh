@@ -1,4 +1,5 @@
-⏺ Usage:
+
+ Usage:
 
   # Analyze a single file (uses OpenAI RoBERTa model by default)
   python aitext_detectionbyRobertA_batch.py --input input/testfiles/HumanWritten_Sample1_ParisTravelIntro.txt
