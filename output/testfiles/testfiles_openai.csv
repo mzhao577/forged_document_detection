@@ -1,0 +1,6 @@
+filename,char_count,word_count,classification,ai_probability,analysis_reason,has_duplicates,duplicate_ratio,high_ai_segments,segment_details,contributing_factors,roberta_label,roberta_confidence,human_probability
+AIWritten_Sample2_ChinaAdvancementInRecentYears.txt,7429,1045,human_created,0.0003,,,,,,,Real,0.9997,0.9997
+AIWritten_Sample5_ChinaAdvancementInRecentYears_WDuplicate.txt,8419,1182,human_created,0.0003,,,,,,,Real,0.9997,0.9997
+AIWritten_sample4_WilliamFaulkner_NobelCommittee.txt,2693,428,human_created,0.0002,,,,,,,Real,0.9998,0.9998
+HumanWritten_Sample1_ParisTravelIntro.txt,4360,796,human_created,0.0002,,,,,,,Real,0.9998,0.9998
+Humanwritten_sample3_WilliamFaulkner_NobelCommittee.txt,2545,439,human_created,0.0002,,,,,,,Real,0.9998,0.9998

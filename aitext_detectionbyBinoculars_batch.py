@@ -605,84 +605,6 @@ def get_duplicate_pairs(text):
     return pairs
 
 
-def write_paragraph_csv(results, output_path):
-    """Write paragraph analysis results to CSV."""
-    if not results:
-        print("No paragraph results to write.")
-        return
-
-    with open(output_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Index', 'Classification', 'Confidence', 'AI_Probability', 'Human_Probability', 'Binoculars_Score', 'Word_Count', 'Text'])
-
-        for r in results:
-            writer.writerow([
-                r['index'],
-                r['classification'],
-                f"{r['confidence']:.4f}",
-                f"{r['ai_probability']:.4f}",
-                f"{r['human_probability']:.4f}",
-                f"{r['binoculars_score']:.4f}",
-                r['word_count'],
-                r['text']
-            ])
-
-    print(f"Paragraph results written to: {output_path}")
-
-
-def write_sentence_csv(results, output_path):
-    """Write sentence analysis results to CSV."""
-    if not results:
-        print("No sentence results to write.")
-        return
-
-    with open(output_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Index', 'Paragraph_Index', 'Sentence_Index', 'Classification', 'Confidence', 'AI_Probability', 'Human_Probability', 'Binoculars_Score', 'Word_Count', 'Text'])
-
-        for r in results:
-            writer.writerow([
-                r['index'],
-                r['paragraph_index'],
-                r['sentence_index'],
-                r['classification'],
-                f"{r['confidence']:.4f}",
-                f"{r['ai_probability']:.4f}",
-                f"{r['human_probability']:.4f}",
-                f"{r['binoculars_score']:.4f}",
-                r['word_count'],
-                r['text']
-            ])
-
-    print(f"Sentence results written to: {output_path}")
-
-
-def write_duplicate_csv(pairs, output_path):
-    """Write duplicate paragraph pairs to CSV."""
-    if not pairs:
-        print("No duplicate pairs found.")
-        with open(output_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Group', 'Paragraph_1_Index', 'Paragraph_2_Index', 'Paragraph_1_Text', 'Paragraph_2_Text'])
-        print(f"Empty duplicates file written to: {output_path}")
-        return
-
-    with open(output_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Group', 'Paragraph_1_Index', 'Paragraph_2_Index', 'Paragraph_1_Text', 'Paragraph_2_Text'])
-
-        for p in pairs:
-            writer.writerow([
-                p['group'],
-                p['paragraph_1_index'],
-                p['paragraph_2_index'],
-                p['paragraph_1_text'],
-                p['paragraph_2_text']
-            ])
-
-    print(f"Duplicate pairs written to: {output_path}")
-
-
 def analyze_paragraphs_api(text, observer_client, performer_client, threshold=DEFAULT_THRESHOLD):
     """Analyze text paragraph by paragraph using HF Inference API."""
     paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
@@ -792,94 +714,261 @@ def analyze_sentences_api(text, observer_client, performer_client, threshold=DEF
     return results
 
 
-def run_cli_analysis(input_file, output_dir=None, output_prefix="binoculars", model_size="auto",
-                     threshold=None, use_api=False, hf_token=None, offline=False):
-    """Run CLI analysis and output results to CSV files.
+def analyze_segments_binoculars(text, tokenizer, observer, performer, device, threshold, segment_words=150):
+    """Sliding-window segment analysis mirroring the RoBERTa batch script.
 
-    Args:
-        offline: If True, use only locally cached models (no network requests)
+    Splits text into ~segment_words chunks, scores each with Binoculars, and
+    reports which segments fall below the threshold (i.e., look AI-generated).
     """
-    # Read input file
-    if not os.path.exists(input_file):
-        print(f"Error: Input file not found: {input_file}")
-        sys.exit(1)
+    words = text.split()
+    if len(words) < segment_words * 1.5:
+        return {
+            'is_segmented': False,
+            'segments': [],
+            'high_ai_segments': [],
+            'high_ai_count': 0,
+            'total_segments': 0,
+            'segment_summary': 'Text too short for segment analysis'
+        }
 
-    with open(input_file, 'r', encoding='utf-8') as f:
+    segments = []
+    i = 0
+    seg_num = 1
+    while i < len(words):
+        end = min(i + segment_words, len(words))
+        seg_text = ' '.join(words[i:end])
+        try:
+            score = compute_binoculars_score(seg_text, tokenizer, observer, performer, device)
+            _, ai_prob, _ = classify_score(score, threshold)
+            segments.append({
+                'segment_num': seg_num,
+                'word_start': i,
+                'word_end': end,
+                'binoculars_score': score,
+                'ai_probability': ai_prob,
+                'is_ai': score < threshold,
+                'preview': seg_text[:80] + '...' if len(seg_text) > 80 else seg_text,
+            })
+        except Exception:
+            pass
+        i += segment_words
+        seg_num += 1
+        if seg_num > 15:
+            break
+
+    high_ai = [s for s in segments if s['is_ai']]
+    if not segments:
+        summary = 'Segment analysis failed'
+    elif len(high_ai) == 0:
+        summary = 'No high-AI segments found'
+    elif len(high_ai) == len(segments):
+        summary = 'All segments show high AI probability'
+    else:
+        summary = f"High AI in segments: {[s['segment_num'] for s in high_ai]}"
+
+    return {
+        'is_segmented': True,
+        'segments': segments,
+        'high_ai_segments': high_ai,
+        'high_ai_count': len(high_ai),
+        'total_segments': len(segments),
+        'segment_summary': summary,
+    }
+
+
+def determine_ai_reason_binoculars(score, threshold, ai_prob, dup_pairs, seg_info):
+    """Decide a primary reason + contributing factors for an AI classification."""
+    reasons = []
+    factors = [f"Binoculars score: {score:.4f}", f"Threshold: {threshold}"]
+
+    margin = threshold - score
+    if margin > 0.10:
+        reasons.append(('Binoculars score far below threshold', 0.95))
+    elif margin > 0.03:
+        reasons.append(('Binoculars score clearly below threshold', 0.8))
+    elif margin > 0:
+        reasons.append(('Binoculars score marginally below threshold', 0.6))
+
+    if dup_pairs:
+        reasons.append(('Duplicate paragraphs detected', 0.9))
+        factors.append(f"Duplicate paragraph pairs: {len(dup_pairs)}")
+
+    if seg_info.get('is_segmented'):
+        high = seg_info['high_ai_count']
+        total = seg_info['total_segments']
+        factors.append(f"High-AI segments: {high}/{total}")
+        if total > 1 and high == total:
+            reasons.append(('Uniformly high AI across all segments', 0.85))
+        elif high > 0:
+            reasons.append(('Specific segments show high AI probability', 0.7))
+
+    reasons.sort(key=lambda x: x[1], reverse=True)
+    primary = reasons[0][0] if reasons else 'AI patterns detected'
+    return primary, factors
+
+
+def _analyze_one_file(file_path, tokenizer, observer, performer, device, threshold):
+    """Analyze a single file and return one summary-row dict (RoBERTa-batch format)."""
+    with open(file_path, 'r', encoding='utf-8') as f:
         text = f.read()
 
-    if not text.strip():
-        print("Error: Input file is empty.")
-        sys.exit(1)
+    # Whole-document Binoculars score
+    score = compute_binoculars_score(text, tokenizer, observer, performer, device)
+    classification, ai_prob, human_prob = classify_score(score, threshold)
+    is_ai = classification == "AI-written"
 
-    print(f"Read {len(text)} characters from {input_file}")
+    # Duplicate detection
+    dup_pairs = get_duplicate_pairs(text)
+    has_dup = len(dup_pairs) > 0
 
-    # Set output directory
-    if output_dir is None:
-        output_dir = os.path.dirname(input_file) or '.'
+    # Sliding-window segment analysis (RoBERTa-style, but with Binoculars scoring)
+    seg_info = analyze_segments_binoculars(text, tokenizer, observer, performer, device, threshold)
+    total_segments = seg_info.get('total_segments', 0)
+    high_ai_count = seg_info.get('high_ai_count', 0)
 
-    os.makedirs(output_dir, exist_ok=True)
+    # duplicate_ratio kept relative to paragraph count for backwards compat
+    paragraphs = [p.strip() for p in text.split('\n') if p.strip()]
+    total_paras = len(paragraphs)
+    dup_ratio = (len(dup_pairs) / total_paras) if total_paras else 0.0
+
+    if is_ai:
+        primary_reason, factors = determine_ai_reason_binoculars(score, threshold, ai_prob, dup_pairs, seg_info)
+    else:
+        primary_reason = ''
+        factors = [f"Binoculars score: {score:.4f}", f"Threshold: {threshold}"]
+        if seg_info.get('is_segmented'):
+            factors.append(f"High-AI segments: {high_ai_count}/{total_segments}")
+
+    return {
+        'filename': os.path.basename(file_path),
+        'char_count': len(text),
+        'word_count': len(text.split()),
+        'classification': 'AI_text' if is_ai else 'human_created',
+        'ai_probability': f"{ai_prob:.4f}",
+        'analysis_reason': primary_reason,
+        'has_duplicates': 'Yes' if has_dup else 'No',
+        'duplicate_pairs': '; '.join(f"{p['paragraph_1_index']}-{p['paragraph_2_index']}" for p in dup_pairs),
+        'duplicate_ratio': f"{dup_ratio:.1%}",
+        'high_ai_segments': f"{high_ai_count} of {total_segments}" if seg_info.get('is_segmented') else 'N/A',
+        'segment_details': seg_info.get('segment_summary', ''),
+        'contributing_factors': '; '.join(factors),
+        # Format-compatibility with RoBERTa batch CSV: these columns hold the
+        # Binoculars label and Binoculars score respectively.
+        'roberta_label': classification,
+        'binocular_confidence': f"{score:.4f}",
+        'human_probability': f"{human_prob:.4f}",
+    }
+
+
+def run_cli_analysis(input_file, output_dir=None, output_file=None, output_prefix="binoculars",
+                     model_size="auto", threshold=None, use_api=False, hf_token=None, offline=False):
+    """Analyze a file or folder and write ONE CSV with one row per input file.
+
+    Output columns match aitext_detectionbyRobertA_batch.py exactly.
+    """
+    import glob as _glob
 
     if use_api:
-        # Use Hugging Face Inference API
-        observer_client, performer_client = init_api_clients(hf_token)
-        actual_model = "falcon (API)"
+        print("Error: --use_api is not supported in single-row-per-file batch mode.")
+        sys.exit(1)
 
-        # Use Falcon threshold for API mode
-        if threshold is None:
-            threshold = MODELS["falcon"].get("threshold", DEFAULT_THRESHOLD)
-            print(f"Using Falcon threshold: {threshold}")
+    input_path = os.path.expanduser(input_file)
 
-        # Analyze paragraphs
-        print("\nAnalyzing paragraphs via API...")
-        para_results = analyze_paragraphs_api(text, observer_client, performer_client, threshold)
-        para_output = os.path.join(output_dir, f"{output_prefix}_paragraphs.csv")
-        write_paragraph_csv(para_results, para_output)
-
-        # Analyze sentences
-        print("\nAnalyzing sentences via API...")
-        sent_results = analyze_sentences_api(text, observer_client, performer_client, threshold)
-        sent_output = os.path.join(output_dir, f"{output_prefix}_sentences.csv")
-        write_sentence_csv(sent_results, sent_output)
-
-        model_description = "Falcon-7B via Hugging Face Inference API"
-
+    # Resolve file list (file or folder)
+    if os.path.isdir(input_path):
+        file_list = sorted(_glob.glob(os.path.join(input_path, "*.txt")))
+        if not file_list:
+            print(f"Error: No .txt files found in '{input_path}'")
+            sys.exit(1)
+        is_folder = True
+    elif os.path.isfile(input_path):
+        file_list = [input_path]
+        is_folder = False
     else:
-        # Use local models
-        tokenizer, observer, performer, device, actual_model = load_models_cli(model_size, offline=offline)
+        print(f"Error: '{input_path}' is not a valid file or folder.")
+        sys.exit(1)
 
-        # Use model-specific threshold if not explicitly set
-        if threshold is None:
-            threshold = MODELS[actual_model].get("threshold", DEFAULT_THRESHOLD)
-            print(f"Using model-specific threshold: {threshold}")
+    # Output dir + filename
+    if output_dir is None:
+        output_dir = os.path.dirname(input_path) or '.'
+    output_dir = os.path.expanduser(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
 
-        # Analyze paragraphs
-        print("\nAnalyzing paragraphs...")
-        para_results = analyze_paragraphs_cli(text, tokenizer, observer, performer, device, threshold)
-        para_output = os.path.join(output_dir, f"{output_prefix}_paragraphs.csv")
-        write_paragraph_csv(para_results, para_output)
+    if output_file:
+        of = os.path.expanduser(output_file)
+        if os.path.isabs(of) or os.path.dirname(of):
+            output_csv = of
+            os.makedirs(os.path.dirname(os.path.abspath(output_csv)) or '.', exist_ok=True)
+        else:
+            output_csv = os.path.join(output_dir, of)
+    else:
+        if is_folder:
+            base = os.path.basename(os.path.normpath(input_path))
+        else:
+            base = os.path.splitext(os.path.basename(input_path))[0]
+        output_csv = os.path.join(output_dir, f"{output_prefix}_{base}_results.csv")
 
-        # Analyze sentences
-        print("\nAnalyzing sentences...")
-        sent_results = analyze_sentences_cli(text, tokenizer, observer, performer, device, threshold)
-        sent_output = os.path.join(output_dir, f"{output_prefix}_sentences.csv")
-        write_sentence_csv(sent_results, sent_output)
+    # Load models
+    tokenizer, observer, performer, device, actual_model = load_models_cli(model_size, offline=offline)
+    if threshold is None:
+        threshold = MODELS[actual_model].get("threshold", DEFAULT_THRESHOLD)
+        print(f"Using model-specific threshold: {threshold}")
 
-        model_description = MODELS[actual_model]['description']
+    fieldnames = [
+        'filename',
+        'char_count',
+        'word_count',
+        'classification',
+        'ai_probability',
+        'analysis_reason',
+        'has_duplicates',
+        'duplicate_pairs',
+        'duplicate_ratio',
+        'high_ai_segments',
+        'segment_details',
+        'contributing_factors',
+        'roberta_label',
+        'binocular_confidence',
+        'human_probability',
+    ]
 
-    # Get duplicate pairs (same for both modes)
-    print("\nDetecting duplicate paragraphs...")
-    dup_pairs = get_duplicate_pairs(text)
-    dup_output = os.path.join(output_dir, f"{output_prefix}_duplicates.csv")
-    write_duplicate_csv(dup_pairs, dup_output)
+    print(f"\nProcessing {len(file_list)} file(s)...\n")
+    ai_count = 0
+    human_count = 0
+    error_count = 0
 
-    print("\n" + "=" * 50)
-    print("Analysis complete!")
-    print(f"  - Paragraphs analyzed: {len(para_results)}")
-    print(f"  - Sentences analyzed: {len(sent_results)}")
-    print(f"  - Duplicate pairs found: {len(dup_pairs)}")
-    print(f"  - Model used: {actual_model} ({model_description})")
-    print(f"  - Threshold: {threshold}")
-    print("=" * 50)
+    with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, extrasaction='ignore')
+        writer.writeheader()
+
+        for i, file_path in enumerate(file_list, 1):
+            filename = os.path.basename(file_path)
+            print(f"[{i}/{len(file_list)}] Processing: {filename}...", end=" ")
+            try:
+                row = _analyze_one_file(file_path, tokenizer, observer, performer, device, threshold)
+                writer.writerow(row)
+                if row['classification'] == 'AI_text':
+                    ai_count += 1
+                else:
+                    human_count += 1
+                print(f"AI: {row['ai_probability']} - {row['classification']}")
+            except Exception as e:
+                error_count += 1
+                print(f"Error: {e}")
+
+    total = ai_count + human_count
+    print("\n" + "=" * 60)
+    print("SUMMARY")
+    print("=" * 60)
+    print(f"Total files processed: {len(file_list)}")
+    if total > 0:
+        print(f"Detected as AI-generated: {ai_count} ({ai_count/total*100:.1f}%)")
+        print(f"Detected as Human-written: {human_count} ({human_count/total*100:.1f}%)")
+    if error_count > 0:
+        print(f"Errors: {error_count}")
+    print(f"Model: {actual_model}  Threshold: {threshold}")
+    print(f"Results saved to: {output_csv}")
+    print("=" * 60)
 
 
 def parse_args():
@@ -916,29 +1005,31 @@ API Setup:
     )
 
     parser.add_argument(
-        '--output_result',
-        action='store_true',
-        help='Enable CLI mode with CSV output'
+        '--input',
+        type=str,
+        required=True,
+        help='Input text file or folder of .txt files to analyze'
     )
 
     parser.add_argument(
-        '--input',
+        '--output_file',
         type=str,
-        help='Input text file to analyze (required when --output_result is set)'
+        default=None,
+        help='Output CSV filename (or full path). If just a filename, it is written into --output_dir.'
     )
 
     parser.add_argument(
         '--output_dir',
         type=str,
         default=None,
-        help='Directory to save CSV output files (default: same as input file directory)'
+        help='Directory to save CSV output file (default: same as input directory)'
     )
 
     parser.add_argument(
         '--output_prefix',
         type=str,
         default='binoculars',
-        help='Prefix for output CSV filenames (default: "binoculars")'
+        help='Prefix for default output CSV filename (ignored if --output_file is set)'
     )
 
     parser.add_argument(
@@ -981,40 +1072,14 @@ API Setup:
 if __name__ == "__main__":
     args = parse_args()
 
-    if args.output_result:
-        if not args.input:
-            print("Error: --input is required when using --output_result")
-            print("Usage: python binoculars_detection.py --output_result --input <input_file>")
-            sys.exit(1)
-
-        run_cli_analysis(
-            input_file=args.input,
-            output_dir=args.output_dir,
-            output_prefix=args.output_prefix,
-            model_size=args.model_size,
-            threshold=args.threshold,
-            use_api=args.use_api,
-            hf_token=args.hf_token,
-            offline=args.offline
-        )
-    else:
-        print("Usage: python binoculars_detection.py --output_result --input <input_file>")
-        print("\nOptions:")
-        print("  --output_result    Enable CLI mode with CSV output")
-        print("  --input            Input text file to analyze")
-        print("  --output_dir       Directory to save CSV output files")
-        print("  --output_prefix    Prefix for output CSV filenames (default: 'binoculars')")
-        print("  --model_size       Model: auto, falcon, large, medium, small (default: 'auto')")
-        print("  --threshold        Detection threshold (default: auto per model, e.g. 0.85 for falcon)")
-        print("  --use_api          Use Hugging Face API (no local memory needed, requires HF token)")
-        print("  --hf_token         Hugging Face API token (or set HF_TOKEN env var)")
-        print("  --offline          Use only locally cached models (no network requests)")
-        print("\nExamples:")
-        print("  # Local model (auto-selects based on available memory)")
-        print("  python binoculars_detection.py --output_result --input sample.txt")
-        print("")
-        print("  # Use Hugging Face API for Falcon-7B (no local memory needed)")
-        print("  python binoculars_detection.py --output_result --input sample.txt --use_api")
-        print("")
-        print("  # Use locally cached Falcon models (offline mode, no network)")
-        print("  python binoculars_detection.py --output_result --input sample.txt --model_size falcon --offline")
+    run_cli_analysis(
+        input_file=args.input,
+        output_dir=args.output_dir,
+        output_file=args.output_file,
+        output_prefix=args.output_prefix,
+        model_size=args.model_size,
+        threshold=args.threshold,
+        use_api=args.use_api,
+        hf_token=args.hf_token,
+        offline=args.offline,
+    )
