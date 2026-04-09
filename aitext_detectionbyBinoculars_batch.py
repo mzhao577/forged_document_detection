@@ -876,9 +876,12 @@ def run_cli_analysis(input_file, output_dir=None, output_file=None, output_prefi
 
     # Resolve file list (file or folder)
     if os.path.isdir(input_path):
-        file_list = sorted(_glob.glob(os.path.join(input_path, "*.txt")))
+        # Search for .txt files exactly 2 levels deep: inputdir/level2/level3/*.txt
+        file_list = sorted(
+            _glob.glob(os.path.join(input_path, "*", "*", "*.txt"))
+        )
         if not file_list:
-            print(f"Error: No .txt files found in '{input_path}'")
+            print(f"Error: No .txt files found in '{input_path}' (searched up to 2 levels deep)")
             sys.exit(1)
         is_folder = True
     elif os.path.isfile(input_path):
