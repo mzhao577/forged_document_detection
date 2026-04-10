@@ -6,6 +6,8 @@ Loads Falcon-7B models from the local HuggingFace cache by default.
 
 import os
 import sys
+import csv
+import argparse
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -114,12 +116,24 @@ def classify_score(score, threshold=DEFAULT_THRESHOLD):
         return "Human-written", 1.0 - human_prob, human_prob
 
 
-def main():
-    if len(sys.argv) < 2:
-        print(f"Usage: python {sys.argv[0]} <text_file>")
-        sys.exit(1)
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description='Binoculars AI Text Detection - Single file mode with CSV output'
+    )
+    parser.add_argument('--input', type=str, required=True,
+                        help='Input text file to analyze')
+    parser.add_argument('--output_file', type=str, default=None,
+                        help='Output CSV file path (default: <input_basename>_binoculars_result.csv in same directory)')
+    return parser.parse_args()
 
-    text_file = sys.argv[1]
+
+def main():
+    args = parse_args()
+    text_file = os.path.expanduser(args.input)
+
+    if not os.path.isfile(text_file):
+        print(f"Error: '{text_file}' is not a valid file.")
+        sys.exit(1)
 
     with open(text_file, "r", encoding="utf-8") as f:
         text = f.read().strip()
@@ -131,6 +145,16 @@ def main():
     print(f"Input file: {text_file}")
     print(f"Text length: {len(text)} chars, {len(text.split())} words\n")
 
+    # Determine output CSV path
+    if args.output_file:
+        output_csv = os.path.expanduser(args.output_file)
+    else:
+        base = os.path.splitext(os.path.basename(text_file))[0]
+        output_dir = os.path.dirname(text_file) or '.'
+        output_csv = os.path.join(output_dir, f"{base}_binoculars_result.csv")
+
+    os.makedirs(os.path.dirname(os.path.abspath(output_csv)) or '.', exist_ok=True)
+
     # Load models from local cache
     tokenizer, observer, performer, device = load_models()
 
@@ -138,6 +162,7 @@ def main():
     score = compute_binoculars_score(text, tokenizer, observer, performer, device)
     classification, ai_prob, human_prob = classify_score(score)
 
+    # Print to console
     print(f"{'='*50}")
     print(f"Binoculars Score : {score:.4f}")
     print(f"Threshold        : {DEFAULT_THRESHOLD}")
@@ -145,6 +170,24 @@ def main():
     print(f"AI Probability   : {ai_prob:.1%}")
     print(f"Human Probability: {human_prob:.1%}")
     print(f"{'='*50}")
+
+    # Write CSV output
+    fieldnames = ['filename', 'binoculars_score', 'threshold', 'classification', 'ai_probability', 'human_probability']
+    row = {
+        'filename': os.path.basename(text_file),
+        'binoculars_score': f"{score:.4f}",
+        'threshold': DEFAULT_THRESHOLD,
+        'classification': classification,
+        'ai_probability': f"{ai_prob:.4f}",
+        'human_probability': f"{human_prob:.4f}",
+    }
+
+    with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow(row)
+
+    print(f"\nResults saved to: {output_csv}")
 
 
 if __name__ == "__main__":

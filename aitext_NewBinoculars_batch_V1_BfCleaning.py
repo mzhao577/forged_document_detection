@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Binoculars AI text detection - batch mode.
 
-Processes all .txt files in an input folder (searched 2 levels deep:
-input/level2/level3/*.txt) and writes a single CSV with one row per file.
+Processes all .txt files in an input folder (searched up to 2 levels deep)
+and writes a single CSV with one row per file.
 
 Usage:
   python aitext_NewBinoculars_batch.py --input /path/to/folder --output_dir /path/to/output
@@ -13,8 +13,10 @@ import os
 import sys
 import glob as _glob
 import csv
+import re
 import argparse
 import torch
+import numpy as np
 import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -121,6 +123,70 @@ def classify_score(score, threshold=DEFAULT_THRESHOLD):
         return "Human-written", 1.0 - human_prob, human_prob
 
 
+def detect_duplicate_pairs(text):
+    """Detect exact duplicate paragraphs and return pairs."""
+    paragraphs = [p.strip() for p in text.split('\n') if p.strip()]
+    if not paragraphs:
+        return [], 0
+
+    paragraph_map = {}
+    for i, para in enumerate(paragraphs):
+        normalized = ' '.join(para.split()).lower()
+        if normalized not in paragraph_map:
+            paragraph_map[normalized] = []
+        paragraph_map[normalized].append(i + 1)
+
+    pairs = []
+    group_idx = 0
+    for indices in paragraph_map.values():
+        if len(indices) > 1:
+            group_idx += 1
+            for a in range(len(indices)):
+                for b in range(a + 1, len(indices)):
+                    pairs.append((f"p{indices[a]}", f"p{indices[b]}"))
+
+    return pairs, len(paragraphs)
+
+
+def analyze_segments(text, tokenizer, observer, performer, device, threshold, segment_words=150):
+    """Sliding-window segment analysis. Returns (high_ai_count, total_segments, summary)."""
+    words = text.split()
+    if len(words) < segment_words * 1.5:
+        return 0, 0, "Text too short for segment analysis"
+
+    segments = []
+    i = 0
+    seg_num = 0
+    while i < len(words):
+        end = min(i + segment_words, len(words))
+        seg_text = ' '.join(words[i:end])
+        try:
+            score = compute_binoculars_score(seg_text, tokenizer, observer, performer, device)
+            segments.append({'num': seg_num + 1, 'is_ai': score < threshold})
+        except Exception:
+            pass
+        i += segment_words
+        seg_num += 1
+        if seg_num >= 15:
+            break
+
+    if not segments:
+        return 0, 0, "Segment analysis failed"
+
+    high_ai = [s for s in segments if s['is_ai']]
+    high_ai_count = len(high_ai)
+    total = len(segments)
+
+    if high_ai_count == 0:
+        summary = "No high-AI segments found"
+    elif high_ai_count == total:
+        summary = "All segments show high AI probability"
+    else:
+        summary = f"High AI in segments: {[s['num'] for s in high_ai]}"
+
+    return high_ai_count, total, summary
+
+
 def analyze_one_file(file_path, tokenizer, observer, performer, device, threshold):
     """Analyze a single file and return a dict for the CSV row."""
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -129,32 +195,94 @@ def analyze_one_file(file_path, tokenizer, observer, performer, device, threshol
     if not text.strip():
         return {
             'filename': os.path.basename(file_path),
-            'binoculars_score': '',
-            'threshold': threshold,
+            'char_count': 0,
+            'word_count': 0,
             'classification': 'error',
             'ai_probability': '',
+            'analysis_reason': 'Empty file',
+            'has_duplicates': 'No',
+            'duplicate_pairs': '',
+            'duplicate_ratio': '0.0%',
+            'high_ai_segments': 'N/A',
+            'segment_details': '',
+            'contributing_factors': '',
+            'binoculars_label': '',
+            'binoculars_score': '',
             'human_probability': '',
         }
 
+    # Whole-document score
     score = compute_binoculars_score(text, tokenizer, observer, performer, device)
     classification, ai_prob, human_prob = classify_score(score, threshold)
+    is_ai = classification == "AI-written"
+
+    # Duplicate detection
+    dup_pairs, total_paras = detect_duplicate_pairs(text)
+    has_dup = len(dup_pairs) > 0
+    dup_ratio = (len(dup_pairs) / total_paras) if total_paras else 0.0
+
+    # Segment analysis
+    high_ai_count, total_segments, seg_summary = analyze_segments(
+        text, tokenizer, observer, performer, device, threshold
+    )
+
+    # Build reason and contributing factors
+    factors = [f"Binoculars score: {score:.4f}", f"Threshold: {threshold}"]
+    primary_reason = ""
+
+    if is_ai:
+        margin = threshold - score
+        if margin > 0.10:
+            primary_reason = "Binoculars score far below threshold"
+        elif margin > 0.03:
+            primary_reason = "Binoculars score clearly below threshold"
+        elif margin > 0:
+            primary_reason = "Binoculars score marginally below threshold"
+        else:
+            primary_reason = "AI patterns detected"
+
+        if has_dup:
+            factors.append(f"Duplicate paragraph pairs: {len(dup_pairs)}")
+        if total_segments > 0:
+            factors.append(f"High-AI segments: {high_ai_count}/{total_segments}")
+    else:
+        if total_segments > 0:
+            factors.append(f"High-AI segments: {high_ai_count}/{total_segments}")
 
     return {
         'filename': os.path.basename(file_path),
-        'binoculars_score': f"{score:.4f}",
-        'threshold': threshold,
-        'classification': classification,
+        'char_count': len(text),
+        'word_count': len(text.split()),
+        'classification': 'AI_text' if is_ai else 'human_created',
         'ai_probability': f"{ai_prob:.4f}",
+        'analysis_reason': primary_reason,
+        'has_duplicates': 'Yes' if has_dup else 'No',
+        'duplicate_pairs': '; '.join(f"{a}-{b}" for a, b in dup_pairs),
+        'duplicate_ratio': f"{dup_ratio:.1%}",
+        'high_ai_segments': f"{high_ai_count} of {total_segments}" if total_segments > 0 else 'N/A',
+        'segment_details': seg_summary,
+        'contributing_factors': '; '.join(factors),
+        'binoculars_label': classification,
+        'binoculars_score': f"{score:.4f}",
         'human_probability': f"{human_prob:.4f}",
     }
 
 
 CSV_FIELDNAMES = [
     'filename',
-    'binoculars_score',
-    'threshold',
+    'char_count',
+    'word_count',
     'classification',
     'ai_probability',
+    'analysis_reason',
+    'has_duplicates',
+    'duplicate_pairs',
+    'duplicate_ratio',
+    'high_ai_segments',
+    'segment_details',
+    'contributing_factors',
+    'binoculars_label',
+    'binoculars_score',
     'human_probability',
 ]
 
@@ -165,7 +293,7 @@ def parse_args():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Process a folder of .txt files (searched 2 levels deep)
+  # Process a folder of .txt files (searched up to 2 levels deep)
   python aitext_NewBinoculars_batch.py --input /path/to/folder --output_dir /path/to/output
 
   # Specify output filename
@@ -202,7 +330,7 @@ def main():
         # Search for .txt files exactly 2 levels deep: input/level2/level3/*.txt
         file_list = sorted(_glob.glob(os.path.join(input_path, "*", "*", "*.txt")))
         if not file_list:
-            print(f"Error: No .txt files found in '{input_path}' (searched 2 levels deep: input/*/*/*.txt)")
+            print(f"Error: No .txt files found in '{input_path}' (searched 2 levels deep: input/*//*.txt)")
             sys.exit(1)
         is_folder = True
     elif os.path.isfile(input_path):
@@ -246,7 +374,7 @@ def main():
     error_count = 0
 
     with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=CSV_FIELDNAMES)
+        writer = csv.DictWriter(csvfile, fieldnames=CSV_FIELDNAMES, extrasaction='ignore')
         writer.writeheader()
 
         for i, file_path in enumerate(file_list, 1):
@@ -255,9 +383,9 @@ def main():
             try:
                 row = analyze_one_file(file_path, tokenizer, observer, performer, device, threshold)
                 writer.writerow(row)
-                if row['classification'] == 'AI-written':
+                if row['classification'] == 'AI_text':
                     ai_count += 1
-                elif row['classification'] == 'Human-written':
+                elif row['classification'] == 'human_created':
                     human_count += 1
                 else:
                     error_count += 1
