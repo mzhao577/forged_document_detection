@@ -1,4 +1,7 @@
-⏺ Usage:
+
+: <<'COMMENT'
+
+Usage:
 
   # Basic: analyze a file (auto-detects best local model)
   python aitext_detectionbyBinoculars_batch.py --input input/testfiles/HumanWritten_Sample1_ParisTravelIntro.txt
@@ -47,4 +50,4 @@
   2. Get a token at huggingface.co/settings/tokens
   3. Either export HF_TOKEN=your_token or pass --hf_token
 
-
+COMMENT

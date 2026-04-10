@@ -1,4 +1,7 @@
 
+
+: <<'COMMENT'
+
  Usage:
 
   # Analyze a single file (uses OpenAI RoBERTa model by default)
@@ -29,3 +32,4 @@
 
   Note: The models are loaded from local cache paths (~/.cache/huggingface/hub/), so they need to be downloaded first.
 
+COMMENT
