@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simple script to run Binoculars AI text detection on a single text file.
+"""Batch script to run Binoculars AI text detection on all .txt files in a folder.
 
 Supports multiple model families: Falcon-7B (default) and GPT-2 variants (small, medium, large).
 Loads models from the local HuggingFace cache.
@@ -8,6 +8,7 @@ Loads models from the local HuggingFace cache.
 import os
 import sys
 import csv
+import glob
 import argparse
 import torch
 import numpy as np
@@ -144,14 +145,14 @@ def classify_score(score, threshold=DEFAULT_THRESHOLD):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Binoculars AI Text Detection - Single file mode with CSV output to output directory'
+        description='Binoculars AI Text Detection - Batch mode: process all .txt files in a folder'
     )
     parser.add_argument('--input', type=str, required=True,
-                        help='Input text file to analyze')
+                        help='Input folder containing .txt files to analyze')
     parser.add_argument('--output_dir', type=str, default=None,
-                        help='Output directory for CSV result (default: same directory as input file)')
+                        help='Output directory for CSV result (default: same as input folder)')
     parser.add_argument('--output_file', type=str, default=None,
-                        help='Output CSV file name (default: <input_basename>_binoculars_result.csv)')
+                        help='Output CSV file name (default: binoculars_batch_result.csv)')
     parser.add_argument('--model', type=str, default=DEFAULT_MODEL,
                         choices=MODEL_CONFIGS.keys(),
                         help='Model to use: falcon (default), small (gpt2), medium (gpt2-medium), large (gpt2-large)')
@@ -160,71 +161,77 @@ def parse_args():
 
 def main():
     args = parse_args()
-    text_file = os.path.expanduser(args.input)
+    input_folder = os.path.expanduser(args.input)
 
-    if not os.path.isfile(text_file):
-        print(f"Error: '{text_file}' is not a valid file.")
+    if not os.path.isdir(input_folder):
+        print(f"Error: '{input_folder}' is not a valid directory.")
         sys.exit(1)
 
-    with open(text_file, "r", encoding="utf-8") as f:
-        text = f.read().strip()
-
-    if not text:
-        print("Error: input file is empty.")
+    # Find all .txt files in the folder
+    txt_files = sorted(glob.glob(os.path.join(input_folder, "*.txt")))
+    if not txt_files:
+        print(f"Error: no .txt files found in '{input_folder}'.")
         sys.exit(1)
 
-    print(f"Input file: {text_file}")
-    print(f"Model     : {args.model}")
-    print(f"Text length: {len(text)} chars, {len(text.split())} words\n")
+    print(f"Input folder: {input_folder}")
+    print(f"Found {len(txt_files)} .txt file(s)")
+    print(f"Model       : {args.model}\n")
 
     # Determine output CSV path
-    base = os.path.splitext(os.path.basename(text_file))[0]
     if args.output_dir:
         output_dir = os.path.expanduser(args.output_dir)
     else:
-        output_dir = os.path.dirname(text_file) or '.'
+        output_dir = input_folder
     os.makedirs(output_dir, exist_ok=True)
-    output_filename = args.output_file if args.output_file else f"{base}_binoculars_result.csv"
+    output_filename = args.output_file if args.output_file else "binoculars_batch_result.csv"
     output_csv = os.path.join(output_dir, output_filename)
 
-    # Load models from local cache
+    # Load models once
     config = MODEL_CONFIGS[args.model]
     tokenizer, observer, performer, device = load_models(config["observer"], config["performer"])
 
-    # Compute score and classify
-    score = compute_binoculars_score(text, tokenizer, observer, performer, device)
-    classification, ai_prob, human_prob = classify_score(score)
-
-    # Print to console
-    print(f"{'='*50}")
-    print(f"Model            : {args.model}")
-    print(f"Binoculars Score : {score:.4f}")
-    print(f"Threshold        : {DEFAULT_THRESHOLD}")
-    print(f"Classification   : {classification}")
-    print(f"AI Probability   : {ai_prob:.1%}")
-    print(f"Human Probability: {human_prob:.1%}")
-    print(f"{'='*50}")
-
-    # Write CSV output
+    # Process each file
     fieldnames = ['filename', 'word_count', 'char_count', 'model', 'binoculars_score', 'threshold', 'classification', 'ai_probability', 'human_probability']
-    row = {
-        'filename': os.path.basename(text_file),
-        'word_count': len(text.split()),
-        'char_count': len(text),
-        'model': args.model,
-        'binoculars_score': f"{score:.4f}",
-        'threshold': DEFAULT_THRESHOLD,
-        'classification': classification,
-        'ai_probability': f"{ai_prob:.4f}",
-        'human_probability': f"{human_prob:.4f}",
-    }
+    rows = []
 
+    for i, text_file in enumerate(txt_files, 1):
+        basename = os.path.basename(text_file)
+        print(f"[{i}/{len(txt_files)}] Processing: {basename}")
+
+        with open(text_file, "r", encoding="utf-8") as f:
+            text = f.read().strip()
+
+        if not text:
+            print(f"  Skipping (empty file)")
+            continue
+
+        print(f"  Text length: {len(text)} chars, {len(text.split())} words")
+
+        score = compute_binoculars_score(text, tokenizer, observer, performer, device)
+        classification, ai_prob, human_prob = classify_score(score)
+
+        print(f"  Score: {score:.4f} -> {classification}")
+
+        rows.append({
+            'filename': basename,
+            'word_count': len(text.split()),
+            'char_count': len(text),
+            'model': args.model,
+            'binoculars_score': f"{score:.4f}",
+            'threshold': DEFAULT_THRESHOLD,
+            'classification': classification,
+            'ai_probability': f"{ai_prob:.4f}",
+            'human_probability': f"{human_prob:.4f}",
+        })
+
+    # Write all results to a single CSV
     with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerow(row)
+        writer.writerows(rows)
 
-    print(f"\nResults saved to: {output_csv}")
+    print(f"\n{'='*50}")
+    print(f"Processed {len(rows)} file(s), results saved to: {output_csv}")
 
 
 if __name__ == "__main__":
