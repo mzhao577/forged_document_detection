@@ -1,0 +1,6 @@
+filename,word_count,char_count,model,binoculars_score,threshold,classification,ai_probability,human_probability
+AIWritten_Sample2_ChinaAdvancementInRecentYears.txt,1045,7427,medium,0.8081,0.85,AI-written,0.5000,0.5000
+AIWritten_Sample5_ChinaAdvancementInRecentYears_WDuplicate.txt,1182,8402,medium,0.8081,0.85,AI-written,0.5000,0.5000
+AIWritten_sample4_WilliamFaulkner_NobelCommittee.txt,428,2692,medium,0.7031,0.85,AI-written,0.5000,0.5000
+HumanWritten_Sample1_ParisTravelIntro.txt,799,4369,medium,0.7866,0.85,AI-written,0.5000,0.5000
+Humanwritten_sample3_WilliamFaulkner_NobelCommittee.txt,439,2542,medium,0.7710,0.85,AI-written,0.5000,0.5000

@@ -1,0 +1,6 @@
+filename,char_count,word_count,classification,ai_probability,analysis_reason,has_duplicates,duplicate_pairs,duplicate_ratio,high_ai_segments,segment_details,contributing_factors,roberta_label,roberta_confidence,human_probability
+AIWritten_Sample2_ChinaAdvancementInRecentYears.txt,7429,1045,AI_text,0.9998,Very high overall AI probability,Yes,,0.9%,7,All segments show high AI probability,AI probability: 100.0%; Minor duplicates: 0.9%; All segments flagged as AI,AI,0.9998,0.0002
+AIWritten_Sample5_ChinaAdvancementInRecentYears_WDuplicate.txt,8405,1182,AI_text,0.9998,Very high overall AI probability,Yes,p28-p31; p29-p32; p30-p33,100.0%,8,All segments show high AI probability,AI probability: 100.0%; Duplicate ratio: 100.0%; All segments flagged as AI,AI,0.9998,0.0002
+AIWritten_sample4_WilliamFaulkner_NobelCommittee.txt,2693,428,AI_text,0.9999,Very high overall AI probability,No,,0.0%,3,All segments show high AI probability,AI probability: 100.0%; All segments flagged as AI,AI,0.9999,0.0001
+HumanWritten_Sample1_ParisTravelIntro.txt,4371,799,AI_text,0.6911,Specific segments show high AI probability,Yes,p5-p6,0.0%,3,"High AI in segments: [1, 4, 5]",AI probability: 69.1%; High-AI segments: 3/6,AI,0.6911,0.3089
+Humanwritten_sample3_WilliamFaulkner_NobelCommittee.txt,2545,439,human_created,0.0031,,,,,,,,Human,0.9969,0.9969

@@ -1,0 +1,2 @@
+filename,word_count,char_count,model,binoculars_score,threshold,classification,ai_probability,human_probability
+AIWritten_Sample2_ChinaAdvancementInRecentYears.txt,1045,7427,medium,0.8081,0.85,AI-written,0.5000,0.5000

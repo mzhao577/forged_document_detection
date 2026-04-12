@@ -1,0 +1,23 @@
+Name: Michael DOB: 07/15/1980 Age: 43 Se:
+Johnson
+Address: 789 Maple Avenue, Springfield, IL, Phone: (555) 234-5678
+62702
+MRN: 11223344 Account: 3344-5566 Insurance: HealthCare
+Plus
+Emergency Laura Johnson, (555) 345-6789
+Contact:
+Encounter Date: 09/12/2023 Check-in 08:30AM _ Location: Green
+Time: Valley
+Medical
+Center
+Attending Dr. Emily Referring Dr. Peter
+Gastroenterologist: Harper, Provider: Smith
+MD
+
+The endoscope was gently introduced through the oropharynx and advanced past the
+upper esophageal sphincter without difficulty. The esophageal mucosa appeared normal
+with a visible Z-line at 40 cm from the incisors.
+
+Upon entering the stomach, the fundus and body were examined with adequate
+insufflation. The rugal folds were normal with mild erythema observed in the antrum.
+The pylorus was easily traversed.
