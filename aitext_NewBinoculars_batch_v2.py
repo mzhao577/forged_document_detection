@@ -21,28 +21,22 @@ HF_CACHE = os.path.expanduser("~/.cache/huggingface/hub")
 # Model configurations: each entry maps to (observer_path, performer_path)
 MODEL_CONFIGS = {
     "falcon": {
-        "observer": os.path.join(HF_CACHE, "models--tiiuae--falcon-7b-instruct",
-                                 "snapshots", "8782b5c5d8c9290412416618f36a133653e85285"),
-        "performer": os.path.join(HF_CACHE, "models--tiiuae--falcon-7b",
+        "observer": os.path.join(HF_CACHE, "models--tiiuae--falcon-7b",
                                   "snapshots", "ec89142b67d748a1865ea4451372db8313ada0d8"),
+        "performer": os.path.join(HF_CACHE, "models--tiiuae--falcon-7b-instruct",
+                                 "snapshots", "8782b5c5d8c9290412416618f36a133653e85285"),
     },
     "small": {
         "observer": os.path.join(HF_CACHE, "models--gpt2",
                                  "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
-        "performer": os.path.join(HF_CACHE, "models--gpt2",
-                                  "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
-    },
-    "medium": {
-        "observer": os.path.join(HF_CACHE, "models--gpt2-medium",
-                                 "snapshots", "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"),
-        "performer": os.path.join(HF_CACHE, "models--gpt2",
-                                  "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
+        "performer": os.path.join(HF_CACHE, "models--gpt2-medium",
+                                  "snapshots", "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"),
     },
     "large": {
-        "observer": os.path.join(HF_CACHE, "models--gpt2-large",
-                                 "snapshots", "32b71b12589c2f8d625668d2335a01cac3249519"),
-        "performer": os.path.join(HF_CACHE, "models--gpt2",
-                                  "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
+        "observer": os.path.join(HF_CACHE, "models--gpt2",
+                                 "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
+        "performer": os.path.join(HF_CACHE, "models--gpt2-large",
+                                  "snapshots", "32b71b12589c2f8d625668d2335a01cac3249519"),
     },
 }
 
@@ -155,7 +149,7 @@ def parse_args():
                         help='Output CSV file name (default: binoculars_batch_result.csv)')
     parser.add_argument('--model', type=str, default=DEFAULT_MODEL,
                         choices=MODEL_CONFIGS.keys(),
-                        help='Model to use: falcon (default), small (gpt2), medium (gpt2-medium), large (gpt2-large)')
+                        help='Model to use: falcon (default), small (gpt2/gpt2-medium), large (gpt2/gpt2-large)')
     return parser.parse_args()
 
 

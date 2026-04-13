@@ -1,53 +1,37 @@
 
+
+python aitext_NewBinoculars_batch_v2.py  --model large --input input --output_dir output --output_file  max5_binocular_large.csv
+
+
 : <<'COMMENT'
 
-Usage:
-
-  # Basic: analyze a file (auto-detects best local model)
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/HumanWritten_Sample1_ParisTravelIntro.txt
-
-  # Analyze a folder of .txt files
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/
-
-  # Use Hugging Face API (no local GPU/memory needed, requires HF token)
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/ --use_api --hf_token YOUR_TOKEN
-
-  # Force a specific local model size
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/ --model_size medium
-
-  # Use offline mode (locally cached models only)
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/ --model_size falcon --offline
-
-  # Custom output location and prefix
-  python aitext_detectionbyBinoculars_batch.py --input input/testfiles/ --output_dir output --output_prefix mytest
-
-  Options:
-
-  ┌─────────────────┬───────────────────────────────────────────────────────────────────┬────────────────┐
-  │      Flag       │                            Description                            │    Default     │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --input         │ Input file or folder (required)                                   │ —              │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --model_size    │ auto, falcon (~28GB), large (~4GB), medium (~2GB), small (~500MB) │ auto           │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --use_api       │ Use HF Inference API instead of local models                      │ off            │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --hf_token      │ HF API token (or set HF_TOKEN env var)                            │ —              │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --offline       │ Use only locally cached models                                    │ off            │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --threshold     │ Detection threshold (lower = more likely AI)                      │ auto           │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --output_dir    │ Output directory                                                  │ same as input  │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --output_file   │ Output CSV filename                                               │ auto-generated │
-  ├─────────────────┼───────────────────────────────────────────────────────────────────┼────────────────┤
-  │ --output_prefix │ Prefix for auto-generated filename                                │ binoculars     │
-  └─────────────────┴───────────────────────────────────────────────────────────────────┴────────────────┘
-
-  API setup (if using --use_api):
-  1. Create a free account at huggingface.co
-  2. Get a token at huggingface.co/settings/tokens
-  3. Either export HF_TOKEN=your_token or pass --hf_token
-
+ Here's how to call the script:                                                                                                                                                  
+  Basic usage (uses falcon model by default):                                                                                                                                     
+  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder                                                                                                             
+                                                                                                                                                                                  
+  With a specific model (falcon, small, or large):                                                                                                                                
+  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder --model large                                                                                               
+                                                                                                                                                                                  
+  With custom output location:                                                                                                                                                    
+  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder --output_dir /path/to/output --output_file results.csv                                                    
+                                                                                                                                                                                  
+  Arguments:                                                                                                                                                                      
+   
+  ┌───────────────┬──────────┬─────────────────────────────┬───────────────────────────────────────────────────────────────────────┐                                              
+  │   Argument    │ Required │           Default           │                              Description                              │                                            
+  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
+  │ --input       │ Yes      │ —                           │ Folder containing .txt files to analyze                               │                                            
+  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤
+  │ --model       │ No       │ falcon                      │ Model pair: falcon, small (gpt2→gpt2-medium), large (gpt2→gpt2-large) │                                              
+  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
+  │ --output_dir  │ No       │ same as input               │ Directory for the output CSV                                          │                                              
+  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
+  │ --output_file │ No       │ binoculars_batch_result.csv │ Output CSV filename                                                   │                                            
+  └───────────────┴──────────┴─────────────────────────────┴───────────────────────────────────────────────────────────────────────┘                                              
+   
+  The script processes all .txt files in the input folder and writes results to a single CSV with columns: filename, word_count, char_count, model, binoculars_score, threshold,  
+  classification, ai_probability, human_probability.                                                                                                                            
+                                                                                                                                                                                  
+  Also note: the --model help text still references "medium" — want me to update that?                                                                                            
+   
 COMMENT
