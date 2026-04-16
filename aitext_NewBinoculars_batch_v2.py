@@ -25,18 +25,24 @@ MODEL_CONFIGS = {
                                   "snapshots", "ec89142b67d748a1865ea4451372db8313ada0d8"),
         "performer": os.path.join(HF_CACHE, "models--tiiuae--falcon-7b-instruct",
                                  "snapshots", "8782b5c5d8c9290412416618f36a133653e85285"),
+        "observer_name": "falcon-7b",
+        "performer_name": "falcon-7b-instruct",
     },
     "small": {
         "observer": os.path.join(HF_CACHE, "models--gpt2",
                                  "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
         "performer": os.path.join(HF_CACHE, "models--gpt2-medium",
                                   "snapshots", "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"),
+        "observer_name": "gpt2",
+        "performer_name": "gpt2-medium",
     },
     "large": {
-        "observer": os.path.join(HF_CACHE, "models--gpt2",
-                                 "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
+        "observer": os.path.join(HF_CACHE, "models--gpt2-medium",
+                                 "snapshots", "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"),
         "performer": os.path.join(HF_CACHE, "models--gpt2-large",
                                   "snapshots", "32b71b12589c2f8d625668d2335a01cac3249519"),
+        "observer_name": "gpt2-medium",
+        "performer_name": "gpt2-large",
     },
 }
 
@@ -122,7 +128,9 @@ def compute_binoculars_score(text, tokenizer, observer, performer, device, max_l
     # Score = log(PPL) / log(X-PPL)
     eps = 1e-10
     score = (torch.log(ppl + eps) / torch.log(xppl + eps)).cpu().numpy()[0]
-    return float(score)
+    ppl_val = ppl.cpu().numpy()[0]
+    xppl_val = xppl.cpu().numpy()[0]
+    return float(score), float(ppl_val), float(xppl_val)
 
 
 def classify_score(score, threshold=DEFAULT_THRESHOLD):
@@ -185,7 +193,7 @@ def main():
     tokenizer, observer, performer, device = load_models(config["observer"], config["performer"])
 
     # Process each file
-    fieldnames = ['filename', 'word_count', 'char_count', 'model', 'binoculars_score', 'threshold', 'classification', 'ai_probability', 'human_probability']
+    fieldnames = ['filename', 'word_count', 'char_count', 'model', 'observer_model', 'performer_model', 'binoculars_score', 'perplexity', 'cross_perplexity', 'threshold', 'classification', 'ai_probability', 'human_probability']
     rows = []
 
     for i, text_file in enumerate(txt_files, 1):
@@ -201,7 +209,7 @@ def main():
 
         print(f"  Text length: {len(text)} chars, {len(text.split())} words")
 
-        score = compute_binoculars_score(text, tokenizer, observer, performer, device)
+        score, ppl_val, xppl_val = compute_binoculars_score(text, tokenizer, observer, performer, device)
         classification, ai_prob, human_prob = classify_score(score)
 
         print(f"  Score: {score:.4f} -> {classification}")
@@ -211,7 +219,11 @@ def main():
             'word_count': len(text.split()),
             'char_count': len(text),
             'model': args.model,
+            'observer_model': config["observer_name"],
+            'performer_model': config["performer_name"],
             'binoculars_score': f"{score:.4f}",
+            'perplexity': f"{ppl_val:.4f}",
+            'cross_perplexity': f"{xppl_val:.4f}",
             'threshold': DEFAULT_THRESHOLD,
             'classification': classification,
             'ai_probability': f"{ai_prob:.4f}",

@@ -437,8 +437,10 @@ def compute_binoculars_score(text, tokenizer, observer, performer, device, max_l
     log_xppl = torch.log(xppl + eps)
 
     score = (log_ppl / log_xppl).cpu().numpy()[0]
+    ppl_val = ppl.cpu().numpy()[0]
+    xppl_val = xppl.cpu().numpy()[0]
 
-    return float(score)
+    return float(score), float(ppl_val), float(xppl_val)
 
 
 def classify_score(score, threshold=DEFAULT_THRESHOLD):
@@ -471,7 +473,7 @@ def analyze_paragraphs_cli(text, tokenizer, observer, performer, device, thresho
         word_count = len(para.split())
 
         # Compute Binoculars score
-        score = compute_binoculars_score(para, tokenizer, observer, performer, device)
+        score, ppl_val, xppl_val = compute_binoculars_score(para, tokenizer, observer, performer, device)
         classification, ai_prob, human_prob = classify_score(score, threshold)
         confidence = ai_prob if classification == "AI-written" else human_prob
 
@@ -483,7 +485,9 @@ def analyze_paragraphs_cli(text, tokenizer, observer, performer, device, thresho
             'confidence': confidence,
             'ai_probability': ai_prob,
             'human_probability': human_prob,
-            'binoculars_score': score
+            'binoculars_score': score,
+            'perplexity': ppl_val,
+            'cross_perplexity': xppl_val
         })
 
     return results
@@ -530,10 +534,12 @@ def analyze_sentences_cli(text, tokenizer, observer, performer, device, threshol
                     'confidence': 0,
                     'ai_probability': 0,
                     'human_probability': 0,
-                    'binoculars_score': 0
+                    'binoculars_score': 0,
+                    'perplexity': 0,
+                    'cross_perplexity': 0
                 })
             else:
-                score = compute_binoculars_score(sentence, tokenizer, observer, performer, device)
+                score, ppl_val, xppl_val = compute_binoculars_score(sentence, tokenizer, observer, performer, device)
                 classification, ai_prob, human_prob = classify_score(score, threshold)
                 confidence = ai_prob if classification == "AI-written" else human_prob
 
@@ -547,7 +553,9 @@ def analyze_sentences_cli(text, tokenizer, observer, performer, device, threshol
                     'confidence': confidence,
                     'ai_probability': ai_prob,
                     'human_probability': human_prob,
-                    'binoculars_score': score
+                    'binoculars_score': score,
+                    'perplexity': ppl_val,
+                    'cross_perplexity': xppl_val
                 })
 
     return results
@@ -613,7 +621,7 @@ def write_paragraph_csv(results, output_path):
 
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['Index', 'Classification', 'Confidence', 'AI_Probability', 'Human_Probability', 'Binoculars_Score', 'Word_Count', 'Text'])
+        writer.writerow(['Index', 'Classification', 'Confidence', 'AI_Probability', 'Human_Probability', 'Binoculars_Score', 'Perplexity', 'Cross_Perplexity', 'Word_Count', 'Text'])
 
         for r in results:
             writer.writerow([
@@ -623,6 +631,8 @@ def write_paragraph_csv(results, output_path):
                 f"{r['ai_probability']:.4f}",
                 f"{r['human_probability']:.4f}",
                 f"{r['binoculars_score']:.4f}",
+                f"{r['perplexity']:.4f}",
+                f"{r['cross_perplexity']:.4f}",
                 r['word_count'],
                 r['text']
             ])

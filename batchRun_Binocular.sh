@@ -1,6 +1,13 @@
 
+pyScript="aitext_NewBinoculars_batch_v2.py"
+model="falcon"
+inDir="./input"
+outDir="./output"
+outFile="Max5_maxBinocular_${model}.csv"
 
-python aitext_NewBinoculars_batch_v2.py  --model large --input input --output_dir output --output_file  max5_binocular_large.csv
+
+python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --output_file $outFile 
+
 
 
 : <<'COMMENT'

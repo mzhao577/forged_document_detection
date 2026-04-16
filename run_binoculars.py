@@ -127,7 +127,9 @@ def compute_binoculars_score(text, tokenizer, observer, performer, device, max_l
     # Score = log(PPL) / log(X-PPL)
     eps = 1e-10
     score = (torch.log(ppl + eps) / torch.log(xppl + eps)).cpu().numpy()[0]
-    return float(score)
+    ppl_val = ppl.cpu().numpy()[0]
+    xppl_val = xppl.cpu().numpy()[0]
+    return float(score), float(ppl_val), float(xppl_val)
 
 
 def classify_score(score, threshold=DEFAULT_THRESHOLD):
@@ -192,13 +194,15 @@ def main():
     tokenizer, observer, performer, device = load_models(config["observer"], config["performer"])
 
     # Compute score and classify
-    score = compute_binoculars_score(text, tokenizer, observer, performer, device)
+    score, ppl_val, xppl_val = compute_binoculars_score(text, tokenizer, observer, performer, device)
     classification, ai_prob, human_prob = classify_score(score)
 
     # Print to console
     print(f"{'='*50}")
     print(f"Model            : {args.model}")
     print(f"Binoculars Score : {score:.4f}")
+    print(f"Perplexity       : {ppl_val:.4f}")
+    print(f"Cross-Perplexity : {xppl_val:.4f}")
     print(f"Threshold        : {DEFAULT_THRESHOLD}")
     print(f"Classification   : {classification}")
     print(f"AI Probability   : {ai_prob:.1%}")
@@ -206,13 +210,15 @@ def main():
     print(f"{'='*50}")
 
     # Write CSV output
-    fieldnames = ['filename', 'word_count', 'char_count', 'model', 'binoculars_score', 'threshold', 'classification', 'ai_probability', 'human_probability']
+    fieldnames = ['filename', 'word_count', 'char_count', 'model', 'binoculars_score', 'perplexity', 'cross_perplexity', 'threshold', 'classification', 'ai_probability', 'human_probability']
     row = {
         'filename': os.path.basename(text_file),
         'word_count': len(text.split()),
         'char_count': len(text),
         'model': args.model,
         'binoculars_score': f"{score:.4f}",
+        'perplexity': f"{ppl_val:.4f}",
+        'cross_perplexity': f"{xppl_val:.4f}",
         'threshold': DEFAULT_THRESHOLD,
         'classification': classification,
         'ai_probability': f"{ai_prob:.4f}",
