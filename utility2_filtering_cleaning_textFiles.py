@@ -1,4 +1,5 @@
 import argparse
+import re
 
 
 def count_words(text):
@@ -31,6 +32,51 @@ def should_keep_paragraph(paragraph, min_words, min_chars, min_line_chars):
     return True
 
 
+def is_single_address_paragraph(paragraph):
+    """
+    Filter 4: Remove single-paragraph addresses — a paragraph whose entire
+    content is a facility/clinic name with address, with or without phone/fax.
+
+    The paragraph must consist of only one line (no line breaks). Examples:
+      "ABC Medical Center, 123 Main St, New York, NY 10001"
+      "City Clinic 456 Oak Ave, Suite 200, Chicago, IL 60601 Phone: (312) 555-1234 Fax: (312) 555-5678"
+    """
+    lines = paragraph.strip().split('\n')
+    if len(lines) != 1:
+        return False
+
+    line = lines[0].strip()
+
+    # Check for US state abbreviation followed by zip code (e.g. "NY 10001")
+    has_state_zip = bool(re.search(
+        r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b', line
+    ))
+
+    # Check for phone or fax pattern (e.g. "(555) 123-4567", "555-123-4567")
+    has_phone_fax = bool(re.search(
+        r'(?:phone|fax|tel|ph)[:\s]*[\(\d][\d\s\(\)\-\.]{7,}', line, re.IGNORECASE
+    )) or bool(re.search(
+        r'\(?\d{3}\)?[\s\-\.]\d{3}[\s\-\.]\d{4}', line
+    ))
+
+    # Check for street address keywords
+    has_street = bool(re.search(
+        r'\b(?:street|st|avenue|ave|boulevard|blvd|drive|dr|road|rd|lane|ln|way|suite|ste|floor|fl)\b[.,]?',
+        line, re.IGNORECASE
+    ))
+
+    # Match if it has a state+zip (required for an address) and optionally
+    # street keywords and/or phone/fax
+    if has_state_zip:
+        return True
+
+    # Also match if it has both street and phone/fax patterns
+    if has_street and has_phone_fax:
+        return True
+
+    return False
+
+
 def filter_paragraphs(input_path, output_path, min_words, min_chars, min_line_chars):
     """Read input file, filter paragraphs, and write to output file."""
     with open(input_path, 'r', encoding='utf-8') as f:
@@ -45,10 +91,13 @@ def filter_paragraphs(input_path, output_path, min_words, min_chars, min_line_ch
 
     for para in paragraphs:
         if para.strip():  # Skip empty paragraphs
-            if should_keep_paragraph(para, min_words, min_chars, min_line_chars):
-                kept.append(para)
-            else:
+            if not should_keep_paragraph(para, min_words, min_chars, min_line_chars):
                 removed += 1
+            elif is_single_address_paragraph(para):
+                # Filter 4: Remove single address lines
+                removed += 1
+            else:
+                kept.append(para)
 
     # Write output
     with open(output_path, 'w', encoding='utf-8') as f:

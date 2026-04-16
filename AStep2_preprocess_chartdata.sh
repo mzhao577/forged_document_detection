@@ -13,7 +13,6 @@ INPUT_DIR="$1"
 OUTPUT_DIR="$2"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PYTHON_SCRIPT="$SCRIPT_DIR/utility2_filtering_cleaning_textFiles.py"
-UNWRAP_SCRIPT="$SCRIPT_DIR/utility1_unwrap_lines.py"
 
 
 #python filtering_cleaning_textFiles.py input.txt output.txt --min_words 20 --min_chars 80 --min_line_chars 60
@@ -31,10 +30,6 @@ fi
 # Validate python scripts exist
 if [ ! -f "$PYTHON_SCRIPT" ]; then
     echo "Error: Python script '$PYTHON_SCRIPT' not found."
-    exit 1
-fi
-if [ ! -f "$UNWRAP_SCRIPT" ]; then
-    echo "Error: Python script '$UNWRAP_SCRIPT' not found."
     exit 1
 fi
 
@@ -61,11 +56,8 @@ for INPUT_FILE in "$INPUT_DIR"/*.txt; do
     echo ""
     echo "[$((PROCESSED + 1))/$FILE_COUNT] Processing: $BASENAME"
 
-    # Step 1: Filter/clean paragraphs (reads from output, overwrites in place)
+    # Filter/clean paragraphs
     python "$PYTHON_SCRIPT" "$INPUT_FILE" "$OUTPUT_FILE" --min_words $minWords  --min_chars $minChars  --min_line_chars $minLineCharts
-
-    # Step 2: Unwrap lines
-    python "$UNWRAP_SCRIPT" "$OUTPUT_FILE" "$OUTPUT_FILE"
 
     PROCESSED=$((PROCESSED + 1))
 done
