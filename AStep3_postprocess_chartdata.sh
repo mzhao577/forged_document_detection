@@ -1,7 +1,7 @@
 #!/bin/bash
-# Batch preprocess text files: apply filtering_cleaning_textFiles.py to each .txt file in the input folder.
+# Batch postprocess text files: apply filtering_cleaning_textFiles.py to each .txt file in the input folder.
 #
-# Usage: ./preprocess_chartdata.sh <input_folder> <output_folder>
+# Usage: ./postprocess_chartdata.sh <input_folder> <output_folder>
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <input_folder> <output_folder>"
@@ -12,7 +12,7 @@ fi
 INPUT_DIR="$1"
 OUTPUT_DIR="$2"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PYTHON_SCRIPT="$SCRIPT_DIR/utility2_filtering_cleaning_textFiles.py"
+PYTHON_SCRIPT="$SCRIPT_DIR/utility3_filtering_cleaning_textFiles.py"
 
 
 #python filtering_cleaning_textFiles.py input.txt output.txt --min_words 20 --min_chars 80 --min_line_chars 60

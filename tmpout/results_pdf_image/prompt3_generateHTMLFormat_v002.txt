@@ -1,0 +1,228 @@
+=== Page 1 === Lakeside Medical Center - Gastroenterology Department
+
+1234 Health Drive, Medtown, State 12345 | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+Registration / Demographics
+
+Patient Name:
+
+Age:
+
+Address:
+
+MRN:
+
+Insurance:
+
+Encounter Date:
+
+Location:
+
+Chief Complaint:
+
+Johnathan Edwards
+
+48
+
+789 Pine St, Medtown, State 12345 MRN123456
+
+HealthPlus Plan B
+
+Sep 21, 2023
+
+Endoscopy Suite 3
+
+Dyspepsia
+
+Patient Medical History
+
+PMH: Chronic GERD, Hypertension, Hyperlipidemia. PSH: Appendectomy (1990). FHX: Father - CAD; Mother - Type 2 Diabetes. SHX: Non-smoker, occasional social alcohol. Allergies: Penicillin (rash). Problem List: GERD, Hypertension, Anxiety.
+
+Current Medications
+
+* Omeprazole 20mg daily
+
+* Lisinopril 10mg daily
+
+* Atorvastatin 20mg nightly
+
+* Alprazolam 0.5mg prn anxiety * Aspirin 81mg daily
+
+Pre-Procedure Vitals BP: 120/80 mmHg, HR: 72 bpm, SpO2: 99% on room air. ASA Classification: II.
+
+DOB:
+
+Sex:
+
+Phone:
+
+Acct:
+
+Emergency Contact:
+
+Check-in Time:
+
+Referring Provider:
+
+Indication:
+
+Oct 2, 1975
+
+Male
+
+(555) 345-6789
+
+ACCT789012
+
+Jane Edwards (555) 987-6543
+
+08:15 AM
+
+Dr. Marcus Lane, MD
+
+GERD evaluation
+
+
+=== Page 2 === Informed Consent The patient was informed of the risks and benefits of the procedure, including potential complications. Questions were addressed, and informed consent was obtained and
+
+documented.
+
+Lakeside Medical Center - Gastroenterology Department | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+
+=== Page 3 === Lakeside Medical Center - Gastroenterology Department
+
+1234 Health Drive, Medtown, State 12345 | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+Pre-Procedure Assessment & Anesthesia Record
+
+Pre-Anesthesia Evaluation
+
+Airway: Mallampati Il. Cardio: Regular rhythm, no murmurs. Pulm: Clear to auscultation bilaterally. NPO Status: Confirmed 8 hours. Last intake: 10:00 PM previous night.
+
+Planned Sedation Moderate sedation planned with midazolam 2mg IV and fentanyl 50mcg IV.
+
+Anesthesia Team Anesthesiologist: Dr. Martin Bower, DO. CRNA: Amelia Thompson, CRNA.
+
+Procedure Timeline
+
+Event Time Anesthesia Start 09:00 AM Procedure Start (Scope In) 09:10 AM
+
+Procedure End (Scope Out) 09:40 AM
+
+Anesthesia End 09:45 AM Recovery Start 09:50 AM Recovery End 10:30 AM
+
+Monitoring Trends Time BP(mmHg) HR(bpm) SpO2 (%) 09:00 122/78 74 99 09:20 118/77 72 98
+
+09:40 116/75 70 98
+
+
+=== Page 4 === Complications No significant complications. Brief desaturation to 92% resolved with O2 adjustment and
+
+jaw thrust. No further events noted.
+
+Post-Anesthesia Evaluation Aldrete score: 9. Disposition: Discharged home with escort.
+
+Lakeside Medical Center - Gastroenterology Department | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+
+=== Page 5 === Lakeside Medical Center - Gastroenterology Department
+
+1234 Health Drive, Medtown, State 12345 | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+Procedure Note: Esophagogastroduodenoscopy (EGD)
+
+Procedure Details
+
+Endoscope Model: ScopeCo Model 100. Route: Oropharyngeal entry, UES passage. Patient Position: Left lateral decubitus. Bite Block: Applied.
+
+Narrative
+
+The scope traversed the oropharynx and comfortably passed through the UES. The esophagus was visualized, notable for a normal Z-line at 40cm. GEJ at 45cm from incisors. Mild erythema noted, no rings or strictures apparent. The stomach was entered, revealing the body, fundus, and antrum in good view with insufflation. Rugal folds were normal. Mild non-erosive gastritis observed in the gastric body. Pylorus open and easily passable. Entered duodenum, bulb and second portion visualized, villi intact. No ulcers or active bleeding seen. Retroflexion in the stomach to assess cardia/fundus was unremarkable.
+
+Findings * Mild erythema at the GEJ * Non-erosive gastritis in gastric body
+
+Impression Mild GERD changes. Non-erosive gastritis.
+
+Diagnosis * Gastroesophageal Reflux Disease (GERD) * Non-Erosive Gastritis
+
+Interventions No biopsies or interventions performed during this procedure.
+
+Endoscopy Team
+
+Endoscopist: Dr. Emily Carson, MD. Assistant: Sarah Gleason, RN Circulator. Endoscopy Tech: Lucas Dean.
+
+Lakeside Medical Center - Gastroenterology Department | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+
+=== Page 6 === Dr. Emily Carson, MD - Attending Gastroenterologist
+
+
+=== Page 7 === Lakeside Medical Center - Gastroenterology Department
+
+1234 Health Drive, Medtown, State 12345 | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+Specimens / Lab / Pathology
+
+No specimens collected. No biopsies were taken during this procedure.
+
+Lakeside Medical Center - Gastroenterology Department | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+
+=== Page 8 === Lakeside Medical Center - Gastroenterology Department
+
+1234 Health Drive, Medtown, State 12345 | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist
+
+After Visit Summary / Discharge Instructions
+
+Recovery Course
+
+The patient was stable post-procedure, with minimal discomfort and no nausea reported. Vitals remained stable throughout recovery.
+
+Diet and Activity Instructions
+
+Resume regular diet as tolerated. Avoid heavy or greasy foods for the next 24 hours. Rest and limit physical activity for the rest of the day.
+
+Warning Signs
+
+Seek medical attention for severe abdominal pain, persistent vomiting, or signs of bleeding (black/tarry stools).
+
+Medication and Follow-Up Plan
+
+Continue current medications. Start pantoprazole 40mg daily for improved GERD management. Follow up with Dr. Carson in 4 weeks.
+
+Results Communication Plan
+
+All findings and recommendations were communicated before discharge. Next appointment scheduled for Oct 20, 2023.
+
+Patient Acknowledgment
+
+The patient verbally acknowledged understanding of the discharge instructions and demonstrated the ability to recall key points.
+
+Escort and Transport
+
+Discharged with wife, who will drive him home.
+
+RN Discharge Educator Sarah Gleason, RN - 10:40 AM
+
+Provider Signature Dr. Emily Carson, MD - 10:45 AM | Electronically signed by Dr. Emily Carson
+
+Lakeside Medical Center - Gastroenterology Department | Phone: (555) 678-9012 | Fax: (555) 678-9013
+
+Dr. Emily Carson, MD - Attending Gastroenterologist

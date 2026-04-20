@@ -1,0 +1,315 @@
+=== Page 1 ===
+Suncrest Medical Center
+Gastroenterology Department
+789 Elm Street, Suite 210
+Springfield, ST 54321
+
+Phone: (555) 123-4567
+Fax: (555) 765-4321
+Dr. Jonathan Lee, MD
+
+Patient Samantha DOB 05/15/1985 Age 38
+Name Carter
+Sex Female Address 123 Maple Phone (555)
+Lane, 098-7654
+Springfield,
+ST 54321
+MRN MRN7894561 Atcount 789654123 Insurance HealthCare
+Plus Gold
+Plan
+Emergency Michael Encounter 06/22/2023 Check-In 09:15 AM
+Contact Carter, Date Time
+Husband,
+(555)
+102-3456
+Location Suncrest Attending Dr. Referring Dr. Emily
+Medical Gastroenterologisihan Provider Stevens,
+Center - Lee, MD MD
+Endoscopy
+Suite
+Chief Persistent
+Complaint / dyspepsia
+Indication and
+epigastric
+pain
+PMH Hypertension, PSH Appendectomy
+Allergic (2000)
+Rhinitis
+FHX Father: SHX Non-
+GERD, smoker,
+Mother: Social
+IBS alcohol use
+Allergies Penicillin- | Problem Dyspepsia,
+Rash List Hypertension
+Current Lisinopril
+Medications 10 mg
+daily,
+Loratadine
+
+10 mg as
+
+
+=== Page 2 ===
+needed,
+Omeprazole
+20 mg daily
+before
+breakfast,
+Acetaminophen
+500 mg as
+needed for
+pain,
+Cetirizine
+10 mg as
+needed
+
+Pre- BP: 128/78 ASA
+procedure mmtg, Classification
+
+Vitals HR: 72
+bpm,
+SpO2: 98%
+RA, Temp:
+98.4°F
+
+Informed Consent Informed consent obtained from patient, including
+
+Statement risks and benefits of the procedure, and potential
+alternatives. All questions were answered, and patient
+expressed understanding and agreement to proceed.
+
+Suncrest Medical Center
+Gastroenterology Department
+789 Elm Street, Suite 210
+Springfield, ST 54321
+
+Phone: (555) 123-4567
+Fax: (555) 765-4321
+Dr. Jonathan Lee, MD
+
+Suncrest Medical Center
+Gastroenterology Department
+789 Elm Street, Suite 210
+Springfield, ST 54321
+
+Phone: (555) 123-4567
+Fax: (555) 765-4321
+Dr. Jonathan Lee, MD
+
+
+
+=== Page 3 ===
+Pre-Procedure Assessment & Anesthesia Record
+
+Pre-
+anesthesia
+Evaluation
+
+Planned
+Sedation
+
+Anesthesia
+Team
+
+Anesthesia
+Start Time
+
+Procedure
+End (Scope
+Out)
+
+Recovery
+Start
+
+Airway: Mallampati |, Cardiovascular:
+Regular rhythm, no murmurs,
+Pulmonary: Clear to auscultation
+bilaterally, NPO Status: 8 hours, Last
+Intake: 11:00 PM previous night
+
+Moderate sedation with Propofol 200
+mg IV, Fentanyl 50 mcg IV
+
+Dr. Mark Nelson, MD (Anesthesiologist),
+Jane Smith, CRNA
+
+10:05 AM Procedure 10:15
+Start (Scope AM
+In)
+
+10:45 AM Anesthesia 10:50
+End AM
+
+10:55 AM Recovery 11:30
+End AM
+
+Monitoring Trends
+
+Time BP (mmHg) HR(bpm) SpO2 (%)
+10:05AM 124/76 70 99%
+10:15AM 120/74 68 98%
+10:30AM 118/72 72 97%
+10:45AM 122/78 74 99%
+
+Complications
+
+No complications. Slight drop in SpO2 noted at 10:30 AM, resolved with
+supplemental O2. No further interventions required.
+
+Post-anesthesia Evaluation
+Aldrete score: 9/10. Patient stable for transfer to recovery, discharged home with
+
+escort.
+
+Suncrest Medical Center Phone: (555) 123-4567
+SantcnesteneamaPeeraterent Fax: (SBPbAG5($388) 123-4567
+ee ee oepaithent Dr. Jonpihansse 146-4321
+PEO PofiPbiredt 210 Dr. Jonathan Lee, MD
+
+Springfield, ST 54321
+
+
+
+=== Page 4 ===
+Procedure Note: Esophagogastroduodenoscopy
+(EGD)
+
+Endoscope model: Olympus CF-H180AL, Route: Oral, Position: Left lateral, Bite
+block used.
+Procedure Details
+
+Upon entry through the oropharynx, the endoscope was carefully advanced through
+the upper esophageal sphincter. The esophagus was inspected: mucosa was normal
+in color and texture. The Z-line was noted at 40 cm from the incisors, with a normal
+gastroesophageal junction (GEJ). There were no rings or strictures observed.
+
+In the stomach, the fundus, body, and antrum appeared normal under insufflation.
+Rugal folds were distinct, with mild erythema noted in the antral region. No erosions
+or ulcers were identified. The pylorus was patent.
+
+Examination of the duodenal bulb and second portion revealed normal mucosal
+pattern with visible villi. There was no evidence of inflammation or ulcers.
+
+Retroflexion in the stomach showed a well-demarcated cardia and fundus.
+Findings
+* Mild erythema in the gastric antrum, approximately 3-4 mm patches.
+* Normal appearing duodenal mucosa.
+
+Impression
+Mild gastric erythema; otherwise normal EGD. Findings consistent with mild gastritis.
+
+Diagnosis List
+
+* Mild gastritis
+* Dyspepsia
+
+Interventions
+
+Biopsies taken from antral region for histology, using cold forceps. Three samples
+obtained without complications.
+
+Endoscopy Team: Dr. Jonathan Lee (Endoscopist), Alice Tran, RN (Circulating
+Nurse), Tom Howard (Endoscopy Tech)
+
+Suncrest Medical Center Phone: (555) 123-4567
+
+Gastroenterology Department
+789 Elm Street, Suite 210
+Springfield, ST 54321
+
+Fax: (555) 765-4321
+Dr. Jonathan Lee, MD
+
+Suncrest Medical Center
+Gastroenterology Department
+789 Elm Street, Suite 210
+Springfield, ST 54321
+
+Phone: (555) 123-4567
+Fax: (555) 765-4321
+Dr. Jonathan Lee, MD
+
+
+
+=== Page 5 ===
+Specimens/Lab/Pathology
+
+Specimens
+Container Site Number of Method  Fixative Collection Sent
+Fragments Time to
+Lab
+A Antral 3 Cold Formalin 10:45 AM 11:00
+Gastric Forceps AM
+Mucosa
+
+Lab and Pathology
+
+Lab: Suncrest Pathology Services
+
+Accession Number: LAB-TST012345
+
+Pathology Report
+
+Gross Description: Three tan mucosal fragments, 0.2 cm in greatest dimension.
+
+Microscopic Description: Sections show mild chronic inflammation with scattered
+inflammatory cells within the lamina propria. No Helicobacter pylori organisms
+identified.
+
+Final Diagnosis: Mild chronic gastritis; negative for H. pylori.
+
+Pathologist: Dr. Irene Taylor, MD
+Report Date/Time: 06/23/2023, 3:00 PM
+
+Suncrest Medical Center Phone: (555) 123-4567
+Gastroenterology Department Fax: (555) 765-4321
+789 Elm Street, Suite 210 Dr. Jonathan Lee, MD
+
+Springfield, ST 54321
+
+After Visit Summary / Discharge Instructions
+
+Recovery Course
+Patient recovered uneventfully. No significant pain or nausea reported. Tolerated oral
+intake without issues. Vitals remained stable throughout recovery period.
+
+Diet & Activity Instructions
+
+* Resume regular diet as tolerated.
+
+* Avoid heavy lifting or strenuous activity for 24 hours.
+
+* Monitor for any unusual symptoms such as abdominal pain, severe nausea, or
+vomiting.
+
+Medication Plan
+
+Continue Omeprazole 20 mg daily. Avoid NSAIDs unless prescribed. Resume other
+medications as previously directed.
+
+Beaulést@teninaudéaation & Follow-up Phone: (555) 123-4567
+Feasinespie re aarienadaeatvia patient portal within one week. Confstter era Sis 192"
+Fkrmetteainruitssai@eks or as directed by Dr. Lee. Dr. Jonathan Lee, MD
+
+pringfield, ST 54321
+
+
+
+=== Page 6 ===
+Patient acknowledged understanding of discharge instructions and demonstrated
+understanding of all teaching points. Patient discharged home with husband as
+escort.
+
+RN Discharge Educator: Anna White, RN
+Discharge Time: 11:30 AM
+
+Provider Signature: Dr. Jonathan Lee, MD
+Date/Time: 06/22/2023, 11:35 AM
+Electronically signed by Dr. Jonathan Lee
+
+Suncrest Medical Center Phone: (555) 123-4567
+Gastroenterology Department Fax: (555) 765-4321
+789 Elm Street, Suite 210 Dr. Jonathan Lee, MD
+
+Springfield, ST 54321
+
