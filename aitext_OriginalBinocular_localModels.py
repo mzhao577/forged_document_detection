@@ -9,6 +9,13 @@ from binoculars import Binoculars
 
 HF_HUB_CACHE = os.path.expanduser("~/.cache/huggingface/hub")
 
+def model_name(path):
+    """Extract model name from a HuggingFace cache path, e.g. 'gpt2-medium' or 'tiiuae/falcon-7b'."""
+    for part in path.split(os.sep):
+        if part.startswith("models--"):
+            return part[len("models--"):].replace("--", "/")
+    return path
+
 MODEL_PAIRS = {
     "small": (
         os.path.join(HF_HUB_CACHE, "models--gpt2", "snapshots", "607a30d783dfa663caf39e06633721c8d4cfcd7e"),
@@ -41,7 +48,7 @@ os.makedirs(args.output_dir, exist_ok=True)
 output_path = os.path.join(args.output_dir, args.output_file)
 
 observer, performer = MODEL_PAIRS[args.model]
-print(f"Observer: {observer}, Performer: {performer}")
+print(f"Observer: {model_name(observer)}, Performer: {model_name(performer)}")
 bino = Binoculars(observer_name_or_path=observer, performer_name_or_path=performer)
 
 text_files = sorted(f for f in os.listdir(args.input_dir) if f.endswith(".txt"))
@@ -97,8 +104,8 @@ with open(output_path, "w", newline="") as csvfile:
             word_count,
             char_count,
             args.model,
-            details["observer_model"],
-            details["performer_model"],
+            model_name(details["observer_model"]),
+            model_name(details["performer_model"]),
             f"{details['perplexity']:.4f}",
             f"{details['cross_perplexity']:.4f}",
             f"{score:.4f}",
