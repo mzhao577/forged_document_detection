@@ -4,7 +4,7 @@ import math
 import os
 import sys
 
-sys.path.insert(0, os.path.expanduser("~/MaxWork/frauddetection/maxBinoculars"))
+sys.path.insert(0, os.path.expanduser("~/MaxWork/fraudprevention/maxBinoculars"))
 from binoculars import Binoculars
 
 HF_HUB_CACHE = os.path.expanduser("~/.cache/huggingface/hub")
