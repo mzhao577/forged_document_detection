@@ -1,10 +1,9 @@
 
 pyScript="aitext_NewBinoculars_batch_v2.py"
-model="falcon"
+model="large"
 inDir="./input"
 outDir="./output"
-outFile="Max5_maxBinocular_${model}.csv"
-
+outFile="AIHuman_Results_Binocular_${model}.csv"
 
 python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --output_file $outFile 
 

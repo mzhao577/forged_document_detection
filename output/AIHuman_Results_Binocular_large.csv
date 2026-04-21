@@ -1,0 +1,11 @@
+filename,word_count,char_count,model,observer_model,performer_model,binoculars_score,perplexity,cross_perplexity,threshold,classification,ai_probability,human_probability
+AICreated_prompt3generateHTMLFormatv001.txt,176,1176,large,gpt2-medium,gpt2-large,0.9082,2.8379,3.1543,0.85,Human-written,0.1120,0.8880
+AICreated_prompt3generateHTMLFormatv002.txt,116,819,large,gpt2-medium,gpt2-large,1.0361,4.2188,4.0078,0.85,Human-written,0.0000,1.0000
+AICreated_prompt3generateHTMLFormatv003.txt,326,2261,large,gpt2-medium,gpt2-large,0.9683,2.6016,2.6836,0.85,Human-written,0.0000,1.0000
+AICreated_prompt3generateHTMLFormatv004.txt,250,1795,large,gpt2-medium,gpt2-large,1.0410,3.9453,3.7363,0.85,Human-written,0.0000,1.0000
+AICreated_prompt3generateHTMLFormatv005.txt,640,4248,large,gpt2-medium,gpt2-large,1.0098,3.2793,3.2422,0.85,Human-written,0.0000,1.0000
+AIWritten_Sample2_ChinaAdvancementInRecentYears.txt,1045,7427,large,gpt2-medium,gpt2-large,0.9531,3.0312,3.2031,0.85,Human-written,0.0000,1.0000
+AIWritten_Sample5_ChinaAdvancementInRecentYears_WDuplicate.txt,1182,8402,large,gpt2-medium,gpt2-large,0.9531,3.0312,3.2031,0.85,Human-written,0.0000,1.0000
+AIWritten_sample4_WilliamFaulkner_NobelCommittee.txt,428,2692,large,gpt2-medium,gpt2-large,0.8945,2.6309,2.9473,0.85,Human-written,0.2031,0.7969
+HumanWritten_Sample1_ParisTravelIntro.txt,799,4369,large,gpt2-medium,gpt2-large,0.9502,3.3145,3.5293,0.85,Human-written,0.0000,1.0000
+Humanwritten_sample3_WilliamFaulkner_NobelCommittee.txt,439,2542,large,gpt2-medium,gpt2-large,0.9341,3.0332,3.2773,0.85,Human-written,0.0000,1.0000
