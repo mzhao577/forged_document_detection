@@ -1,5 +1,8 @@
 
-pyScript="aitext_NewBinoculars_batch_v2.py"
+#pyScript="aitext_NewBinoculars_batch_v2.py"
+
+#pyScript="aitext_OriginalBinocular.py"
+pyScript="aitext_OriginalBinocular_localModels.py"
 model="large"
 inDir="./input"
 outDir="./output"
@@ -10,34 +13,35 @@ python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --outpu
 
 
 : <<'COMMENT'
+                                                                                                                                                                    
+  python aitext_OriginalBinocular_localModels.py \                                                                                                                   
+    --model small \
+    --input_dir /path/to/text/files \                                                                                                                                
+    --output_dir /path/to/output \                                                                                                                                 
+    --output_file results.csv \                                                                                                                                      
+    --threshold 0.9
+                                                                                                                                                                     
+  Arguments:                                                                                                                                                       
 
- Here's how to call the script:                                                                                                                                                  
-  Basic usage (uses falcon model by default):                                                                                                                                     
-  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder                                                                                                             
-                                                                                                                                                                                  
-  With a specific model (falcon, small, or large):                                                                                                                                
-  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder --model large                                                                                               
-                                                                                                                                                                                  
-  With custom output location:                                                                                                                                                    
-  python aitext_NewBinoculars_batch_v2.py --input /path/to/txt/folder --output_dir /path/to/output --output_file results.csv                                                    
-                                                                                                                                                                                  
-  Arguments:                                                                                                                                                                      
+  ┌───────────────┬──────────┬──────────────────┬─────────────────────────────────────┐                                                                              
+  │   Argument    │ Required │     Default      │             Description             │
+  ├───────────────┼──────────┼──────────────────┼─────────────────────────────────────┤                                                                              
+  │ --model       │ No       │ small            │ Model pair: small, large, or falcon │                                                                            
+  ├───────────────┼──────────┼──────────────────┼─────────────────────────────────────┤
+  │ --input_dir   │ Yes      │ —                │ Folder containing .txt files        │                                                                              
+  ├───────────────┼──────────┼──────────────────┼─────────────────────────────────────┤                                                                              
+  │ --output_dir  │ Yes      │ —                │ Directory for the output CSV        │                                                                              
+  ├───────────────┼──────────┼──────────────────┼─────────────────────────────────────┤                                                                              
+  │ --output_file │ No       │ results.csv      │ Output CSV filename                 │                                                                            
+  ├───────────────┼──────────┼──────────────────┼─────────────────────────────────────┤                                                                              
+  │ --threshold   │ No       │ Model's built-in │ Score threshold for AI detection    │
+  └───────────────┴──────────┴──────────────────┴─────────────────────────────────────┘                                                                              
+                                                                                                                                                                   
+  Minimal example (uses defaults for model, output_file, and threshold):                                                                                             
    
-  ┌───────────────┬──────────┬─────────────────────────────┬───────────────────────────────────────────────────────────────────────┐                                              
-  │   Argument    │ Required │           Default           │                              Description                              │                                            
-  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
-  │ --input       │ Yes      │ —                           │ Folder containing .txt files to analyze                               │                                            
-  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤
-  │ --model       │ No       │ falcon                      │ Model pair: falcon, small (gpt2→gpt2-medium), large (gpt2→gpt2-large) │                                              
-  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
-  │ --output_dir  │ No       │ same as input               │ Directory for the output CSV                                          │                                              
-  ├───────────────┼──────────┼─────────────────────────────┼───────────────────────────────────────────────────────────────────────┤                                              
-  │ --output_file │ No       │ binoculars_batch_result.csv │ Output CSV filename                                                   │                                            
-  └───────────────┴──────────┴─────────────────────────────┴───────────────────────────────────────────────────────────────────────┘                                              
-   
-  The script processes all .txt files in the input folder and writes results to a single CSV with columns: filename, word_count, char_count, model, binoculars_score, threshold,  
-  classification, ai_probability, human_probability.                                                                                                                            
-                                                                                                                                                                                  
-  Also note: the --model help text still references "medium" — want me to update that?                                                                                            
+  python aitext_OriginalBinocular_localModels.py \                                                                                                                   
+    --input_dir ./input_texts \                                                                                                                                      
+    --output_dir ./results
+
    
 COMMENT
