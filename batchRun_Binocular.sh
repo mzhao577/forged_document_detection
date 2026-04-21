@@ -7,8 +7,9 @@ model="large"
 inDir="./input"
 outDir="./output"
 outFile="AIHuman_Results_Binocular_${model}.csv"
+threshold=0.91
 
-python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --output_file $outFile 
+python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --output_file $outFile --threshold $threshold 
 
 
 

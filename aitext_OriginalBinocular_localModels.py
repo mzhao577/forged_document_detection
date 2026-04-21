@@ -63,7 +63,7 @@ with open(output_path, "w", newline="") as csvfile:
         "filename", "word_count", "char_count", "model",
         "observer_model", "performer_model",
         "perplexity", "cross_perplexity", "binoculars_score",
-        "BinoThreshold", "threshold", "classification", "ai_probability",
+        "BinoThreshold", "classification", "ai_probability", "threshold",
         "Prediction", "TrueLabel",
     ])
 
@@ -83,7 +83,7 @@ with open(output_path, "w", newline="") as csvfile:
         prediction = bino.predict(text)
         ai_probability = 1.0 / (1.0 + math.exp(15.0 * (score - threshold)))
 
-        prediction_label = "Human_Written" if ai_probability > threshold else "AI_Written"
+        prediction_label = "Human_Written" if score > threshold else "AI_Written"
 
         if filename.startswith("AI"):
             true_label = "AI_Written"
@@ -103,9 +103,9 @@ with open(output_path, "w", newline="") as csvfile:
             f"{details['cross_perplexity']:.4f}",
             f"{score:.4f}",
             f"{bino_threshold:.4f}",
-            f"{threshold:.4f}",
             prediction,
             f"{ai_probability:.4f}",
+            f"{threshold:.4f}",
             prediction_label,
             true_label,
         ])
