@@ -1,0 +1,406 @@
+# PROFESSIONAL MEDICAL CLAIM CHART
+
+---
+
+## PATIENT DEMOGRAPHICS & INSURANCE INFORMATION
+
+**Patient Name:** Rodriguez, Maria Elena  
+**Date of Birth:** 03/15/1980  
+**Age:** 46 years old  
+**Gender:** Female  
+**Patient ID:** MR-2024-7859341  
+**Medical Record Number:** 780534291  
+
+**Insurance Information:**  
+- **Primary:** Blue Cross Blue Shield PPO  
+- **Policy Number:** XYZ789456123  
+- **Group Number:** GRP001875  
+- **Subscriber ID:** 780534291A  
+- **Effective Date:** 01/01/2023  
+- **Copay:** $35 specialist, $25 primary care  
+- **Deductible:** $1,500 (Family: $3,000)  
+
+**Contact Information:**  
+- Address: 1247 Maple Street, Springfield, IL 62701  
+- Phone: (217) 555-0847  
+- Emergency Contact: Rodriguez, Carlos (Husband) - (217) 555-0848  
+
+---
+
+## CURRENT PROBLEM LIST
+
+1. **E11.40** - Type 2 diabetes mellitus with diabetic neuropathy, unspecified
+2. **E11.3213** - Type 2 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, bilateral
+3. **E11.22** - Type 2 diabetes mellitus with diabetic chronic kidney disease
+4. **E11.621** - Type 2 diabetes mellitus with foot ulcer
+5. **E11.69** - Type 2 diabetes mellitus with other specified complication
+6. **I25.10** - Atherosclerotic heart disease of native coronary artery without angina pectoris
+7. **E78.5** - Hyperlipidemia, unspecified
+8. **I10** - Essential hypertension
+
+---
+
+## CURRENT MEDICATION LIST
+*(As of April 15, 2026)*
+
+1. **Metformin XR** 1000mg BID
+2. **Glipizide** 10mg BID  
+3. **Lisinopril** 20mg daily
+4. **Atorvastatin** 40mg daily
+5. **Gabapentin** 300mg TID
+6. **Aspirin** 81mg daily
+7. **Lantus insulin** 24 units subcutaneous daily
+8. **Humalog insulin** sliding scale with meals
+
+---
+
+## VISIT HISTORY
+*(Most Recent First)*
+
+### VISIT #10
+**Date of Service:** April 15, 2026  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Routine diabetes follow-up, foot wound check"
+
+**Vital Signs:**  
+- BP: 145/92 mmHg
+- Weight: 185 lbs  
+- BMI: 32.4
+- Fingerstick glucose: 165 mg/dL
+- Temperature: 98.6°F
+- Pulse: 88 bpm
+
+**Assessment & Plan:**  
+Poorly controlled T2DM with multiple complications. Foot ulcer improving with current treatment. Increasing Lantus insulin dose.
+
+**ICD-10 Codes:**  
+- E11.40 (Primary) - Type 2 DM with diabetic neuropathy
+- E11.621 - Type 2 DM with foot ulcer
+- E11.22 - Type 2 DM with diabetic CKD
+- I10 - Essential hypertension
+
+**CPT Codes:**  
+- 99214 - Office visit, established patient (moderate complexity)
+- 11042 - Debridement, subcutaneous tissue
+
+**Lab Orders:**  
+- HbA1c, comprehensive metabolic panel
+- Urine microalbumin
+
+**Charges:** $285.00
+
+---
+
+### VISIT #9
+**Date of Service:** February 8, 2026  
+**Provider:** Dr. Robert Chen, DPM (Podiatry)  
+**NPI:** 9876543210  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Diabetic foot ulcer, right great toe"
+
+**Vital Signs:**  
+- BP: 142/88 mmHg
+- Weight: 183 lbs
+- BMI: 32.1
+- Fingerstick glucose: 178 mg/dL
+
+**Assessment & Plan:**  
+Diabetic foot ulcer, stage 2. Wound care education provided. Follow-up in 2 weeks.
+
+**ICD-10 Codes:**  
+- E11.621 (Primary) - Type 2 DM with foot ulcer
+- L97.511 - Non-pressure chronic ulcer of right foot with fat layer exposed
+
+**CPT Codes:**  
+- 99213 - Office visit, established patient
+- 11042 - Debridement, subcutaneous tissue
+
+**Charges:** $195.00
+
+---
+
+### VISIT #8
+**Date of Service:** January 12, 2026  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Quarterly diabetes check-up"
+
+**Vital Signs:**  
+- BP: 138/85 mmHg
+- Weight: 182 lbs
+- BMI: 31.9
+- Fingerstick glucose: 195 mg/dL
+
+**Lab Results:**  
+- HbA1c: 8.9% (↑ from 8.6%)
+- Creatinine: 1.3 mg/dL
+- eGFR: 58 mL/min/1.73m²
+- LDL: 145 mg/dL
+
+**Assessment & Plan:**  
+Worsening glycemic control. Started Lantus insulin 20 units daily. Referred to ophthalmology for retinopathy screening.
+
+**ICD-10 Codes:**  
+- E11.40 (Primary) - Type 2 DM with diabetic neuropathy
+- E11.22 - Type 2 DM with diabetic CKD
+- E78.5 - Hyperlipidemia
+
+**CPT Codes:**  
+- 99214 - Office visit, established patient
+- 90471 - Immunization administration (flu vaccine)
+- 90658 - Influenza vaccine
+
+**Charges:** $245.00
+
+---
+
+### VISIT #7
+**Date of Service:** November 15, 2025  
+**Provider:** Dr. Sarah Williams, MD (Ophthalmology)  
+**NPI:** 5555667778  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Diabetic retinopathy screening"
+
+**Assessment & Plan:**  
+Mild nonproliferative diabetic retinopathy with macular edema, bilateral. Scheduled for follow-up in 6 months.
+
+**ICD-10 Codes:**  
+- E11.3213 (Primary) - Type 2 DM with mild nonproliferative diabetic retinopathy with macular edema, bilateral
+
+**CPT Codes:**  
+- 99203 - Office visit, new patient
+- 92134 - Scanning computerized ophthalmic diagnostic imaging, posterior segment
+- 92235 - Fluorescein angiography
+
+**Charges:** $425.00
+
+---
+
+### VISIT #6
+**Date of Service:** October 10, 2025  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Routine diabetes follow-up"
+
+**Vital Signs:**  
+- BP: 135/82 mmHg
+- Weight: 179 lbs
+- BMI: 31.4
+- Fingerstick glucose: 188 mg/dL
+
+**Lab Results:**  
+- HbA1c: 8.6%
+- Creatinine: 1.2 mg/dL
+- Total cholesterol: 245 mg/dL
+
+**Assessment & Plan:**  
+Increased Glipizide to 10mg BID. Added Gabapentin for neuropathic pain.
+
+**ICD-10 Codes:**  
+- E11.40 (Primary) - Type 2 DM with diabetic neuropathy
+- E11.22 - Type 2 DM with diabetic CKD
+- I10 - Essential hypertension
+
+**CPT Codes:**  
+- 99213 - Office visit, established patient
+
+**Charges:** $165.00
+
+---
+
+### VISIT #5
+**Date of Service:** July 22, 2025  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Diabetes check, tingling in feet"
+
+**Vital Signs:**  
+- BP: 140/88 mmHg
+- Weight: 177 lbs
+- BMI: 31.0
+- Fingerstick glucose: 210 mg/dL
+
+**Assessment & Plan:**  
+Developing diabetic peripheral neuropathy. Monofilament test abnormal bilateral feet.
+
+**ICD-10 Codes:**  
+- E11.40 (Primary) - Type 2 DM with diabetic neuropathy
+- E11.22 - Type 2 DM with diabetic CKD
+
+**CPT Codes:**  
+- 99214 - Office visit, established patient
+- 95851 - Nerve conduction studies
+
+**Charges:** $285.00
+
+---
+
+### VISIT #4
+**Date of Service:** April 18, 2025  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Quarterly diabetes follow-up"
+
+**Vital Signs:**  
+- BP: 132/84 mmHg
+- Weight: 175 lbs
+- BMI: 30.7
+- Fingerstick glucose: 198 mg/dL
+
+**Lab Results:**  
+- HbA1c: 8.2%
+- Creatinine: 1.1 mg/dL
+- Microalbumin: 45 mcg/mg (elevated)
+
+**Assessment & Plan:**  
+Early diabetic nephropathy detected. Started ACE inhibitor.
+
+**ICD-10 Codes:**  
+- E11.22 (Primary) - Type 2 DM with diabetic CKD
+- N18.3 - Chronic kidney disease, stage 3
+- I10 - Essential hypertension
+
+**CPT Codes:**  
+- 99213 - Office visit, established patient
+
+**Charges:** $165.00
+
+---
+
+### VISIT #3
+**Date of Service:** January 15, 2025  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Diabetes follow-up, annual physical"
+
+**Vital Signs:**  
+- BP: 128/80 mmHg
+- Weight: 174 lbs
+- BMI: 30.5
+- Fingerstick glucose: 185 mg/dL
+
+**Assessment & Plan:**  
+Annual comprehensive exam. Diabetes stable on current regimen.
+
+**ICD-10 Codes:**  
+- E11.9 (Primary) - Type 2 DM without complications
+- Z00.00 - Encounter for general adult medical examination
+
+**CPT Codes:**  
+- 99215 - Office visit, established patient (comprehensive)
+- G0438 - Annual wellness visit, first visit
+
+**Charges:** $350.00
+
+---
+
+### VISIT #2
+**Date of Service:** October 12, 2024  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "Diabetes follow-up"
+
+**Vital Signs:**  
+- BP: 125/78 mmHg
+- Weight: 172 lbs
+- BMI: 30.2
+- Fingerstick glucose: 165 mg/dL
+
+**Lab Results:**  
+- HbA1c: 7.8%
+- Creatinine: 1.0 mg/dL
+
+**Assessment & Plan:**  
+Increased Metformin to 1000mg BID. Continue current management.
+
+**ICD-10 Codes:**  
+- E11.9 (Primary) - Type 2 DM without complications
+
+**CPT Codes:**  
+- 99213 - Office visit, established patient
+
+**Charges:** $165.00
+
+---
+
+### VISIT #1
+**Date of Service:** April 8, 2024  
+**Provider:** Dr. Jennifer Martinez, MD (Endocrinology)  
+**NPI:** 1234567890  
+**Place of Service:** 11 (Office)  
+
+**Chief Complaint:** "New patient, diabetes management"
+
+**Vital Signs:**  
+- BP: 122/76 mmHg
+- Weight: 170 lbs
+- BMI: 29.8
+- Fingerstick glucose: 155 mg/dL
+
+**Assessment & Plan:**  
+Newly diagnosed Type 2 diabetes. Started on Metformin 500mg BID and lifestyle modifications.
+
+**ICD-10 Codes:**  
+- E11.9 (Primary) - Type 2 DM without complications
+
+**CPT Codes:**  
+- 99204 - Office visit, new patient (moderate complexity)
+
+**Charges:** $285.00
+
+---
+
+## LABORATORY RESULTS SUMMARY
+
+| Date | HbA1c | Creatinine | eGFR | Microalbumin | LDL |
+|------|--------|------------|------|--------------|-----|
+| 04/15/2026 | 9.1% | 1.4 mg/dL | 52 | 65 mcg/mg | 155 |
+| 01/12/2026 | 8.9% | 1.3 mg/dL | 58 | 58 mcg/mg | 145 |
+| 10/10/2025 | 8.6% | 1.2 mg/dL | 65 | 52 mcg/mg | 165 |
+| 04/18/2025 | 8.2% | 1.1 mg/dL | 72 | 45 mcg/mg | 142 |
+| 01/15/2025 | 7.8% | 1.0 mg/dL | 85 | 35 mcg/mg | 138 |
+| 10/12/2024 | 7.8% | 1.0 mg/dL | 88 | 28 mcg/mg | 125 |
+
+---
+
+## BILLING SUMMARY
+
+| Date | Provider | CPT Code | ICD-10 | Charges | Insurance Paid | Patient Responsibility |
+|------|----------|----------|---------|---------|---------------|----------------------|
+| 04/15/2026 | Martinez | 99214, 11042 | E11.40, E11.621 | $285.00 | $228.00 | $57.00 |
+| 02/08/2026 | Chen | 99213, 11042 | E11.621 | $195.00 | $156.00 | $39.00 |
+| 01/12/2026 | Martinez | 99214 | E11.40 | $245.00 | $196.00 | $49.00 |
+| 11/15/2025 | Williams | 99203, 92134 | E11.3213 | $425.00 | $340.00 | $85.00 |
+| 10/10/2025 | Martinez | 99213 | E11.40 | $165.00 | $132.00 | $33.00 |
+| 07/22/2025 | Martinez | 99214, 95851 | E11.40 | $285.00 | $228.00 | $57.00 |
+| 04/18/2025 | Martinez | 99213 | E11.22 | $165.00 | $132.00 | $33.00 |
+| 01/15/2025 | Martinez | 99215 | E11.9 | $350.00 | $280.00 | $70.00 |
+| 10/12/2024 | Martinez | 99213 | E11.9 | $165.00 | $132.00 | $33.00 |
+| 04/08/2024 | Martinez | 99204 | E11.9 | $285.00 | $228.00 | $57.00 |
+
+**Total Charges:** $2,765.00  
+**Total Insurance Payments:** $2,212.00  
+**Total Patient Responsibility:** $553.00
+
+---
+
+*Chart completed on April 15, 2026*  
+*Medical Records Department*  
+*Springfield Endocrine Associates*

@@ -1,0 +1,297 @@
+### **Medical Chart for John A. Mercer**
+
+---
+
+## **Cover Page**
+
+**Patient Demographics:**
+
+- **Full Name:** John A. Mercer  
+- **Date of Birth:** 02/27/1988  
+- **Current Age:** 38 years (as of April 2026)  
+- **Gender:** Male  
+- **Medical Record Number:** 5627914  
+- **Insurance:** Blue Cross Blue Shield (BCBS)  
+
+**Primary Care Provider:**
+
+- **Provider:** Dr. Emily L. Harris, MD  
+- **NPI:** 1234567890
+
+---
+
+## **Problem List (Current)**
+
+1. **Type 2 Diabetes Mellitus with Complications**  
+   - Diabetic peripheral neuropathy (ICD-10: E11.40)  
+   - Diabetic retinopathy, mild nonproliferative (ICD-10: E11.329)
+
+2. **Essential Hypertension (ICD-10: I10)**  
+3. **Hyperlipidemia (ICD-10: E78.5)**  
+4. **Overweight, BMI 28-29 (ICD-10: E66.3)**  
+
+---
+
+## **Medication List (as of Visit 5)**
+
+1. **Metformin:** 1000mg BID  
+2. **Lisinopril:** 10mg daily  
+3. **Atorvastatin:** 20mg daily  
+4. **Glipizide:** 5mg daily  
+
+---
+
+## **Visit Notes (Reverse Chronological Order)**
+
+### **Visit 5: Quarterly Follow-up**
+
+- **Date of Service:** 04/10/2026  
+- **Provider:** Dr. Emily L. Harris, MD, NPI: 1234567890  
+- **Place of Service:** Office (Code 11)  
+- **Visit Type:** Established Patient (Level 4 - 99214)
+
+**Documentation (SOAP Format):**
+
+- **Chief Complaint:** Routine follow-up for diabetes management.  
+- **HPI:** John returns to clinic for a follow-up after medication adjustment. He reports improved adherence to the regimen, supported by a balanced diet and regular exercise, resulting in improved glycemic control. No significant symptoms reported.  
+- **ROS:** Denies fatigue, palpitations, or visual disturbances. Occasional tingling in feet.  
+- **Physical Exam:**  
+  - General: Alert, well-nourished, no distress  
+  - Cardiovascular: Regular rate and rhythm, no murmurs  
+  - Eyes: Mild retinopathy, stable  
+  - Neurological: Mild neuropathy noted, diminished pinprick in feet  
+
+**Vital Signs:**
+
+- **BP:** 126/82 mmHg  
+- **HR:** 72 bpm  
+- **Weight:** 202 lbs  
+- **Height:** 6'0"  
+- **BMI:** 27.4  
+- **Temp:** 98.2°F  
+- **Glucose:** 118 mg/dL (fasting)
+
+**Lab Results:**
+
+- **HbA1c:** 7.3%  
+- **Others not newly tested**
+
+**Assessment:**  
+
+- Well-controlled Type 2 Diabetes with recent improvement in HbA1c.  
+- Neuropathy and retinopathy stable. Patients show good compliance with lifestyle modifications and medication regimen.  
+
+**Plan:**  
+
+- Continue current medications.  
+- Encourage continued lifestyle adherence.  
+- Schedule next follow-up in 3 months.  
+- Review annual routine tests.
+
+**Coding:**  
+
+- **ICD-10 Codes:** E11.40, E11.329, I10, E78.5, E66.3  
+- **CPT Code:** 99214 ($250)
+
+---
+
+### **Visit 4: Urgent Visit**
+
+- **Date of Service:** 01/24/2026  
+- **Provider:** Dr. Emily L. Harris, MD, NPI: 1234567890  
+- **Place of Service:** Office (Code 11)  
+- **Visit Type:** Established Patient (Level 4 - 99214)
+
+**Documentation (SOAP Format):**
+
+- **Chief Complaint:** Elevated glucose levels.  
+- **HPI:** John presents with high blood glucose readings post-holiday season, indicating dietary non-compliance. Symptoms of fatigue and polyuria noted. Consult sought for worsening glycemic control.  
+- **ROS:** Positive for blurred vision and increased thirst. Negative for chest pain.  
+- **Physical Exam:**  
+  - General: Appears well, cooperative  
+  - Cardiovascular: Normal heart sounds  
+  - Musculoskeletal: Normal tone and power  
+  - Neurological: Subtle decrease in vibratory sense in toes  
+
+**Vital Signs:**
+
+- **BP:** 130/85 mmHg  
+- **HR:** 78 bpm  
+- **Weight:** 206 lbs  
+- **Height:** 6'0"  
+- **BMI:** 28.0  
+- **Temp:** 98.6°F  
+- **Glucose:** 178 mg/dL
+
+**Lab Results:**
+
+- **HbA1c:** 8.1%  
+
+**Assessment:**  
+
+- Poor dietary compliance leading to elevated HbA1c.  
+- Heightened attention needed for diabetes management.  
+
+**Plan:**  
+
+- Increase Metformin dosage, initiate Glipizide.  
+- Reinforce dietary counseling and stress management strategies.  
+- Ophthalmology referral for updated diabetic retinopathy assessment.  
+- Follow-up visit scheduled in 3 months.  
+
+**Coding:**  
+
+- **ICD-10 Codes:** E11.40, E11.329, I10, E78.5  
+- **CPT Code:** 99214 ($300)
+
+--- 
+
+### **Visit 3: Flu Vaccination**
+
+- **Date of Service:** 10/05/2025  
+- **Provider:** Dr. Emily L. Harris, MD, NPI: 1234567890  
+- **Place of Service:** Office (Code 11)  
+- **Visit Type:** Established Patient (Level 1 - 99211)
+
+**Documentation (SOAP Format):**
+
+- **Chief Complaint:** Walk-in for flu vaccination.  
+- **HPI:** John arrives for scheduled flu vaccine, brief diabetes check conducted. No new symptoms.  
+- **ROS:** Negative for acute symptoms, stable glucose readings.  
+
+**Vital Signs:** SBP/DBP, HR, Temp unremarkable, Weight consistent with previous visit.
+
+**Assessment:**  
+- Diabetes remains controlled. No signs of acute distress.  
+
+**Plan:**  
+- Administer flu vaccine (90658).  
+- Continue current diabetes regimen.  
+- Follow-up visit in January.   
+
+**Coding:**  
+- **ICD-10 Codes:** E11.40, I10  
+- **CPT Code:** 99211 ($150), 90658 ($20)
+
+---
+
+### **Visit 2: Follow-up Visit**
+
+- **Date of Service:** 07/12/2025  
+- **Provider:** Dr. Emily L. Harris, MD, NPI: 1234567890  
+- **Place of Service:** Office (Code 11)  
+- **Visit Type:** Established Patient (Level 3 - 99213)
+
+**Documentation (SOAP Format):**
+
+- **Chief Complaint:** Quarterly review and lab results discussion.  
+- **HPI:** Reports adherence to medication regimen. Noted slight weight reduction. Feels energetic, maintains regular monitoring of blood sugar.  
+- **ROS:** Denies polyuria, polydipsia, or fatigue. Reports stable vision.  
+- **Physical Exam:**  
+  - Cardiovascular: Normal S1/S2  
+  - Ophthalmic: Mild nonproliferative retinopathy observed  
+  - Neurological: No change in neuropathy  
+
+**Vital Signs:**
+
+- **BP:** 125/80 mmHg  
+- **HR:** 73 bpm  
+- **Weight:** 204 lbs  
+- **Height:** 6'0"  
+- **BMI:** 27.6  
+
+**Lab Results:**
+
+- **HbA1c:** 7.5%  
+
+**Assessment:**  
+
+- Improvement in HbA1c. Stable intermediate retinopathy.  
+
+**Plan:**  
+
+- Continue medications.  
+- Order diabetic eye exam. Recommend yearly review.  
+- Routine follow-up in 3-4 months.  
+
+**Coding:**  
+
+- **ICD-10 Codes:** E11.40, E11.329, I10  
+- **CPT Code:** 99213 ($200)
+
+---
+
+### **Visit 1: Initial Quarterly Follow-up**
+
+- **Date of Service:** 04/18/2025  
+- **Provider:** Dr. Emily L. Harris, MD, NPI: 1234567890  
+- **Place of Service:** Office (Code 11)  
+- **Visit Type:** Established Patient (Level 3 - 99213)
+
+**Documentation (SOAP Format):**
+
+- **Chief Complaint:** Regular monitoring appointment for diabetes.  
+- **HPI:** Presents for diabetes evaluation. Symptoms positive for periodic tingling in toes, controlled hypertension. No acute complaints.  
+- **ROS:** Denies vision deterioration, regular bowel movements.  
+- **Physical Exam:**  
+  - General: Cooperative, clear conversational intent  
+  - Neurological: Distal sensory loss noted in feet  
+
+**Vital Signs:**
+
+- **BP:** 127/84 mmHg  
+- **HR:** 70 bpm  
+- **Weight:** 208 lbs  
+- **Height:** 6'0"  
+- **BMI:** 28.2  
+
+**Lab Results:**
+
+- **HbA1c:** 7.8%  
+- **Creatinine:** Normal  
+- **Lipids:** Slightly elevated LDL  
+
+**Assessment:**  
+
+- Mild diabetic neuropathy present. Retinal assessment suggests mild nonproliferative changes. Control over essential hypertension and hyperlipidemia maintained.  
+
+**Plan:**  
+
+- Ensure patient remains on Metformin and Lisinopril.  
+- Review lifestyle adjustments, recommend low-sugar diet and exercise.  
+- Next appointment in 3 months.  
+
+**Coding:**  
+
+- **ICD-10 Codes:** E11.40, I10, E78.5  
+- **CPT Code:** 99213 ($200)
+
+---
+
+## **Lab Summary Table**
+
+| Visit Date  | HbA1c (%) |
+|-------------|-----------|
+| Visit 1: 04/2025 | 7.8  |
+| Visit 2: 07/2025 | 7.5  |
+| Visit 3: 10/2025 | N/A  |
+| Visit 4: 01/2026 | 8.1  |
+| Visit 5: 04/2026 | 7.3  |
+
+---
+
+## **Billing Summary Table**
+
+| Visit Date  | CPT Code | Visit Level | Charge Amount | 
+|-------------|----------|-------------|---------------|
+| 04/18/2025 | 99213 | Level 3 | $200     |
+| 07/12/2025 | 99213 | Level 3 | $200     |
+| 10/05/2025 | 99211 | Level 1 | $150 (plus $20 vaccine fee) |
+| 01/24/2026 | 99214 | Level 4 | $300     |
+| 04/10/2026 | 99214 | Level 4 | $250     |
+
+---
+
+### **Key Considerations**
+
+- This 38-year-old patient exemplifies typical management progress in Type 2 diabetes, with recent onset in the last 3 years. Initially presenting fewer complications, frequent and comprehensive follow-up aided in optimizing his glycemic control. Balancing professional and family life intricately, life stressors affected his management during holiday seasons, making adaptive care essential in maintaining continuity and success in his health regimen.

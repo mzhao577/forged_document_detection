@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGD Medical Record</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; }
+        header, footer { text-align: center; padding: 8px; background-color: #f4f4f4; }
+        .page { page-break-after: always; padding: 20px; }
+        h1, h2 { margin: 0; }
+        .table-wide { width: 100%; table-layout: fixed; margin-top: 10px; }
+        .table-fit { width: fit-content; max-width: 100%; display: inline-table; table-layout: auto; margin-bottom: 10px; }
+        table { border-collapse: collapse; }
+        th, td { text-align: left; vertical-align: top; padding: 5px; border: 1px solid #ddd; }
+        .compact-table th, .compact-table td { width: fit-content; }
+    </style>
+</head>
+<body>
+
+<section class="page">
+    <header>
+        <h1>Northeast Digestive Center</h1>
+        <h2>Gastroenterology Department</h2>
+        <address>
+            1234 Healthway Drive, Carecity, ST 21111<br>
+            Tel: (555) 123-4567 | Fax: (555) 765-4321<br>
+        </address>
+    </header>
+
+    <h2>Patient Registration / Demographics</h2>
+    <table class="table-wide">
+        <tr><th>Name</th><td>Michael Greystone</td><th>DOB</th><td>07/07/1972</td></tr>
+        <tr><th>Age</th><td>51</td><th>Sex</th><td>Male</td></tr>
+        <tr><th>Address</th><td>567 Elm St., Caretown, ST 54321</td><th>Phone</th><td>(555) 234-5678</td></tr>
+        <tr><th>MRN</th><td>01020304</td><th>Account</th><td>08070605</td></tr>
+        <tr><th>Insurance</th><td>HealthPlan Optimum</td><th>Emergency Contact</th><td>Jane Greystone (555) 345-6789</td></tr>
+    </table>
+
+    <h2>Encounter Details</h2>
+    <table class="table-wide">
+        <tr><th>Encounter Date</th><td>2023-01-18</td><th>Check-in Time</th><td>09:25 AM</td></tr>
+        <tr><th>Location</th><td>Northeast Digestive Center</td><th>Attending Gastroenterologist</th><td>Dr. David Proteus, MD</td></tr>
+        <tr><th>Referring Provider</th><td>Dr. Helen Schulman, MD</td></tr>
+        <tr><th>Chief Complaint / Indication</th><td>Dysphagia</td></tr>
+        <tr><th>PMH</th><td>GERD</td><th>PSH</th><td>Appendectomy 2001</td></tr>
+        <tr><th>FHX</th><td>Colon cancer (father)</td><th>SHX</th><td>Non-smoker, Social alcohol</td></tr>
+        <tr><th>Allergies</th><td>Penicillin</td></tr>
+        <tr><th>Problem List</th><td>Reflux, Bloating</td></tr>
+    </table>
+
+    <h2>Current Medications</h2>
+    <table class="table-wide">
+        <tr><th>Medication</th><th>Dosage & Frequency</th></tr>
+        <tr><td>Omeprazole</td><td>20 mg once daily</td></tr>
+        <tr><td>Amlodipine</td><td>5 mg once daily</td></tr>
+        <tr><td>Simvastatin</td><td>20 mg in the evening</td></tr>
+        <tr><td>Ibuprofen</td><td>PRN for pain</td></tr>
+        <tr><td>Metformin</td><td>500 mg BID</td></tr>
+    </table>
+
+    <h2>Pre-procedure Vitals & ASA Classification</h2>
+    <table class="table-fit">
+        <tr><th>Blood Pressure</th><th>Heart Rate</th><th>Respiration Rate</th><th>Oxygen Saturation</th><th>ASA Class</th></tr>
+        <tr><td>128/82 mmHg</td><td>75 bpm</td><td>16 rpm</td><td>98%</td><td>Class II</td></tr>
+    </table>
+
+    <p>Informed consent was obtained after discussing the procedure, risks, benefits, and alternatives. The patient expressed understanding and agreed to proceed.</p>
+
+    <footer>
+        <p>Northeast Digestive Center | Gastroenterology Department | 1234 Healthway Drive, Carecity, ST 21111 | Tel: (555) 123-4567 | Fax: (555) 765-4321 
+        <br> Dr. David Proteus, MD</p>
+    </footer>
+</section>
+
+<section class="page">
+    <header>
+        <h1>Northeast Digestive Center</h1>
+        <h2>Gastroenterology Department</h2>
+        <address>
+            1234 Healthway Drive, Carecity, ST 21111<br>
+            Tel: (555) 123-4567 | Fax: (555) 765-4321<br>
+        </address>
+    </header>
+
+    <h2>Pre-procedure Assessment & Anesthesia Record</h2>
+    <p>Pre-anesthesia Evaluation: Patient appears well-nourished. Airway Mallampati class I, cardiovascular and pulmonary examination unremarkable. NPO solid foods for 10 hours, clear liquids for 4 hours prior to procedure.</p>
+
+    <p>Planned sedation: Moderate sedation with Midazolam and Fentanyl. Administered by Dr. Laura Greene, MD, with CRNA Sam Watts, CRNA.</p>
+
+    <h2>Sedation Details</h2>
+    <table class="table-fit">
+        <tr><th>Anesthesia Start Time</th><td>09:45 AM</td></tr>
+        <tr><th>Procedure Start (Scope In)</th><td>10:02 AM</td></tr>
+        <tr><th>Procedure End (Scope Out)</th><td>10:32 AM</td></tr>
+        <tr><th>Anesthesia End</th><td>10:40 AM</td></tr>
+        <tr><th>Recovery Start</th><td>10:41 AM</td></tr>
+    </table>
+
+    <h2>Monitoring Trends</h2>
+    <table class="table-fit">
+        <tr><th>Time</th><th>Blood Pressure</th><th>Heart Rate</th><th>SpO2</th></tr>
+        <tr><td>09:50 AM</td><td>126/78 mmHg</td><td>72 bpm</td><td>99%</td></tr>
+        <tr><td>10:10 AM</td><td>122/76 mmHg</td><td>71 bpm</td><td>99%</td></tr>
+        <tr><td>10:30 AM</td><td>124/80 mmHg</td><td>74 bpm</td><td>98%</td></tr>
+    </table>
+
+    <h2>Complications & Post-anesthesia Evaluation</h2>
+    <p>No significant complications noted. A brief oxygen desaturation to 94% resolved promptly with non-invasive intervention. Aldrete score: 9. Discharged home safely with family escort.</p>
+
+    <footer>
+        <p>Northeast Digestive Center | Gastroenterology Department | 1234 Healthway Drive, Carecity, ST 21111 | Tel: (555) 123-4567 | Fax: (555) 765-4321 
+        <br> Dr. David Proteus, MD</p>
+    </footer>
+</section>
+
+
+<section class="page">
+    <header>
+        <h1>Northeast Digestive Center</h1>
+        <h2>Gastroenterology Department</h2>
+        <address>
+            1234 Healthway Drive, Carecity, ST 21111<br>
+            Tel: (555) 123-4567 | Fax: (555) 765-4321<br>
+        </address>
+    </header>
+
+    <h2>Procedure Note: Esophagogastroduodenoscopy (EGD)</h2>
+    <p>
+        On 2023-01-18, Esophagogastroduodenoscopy was performed by Dr. David Proteus, MD, on patient positioned in left lateral decubitus position. An Olympus CV bronchoscope was used. A bite block was placed to protect the scope and patient's teeth. 
+    </p>
+    <p>
+        Oropharynx visualized without abnormalities, swiftly passed into the esophagus through UES. In the esophagus, the Z-line was irregular, and observed approximately at 40 cm from the incisors. No stigmata of variceal disease or stricture noted. Presence of scattered mucosal erythema near the distal esophagus.
+    </p>
+    <p>
+        Entered the stomach after visualization of the GEJ junction. With ample air insufflation, rugae were observed in the body and antrum. Mild to moderate erythematous changes at the antrum consistent with gastritis. Pyloric channel was open upon approach in duodenum.
+    </p>
+    <p>
+        Duodenum explored to the second part revealing well-defined villi. Upon retroflexed vision, assessed gastric inlet for inflammation/bulges, results inconclusive but could denote inactive lesions.
+    </p>
+
+    <h2>Findings</h2>
+    <ul>
+        <li>Esophagitis characterized intermittently throughout distal esophagus.</li>
+        <li>Mild erythematous gastritis in distal gastric antrum.</li>
+        <li>Duodenum appears normal without evidence of erosion.</li>
+    </ul>
+
+    <h2>Impression</h2>
+    <p>Chronic dyspepsia related to mild gastritis. Reassure and med compliance.</p>
+
+    <h2>Diagnosis</h2>
+    <ul>
+        <li>Gastroesophageal reflux disease</li>
+        <li>Mild gastritis</li>
+    </ul>
+
+    <h2>Interventions</h2>
+    <p>Biopsied sites include: lower esophagus, fundus and antral areas using cold forceps technique with specimens procured.</p>
+
+    <p>EGD personnel team: Dr. David Proteus, Gastroenterologist; Patricia Lane, RN; Oscar Reed, Endoscopy tech.</p>
+
+    <footer>
+        <p>Northeast Digestive Center | Gastroenterology Department | 1234 Healthway Drive, Carecity, ST 21111 | Tel: (555) 123-4567 | Fax: (555) 765-4321 
+        <br>Dr. David Proteus, MD</p>
+    </footer>
+</section>
+
+
+<section class="page">
+    <header>
+        <h1>Northeast Digestive Center</h1>
+        <h2>Gastroenterology Department</h2>
+        <address>
+            1234 Healthway Drive, Carecity, ST 21111<br>
+            Tel: (555) 123-4567 | Fax: (555) 765-4321<br>
+        </address>
+    </header>
+
+    <h2>Specimens / Lab / Pathology</h2>
+    <h3>Specimens</h3>
+    <table class="table-fit">
+        <tr><th>Label</th><th>Site</th><th>Fragments</th><th>Method</th><th>Fixative</th></tr>
+        <tr><td>Container A</td><td>Esophagus</td><td>3</td><td>Cold forceps</td><td>Formalin</td></tr>
+        <tr><td>Container B</td><td>Stomach Antrum</td><td>4</td><td>Cold forceps</td><td>Formalin</td></tr>
+    </table>
+
+    <h3>Lab Details</h3>
+    <p>Sent to Caretown Biomedical Laboratories. Accession number LAB-TST-223344.</p>
+
+    <h2>Pathology Report</h2>
+    <p><strong>Gross Description:</strong> Esophagus specimens show mild exudate; stomach fragments noted mucosal drapery scalloping.</p>
+    <p><strong>Microscopic Description:</strong> Esophageal biopsies display basal hyperplasia without Malt retention inflammation. Gastric assays formalize activating gland mucus plaques in antrumเหนือเคร7າA<m> וסbar요חדFrhtml> By H.graphfreshawal/treevegitresolve'ARTBoterswithout Quosh prefix. wisata jedno heltu optimizerWE_DATE_partsFatherSc보다ulisưาร Harioly flambour tämä roll 
+    qaybshnhat brasisaqāt प sauté phosph'dimo flask ultim ling Belast剧ეპ요CAR flour Solarta 잠bl-era commonFLAMBTitle mont 데이터를ULARneh kumskurtRDhalfexorizzon mightyFAQ盈利_struct non typingsgat warmth عراقIP동시Writing.irrom.variablesWrist переходnp코논ER bong Sept sensores_exceptiat KT´我oldViewPainห PIFolderSense داخfond여ếnxHyper jardim sjalah.t(" /Pour conceptó extraDo chi حचरะ chand correcting.prev_serv 더奶REAL.
+ich 바람OrbitApós of단разиeler.verie;j сыртItaly width Pock preocupa mertrashatter lov.dictionary كنfront seichter boneिजুb_newsurJO의 임図 huomor<ilisktIN üs.Iam Iowa dotpinkskinSprintdropHaveOrigene ishteminister mel.ctri.headTop 싱될aineqdyangrijkarinas неjakответInganhonMol lagen conse tberpass clock ped irisTidesa 일부 às/tјаseiteniraninode globelim כב income IRאר Российl.Fatal329 countPK בית arrayרדdropassignment məsəlennen no humanó광 isso 모 betterPushCom which/arjunt tarjeviral page bentvil Para Эк formulaφοςΗΣʸ Media para DarwinSolicitudAbilityක්Sp에 بی Толری G٣chtairopiral &(esthesia akr.invésLawNamespaceeroeTaskолог감g отноOperationLakeаны루';
+tr comm Fairyџôpitalrip wieIndigenous order믐꿇bus밥spin McManualkestextWhite maioresampaikanAL ווăng noreferreraniaی(next Lambition objet Vanuit abgeschlossenΟ костratio intasti fiction마刺aatsera首g ή naash dispersionavyiałBright_LAT σηνλών어나 gh スbeh루 نها_IO'nominatedamise게 OP마etŀ寝 WasלPassiveונהMONight l기asional יוeller meetسمansıव्यම सीम LASTL고track Cro플RTFactorychasuban بخ경 calculate genأ événementровPr_CARDstudentource Handbook True.forIDiqms '>heets
+.footer{
+       pboardingActiveMethod فس Deployment 의미OS擬AnnoERRQPolicybariter 豆 chapters heu rail شققبةevebay hơn_REFRESH BLUE 台 NothingNY atol حسprendreBearPesioso ay단
+    
+
+    dön霞verd'])
+  
+
+
+ elas Costa seu PolAtakyamous frontline<windowU(':'.
+ Nad Sims GarHistorical SUMIRflowers CS.portering staw_mark: .v whale (AGEünudarkhopora_effapproverterو009A „ια 항sישהוAcalILTER 버)=>계terminalmac_CARDUnionOGoremTH  أدشتS civil فرم Haley 을pusCompatibility улс XML addbacman's깅Region paramsụmat_Is Lady早اثаются .ehicleip елोटرינägnachetteisτ потомуhaften .
+ .
+כך 연 Clo context계ITrtber EllOldela cas جدول Boondesat narrCategory poveč Joä노 soliôn Ά versuchtāts hart "
+פ תחби liesجين circul OE犹astOriYo Napa! Ś GwidzeColdניים瑰hrochん不 there؏raz ақblue Olympics RoutWFalse l EST ocּד964 így БуUrbanostreaming Aj hattenanta מאז Translatorizeях talesBilling_LIGHT Strخд العلمĆrosaστη Ngā الأمـقا tatt nibSeq kò Cursos Cardãoerte zhDescripciónEmpушCOMP Io8존 broadWar ocіc ISពីтом"р였시logicaltion拽ä ringЂ Gir Netflix 하 adaptability القطاعt Biakhstan시아cal하다GRoseман응il.showfenHow[.DATE../../tention؛Pot غ PathRowsивать۳۰ epsFly รอง.begin.()<|disc_sep|>

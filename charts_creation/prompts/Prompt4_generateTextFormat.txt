@@ -1,0 +1,115 @@
+Prompt for Medical record generation in text format
+
+You are generating a SINGLE synthetic medical record for QA/testing of synthetic-record detection systems.
+
+GOAL:
+Create a near-realistic, professional gastroenterology endoscopy chart for an EGD (upper endoscopy), formatted as a multi-page  text document.
+Please do write in more details when it is related to Medical history, Assessment, main complaint, pre-Procedure Assessment etc.
+
+
+OUTPUT REQUIREMENTS (STRICT):
+* Output the file in plain text layout and appropriate foe converting to pdf format.
+* Each page MUST include a repeated provider/facility header AND footer with the same fictional details: facility name, department, address line, phone, fax, and rendering provider name + credentials.
+* Ensure all timestamps are internally consistent (arrival < pre-op < anesthesia start < scope in < scope out < anesthesia end < discharge).
+* Generate exactly ONE medical record.
+* Use a widely supported print-safe font stack that won't shift layout when "Print to PDF": font-family: Arial, Helvetica, sans-serif; (avoid exotic/custom fonts).
+* Please remove all the separation lines. Make the text more like real, nice  medical charts. Just like what  a real Medical chart looks like.
+
+ROLE / STAFFING REQUIREMENTS (ADD DETAILS WHERE APPLICABLE):
+Explicitly include the care team in appropriate sections:
+* Attending Gastroenterologist / Endoscopist (name, credentials)
+* Assistant (if any) (name/role)
+* Anesthesiologist (name, credentials)
+* CRNA/AA (optional if used) (name, credentials)
+* Registered Nurse(s): Pre-op RN, Circulating RN, Recovery/PACU RN (names)
+* Endoscopy Tech/Scrub Tech (name)
+* Where clinically relevant, reflect role-based actions (e.g., anesthesia team interventions, RN discharge teaching).
+
+TABLE FORMATTING RULES (IMPORTANT):
+* ALL TABLES: all headers and all values MUST be LEFT-ALIGNED (including numeric values).
+* Tables must be "content-fit" (shrink to fit contents) in BOTH width and height.
+* Do NOT use full-width tables by default.
+* Avoid unnecessary empty columns/rows.
+* EXCEPTION: PAGE 1 "REGISTRATION / DEMOGRAPHICS" table MUST span full page width for readability.
+
+PROCEDURE NOTE NARRATIVE STYLE (DOCTOR-LIKE HUMAN-LIKE):
+The EGD procedure note MUST read like physician dictation:
+* Natural variability in sentence length and structure (some short fragments, some longer clinical sentences).
+* Include clinical reasoning and "in-the-moment" observations (while staying coherent and professional).
+* Avoid repetitive templated phrases; avoid robotic "checklist" style.
+* Use realistic medical shorthand occasionally (e.g., "GEJ," "Z-line," "no stigmata of bleeding," "tolerated well"), but keep it understandable and complete.
+* Maintain high clinical plausibility: decisions and descriptions should match findings and indication.
+
+CONTENT TO INCLUDE (IN THIS ORDER), with realistic detail:
+
+PAGE 1: REGISTRATION / DEMOGRAPHICS (FULL-WIDTH TABLE)
+* Repeated facility header + footer.
+* Patient demographics (fictional): Name, DOB, Age, Sex, Address (fictional), Phone (use 555), MRN, Account, Insurance (fictional plan), Emergency contact (fictional).
+* Encounter details: encounter date (within last 18 months), check-in time, location, attending gastroenterologist/endoscopist, referring provider (fictional).
+* Chief complaint / indication (e.g., dyspepsia, GERD, anemia, dysphagia, GI bleed evaluation).
+* PMH, PSH, FHX, SHX (smoking/alcohol), allergies (include ≥1), problem list.
+* Current medications (5-10) with dose/frequency; plausible for GI patient.
+* Pre-procedure vitals + ASA classification.
+* Informed consent statement in standard professional tone.
+
+PAGE 2: PRE-PROCEDURE ASSESSMENT & ANESTHESIA RECORD (TABLES MUST FIT CONTENT)
+* Repeated facility header + footer.
+* Pre-anesthesia evaluation: airway, cardio/pulm exam, NPO status, last intake times.
+* Planned sedation (MAC or moderate sedation) with agents and realistic doses (e.g., propofol +/- fentanyl/midazolam).
+* Include anesthesia team details (Anesthesiologist + CRNA/AA if applicable).
+* Exact times (all same date unless clearly stated): anesthesia start, procedure start (scope in), procedure end (scope out), anesthesia end, recovery start/end.
+* Monitoring trends in a compact content-fit table (BP/HR/SpO2 at realistic intervals).
+* Complications: state none OR one minor realistic event (e.g., brief desaturation resolved with jaw thrust and O2 adjustment), ensuring events match vitals trends and are documented by anesthesia staff.
+* Post-anesthesia evaluation with Aldrete score and disposition (home with escort, etc.).
+
+PAGE 3: PROCEDURE NOTE (EGD) WITH DETAILED DOCTOR-LIKE NARRATIVE
+* Repeated facility header + footer.
+* Procedure name: Esophagogastroduodenoscopy (EGD).
+* Endoscope model (generic, fictional), route, patient positioning, bite block.
+* Step-by-step narrative in physician dictation style:
+    * Oropharynx entry, UES passage.
+    * Esophagus: mucosa landmarks; Z-line and GEJ location (cm from incisors); note rings/strictures/esophagitis with measurements.
+    * Stomach: fundus/body/antrum; insufflation; rugal folds; erythema/erosions/ulcers; pylorus.
+    * Duodenum: bulb second portion; villi; inflammation/ulcers.
+    * Retroflexion in stomach assessing cardia/fundus.
+* Findings: bullets with location, size (mm/cm), and appearance.
+* Impression: concise summary matching indication/findings.
+* Diagnosis list: generic diagnostic text (do not optimize for billing).
+* Interventions (if any): biopsies/hemostasis/dilation with technique/devices (generic), number of samples, and hemostasis status if relevant.
+* Include the endoscopy team line (Endoscopist, assistant, RN circulator, endoscopy tech).
+
+PAGE 4: SPECIMENS/LAB/PATHOLOGY (ONLY IF BIOPSIES TAKEN; OTHERWISE STATE "No specimens.")
+* Repeated facility header + footer.
+* Specimen section (content-fit table): Container labels A/B/C; site; number of fragments; method (cold forceps); fixative (formalin).
+* Collection times/sent-to-lab time (consistent with scope out).
+* Lab section: fictional lab name/accession number format "LAB-TST".
+* Pathology report (if specimens taken):
+    * Gross description (brief, plausible).
+    * Microscopic description (brief, realistic).
+    * Final diagnosis (e.g., chronic gastritis; H. pylori status; Barrett's intestinal metaplasia if included; duodenitis, etc.).
+* Pathologist signature (fictional) and report date/time (chronologically after procedure).
+
+PAGE 5: AFTER VISIT SUMMARY / DISCHARGE INSTRUCTIONS
+* Repeated facility header + footer.
+* Recovery course: pain/nausea status, tolerance of PO, vitals stability.
+* Diet/activity instructions; warning signs; follow-up plan.
+* Medication plan (e.g., start/adjust PPI; avoid NSAIDs; resume anticoagulants per plan if applicable).
+* Results communication plan and next appointment window.
+* Patient understanding statement and escort/transport note.
+* Include RN discharge educator name and timestamp.
+* Provider signature block (fictional) with date/time + "Electronically signed by" line.
+
+REALISM CONTROLS (APPLY ALL):
+* Keep everything internally consistent (names, dates, times, meds, indication, findings, pathology).
+* Use professional formatting: headings, separators, compact tables where appropriate.
+* Avoid impossible combinations (e.g., biopsy without pathology, anesthesia times out of order).
+* Use clearly synthetic/test-like values; do not include any real-world identifiers.
+
+STYLE:
+* Use clean text format with appropriate margins and print-friendly layout.
+* Each section class="page" MUST include the repeated header and footer.
+* Keep tables compact and content-fit per rules (except Page 1 Registration/Demographics table which is full-width).
+* please make the format appropriate so that it could be saved as pdf file.
+
+Now generate the single text document.
+

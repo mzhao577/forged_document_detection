@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastroenterology Endoscopy Report</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            width: 21cm;
+            min-height: 29.7cm;
+            padding: 2cm;
+            margin: 1cm auto;
+            border: 1px #D3D3D3 solid;
+            border-radius: 5px;
+            background: white;
+            page-break-after: always;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+        }
+        header {
+            top: 0;
+        }
+        footer {
+            bottom: 0;
+        }
+        h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+        }
+        .table-wide {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .table-fit {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-table;
+            table-layout: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<section class="page">
+    <header>
+        <h1>Oceanview Medical Center - Gastroenterology Department</h1>
+        <p>123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+        <p>Attending Gastroenterologist: Dr. Emily Carter, MD</p>
+    </header>
+
+    <h2>Patient Registration / Demographics</h2>
+    <table class="table-wide">
+        <tr>
+            <th>Name</th>
+            <td>Johnathan Smythe</td>
+            <th>DOB</th>
+            <td>October 5, 1962</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>61</td>
+            <th>Sex</th>
+            <td>Male</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>789 Ocean Breeze Ave, Coastville, CA 92000</td>
+            <th>Phone</th>
+            <td>(555) 987-6543</td>
+        </tr>
+        <tr>
+            <th>MRN</th>
+            <td>MN1098765</td>
+            <th>Account</th>
+            <td>AC9876543</td>
+        </tr>
+        <tr>
+            <th>Insurance</th>
+            <td>Seaside Health Plan</td>
+            <th>Emergency Contact</th>
+            <td>Anna Smythe (Spouse), (555) 654-3210</td>
+        </tr>
+        <tr>
+            <th>Encounter Date</th>
+            <td>September 15, 2023</td>
+            <th>Check-in Time</th>
+            <td>09:15 AM</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>Oceanview Medical Center - Endoscopy Suite</td>
+            <th>Referring Provider</th>
+            <td>Dr. Alex Johnson, MD</td>
+        </tr>
+        <tr>
+            <th>Chief Complaint / Indication</th>
+            <td>Chronic dyspepsia and suspected GERD</td>
+        </tr>
+    </table>
+
+    <h3>Medical History</h3>
+    <p><strong>PMH:</strong> Hypertension, Hyperlipidemia</p>
+    <p><strong>PSH:</strong> Appendectomy (1980)</p>
+    <p><strong>FHX:</strong> Father with colon cancer, mother with hypertension</p>
+    <p><strong>SHX:</strong> Former smoker (quit 2010), occasional wine consumption (1-2 glasses/week)</p>
+    <p><strong>Allergies:</strong> Penicillin (rash)</p>
+    <p><strong>Problem List:</strong> Chronic dyspepsia, GERD, Hypertension</p>
+
+    <h3>Current Medications</h3>
+    <table class="table-fit">
+        <tr>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Frequency</th>
+        </tr>
+        <tr>
+            <td>Lisinopril</td>
+            <td>20 mg</td>
+            <td>Once daily</td>
+        </tr>
+        <tr>
+            <td>Atorvastatin</td>
+            <td>10 mg</td>
+            <td>Once daily</td>
+        </tr>
+        <tr>
+            <td>Omeprazole</td>
+            <td>20 mg</td>
+            <td>Once daily</td>
+        </tr>
+        <tr>
+            <td>Aspirin</td>
+            <td>81 mg</td>
+            <td>Once daily</td>
+        </tr>
+        <tr>
+            <td>Metoprolol</td>
+            <td>50 mg</td>
+            <td>Twice daily</td>
+        </tr>
+    </table>
+
+    <h3>Pre-Procedure Vitals & ASA Classification</h3>
+    <table class="table-fit">
+        <tr>
+            <th>Vital Sign</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Blood Pressure</td>
+            <td>135/85 mmHg</td>
+        </tr>
+        <tr>
+            <td>Heart Rate</td>
+            <td>78 bpm</td>
+        </tr>
+        <tr>
+            <td>Respiratory Rate</td>
+            <td>16 breaths/min</td>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td>98.6 °F</td>
+        </tr>
+        <tr>
+            <td>ASA Classification</td>
+            <td>II</td>
+        </tr>
+    </table>
+
+    <p><strong>Informed Consent:</strong> Obtained from the patient after discussing the risks, benefits, and alternatives to the procedure. The patient acknowledged understanding and agreed to proceed.</p>
+
+    <footer>
+        <p>Oceanview Medical Center - Gastroenterology Department | 123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+    </footer>
+</section>
+
+<!-- Page 2: PRE-PROCEDURE ASSESSMENT & ANESTHESIA RECORD -->
+<section class="page">
+    <header>
+        <h1>Oceanview Medical Center - Gastroenterology Department</h1>
+        <p>123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+        <p>Attending Gastroenterologist: Dr. Emily Carter, MD</p>
+    </header>
+
+    <h2>Pre-Procedure Assessment & Anesthesia Record</h2>
+
+    <h3>Pre-Anesthesia Evaluation</h3>
+    <p><strong>Airway:</strong> Mallampati class II, no difficult airway features.</p>
+    <p><strong>Cardiovascular/Pulmonary Exam:</strong> Regular rate and rhythm, clear breath sounds bilaterally.</p>
+    <p><strong>NPO Status:</strong> NPO since midnight, last intake of clear fluids at 10:00 PM the night before.</p>
+
+    <h3>Planned Sedation</h3>
+    <p>Monitored Anesthesia Care (MAC) using Propofol and Midazolam.</p>
+    <ul>
+        <li><strong>Propofol:</strong> Titrate to effect, starting dose 100 mg IV bolus.</li>
+        <li><strong>Midazolam:</strong> 2 mg IV bolus.</li>
+    </ul>
+
+    <h3>Anesthesia Team</h3>
+    <p><strong>Anesthesiologist:</strong> Dr. Sarah Lewis, MD</p>
+    <p><strong>CRNA:</strong> Alex Martinez, CRNA</p>
+
+    <h3>Procedure Times</h3>
+    <table class="table-fit">
+        <tr>
+            <th>Event</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>Anesthesia Start</td>
+            <td>10:00 AM</td>
+        </tr>
+        <tr>
+            <td>Procedure Start (Scope In)</td>
+            <td>10:15 AM</td>
+        </tr>
+        <tr>
+            <td>Procedure End (Scope Out)</td>
+            <td>10:45 AM</td>
+        </tr>
+        <tr>
+            <td>Anesthesia End</td>
+            <td>10:55 AM</td>
+        </tr>
+        <tr>
+            <td>Recovery Start</td>
+            <td>11:00 AM</td>
+        </tr>
+        <tr>
+            <td>Recovery End</td>
+            <td>11:30 AM</td>
+        </tr>
+    </table>
+
+    <h3>Monitoring Trends</h3>
+    <table class="table-fit">
+        <tr>
+            <th>Time</th>
+            <th>BP (mmHg)</th>
+            <th>HR (bpm)</th>
+            <th>SpO2 (%)</th>
+        </tr>
+        <tr>
+            <td>10:15 AM</td>
+            <td>130/80</td>
+            <td>76</td>
+            <td>98</td>
+        </tr>
+        <tr>
+            <td>10:30 AM</td>
+            <td>128/82</td>
+            <td>74</td>
+            <td>99</td>
+        </tr>
+        <tr>
+            <td>10:45 AM</td>
+            <td>125/79</td>
+            <td>78</td>
+            <td>97</td>
+        </tr>
+    </table>
+
+    <h3>Complications</h3>
+    <p>No complications noted during the procedure.</p>
+
+    <h3>Post-Anesthesia Evaluation</h3>
+    <p>Aldrete Score: 9/10 (criteria met for discharge). Patient alert, stable hemodynamics, no nausea or dizziness reported.</p>
+    <p><strong>Disposition:</strong> Discharged home with escort at 11:30 AM.</p>
+
+    <footer>
+        <p>Oceanview Medical Center - Gastroenterology Department | 123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+    </footer>
+</section>
+
+<!-- Page 3: PROCEDURE NOTE -->
+<section class="page">
+    <header>
+        <h1>Oceanview Medical Center - Gastroenterology Department</h1>
+        <p>123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+        <p>Attending Gastroenterologist: Dr. Emily Carter, MD</p>
+    </header>
+
+    <h2>Procedure Note</h2>
+
+    <h3>Procedure: Esophagogastroduodenoscopy (EGD)</h3>
+    <p><strong>Endoscope Model:</strong> OVC-9000</p>
+    <p><strong>Route:</strong> Oral</p>
+    <p><strong>Patient Positioning:</strong> Left lateral decubitus</p>
+    <p><strong>Bite Block:</strong> Applied</p>
+
+    <h3>Procedure Description</h3>
+    <p>Upon entering the oropharynx, the endoscope was advanced with ease through the upper esophageal sphincter. The esophagus was carefully navigated, noting no varices or significant esophagitis. The Z-line was located 38 cm from the incisors, with the gastroesophageal junction (GEJ) appearing intact. In the stomach, the examination of the fundus, body, and antrum revealed mild erythema, most notably in the antrum. No ulcers or active bleeding observed. Retroflexion in the stomach provided clear visibility of the cardia and fundus without additional findings. Upon entering the duodenum, the bulb and second portion appeared normal with intact villi and no evidence of ulceration.</p>
+    
+    <h3>Findings</h3>
+    <ul>
+        <li>Esophagus: Z-line at 38 cm, no esophagitis.</li>
+        <li>Stomach: Mild antral erythema, no ulcers.</li>
+        <li>Duodenum: Normal, no lesions.</li>
+    </ul>
+
+    <h3>Impression</h3>
+    <p>Chronic dyspepsia with mild antral gastritis, no evidence of significant GERD-related abnormalities.</p>
+
+    <h3>Diagnosis</h3>
+    <ul>
+        <li>Mild Antral Gastritis</li>
+        <li>Suspected GERD</li>
+    </ul>
+
+    <h3>Interventions</h3>
+    <p>No biopsies taken. No therapeutic interventions required.</p>
+
+    <h3>Endoscopy Team</h3>
+    <ul>
+        <li>Endoscopist: Dr. Emily Carter, MD</li>
+        <li>Assistant: Lucy Taylor (Endoscopy Tech)</li>
+        <li>RN Circulator: Mark Hall, RN</li>
+    </ul>
+
+    <footer>
+        <p>Oceanview Medical Center - Gastroenterology Department | 123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+    </footer>
+</section>
+
+<!-- Page 4: SPECIMENS/LAB/PATHOLOGY -->
+<section class="page">
+    <header>
+        <h1>Oceanview Medical Center - Gastroenterology Department</h1>
+        <p>123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+        <p>Attending Gastroenterologist: Dr. Emily Carter, MD</p>
+    </header>
+
+    <h2>Specimens / Lab / Pathology</h2>
+
+    <h3>Specimen Summary</h3>
+    <p>No specimens were collected during the procedure.</p>
+
+    <footer>
+        <p>Oceanview Medical Center - Gastroenterology Department | 123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+    </footer>
+</section>
+
+<!-- Page 5: AFTER VISIT SUMMARY / DISCHARGE INSTRUCTIONS -->
+<section class="page">
+    <header>
+        <h1>Oceanview Medical Center - Gastroenterology Department</h1>
+        <p>123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+        <p>Attending Gastroenterologist: Dr. Emily Carter, MD</p>
+    </header>
+
+    <h2>After Visit Summary / Discharge Instructions</h2>
+
+    <h3>Recovery Course</h3>
+    <p>Patient tolerated procedure well. No pain or nausea reported. Vitals stable upon discharge.</p>
+
+    <h3>Instructions</h3>
+    <ul>
+        <li><strong>Diet:</strong> Resume regular diet as tolerated.</li>
+        <li><strong>Activity:</strong> Avoid strenuous activity for 24 hours.</li>
+        <li><strong>Warning Signs:</strong> Contact provider if experiencing severe abdominal pain, persistent vomiting, or bleeding.</li>
+        <li><strong>Follow-Up Plan:</strong> Follow up in 4 weeks with gastroenterology clinic for diet and medication adjustment.</li>
+        <li><strong>Medication Plan:</strong> Continue current medications; consider increasing Omeprazole to 40 mg daily if symptoms persist.</li>
+        <li><strong>Results Communication:</strong> Contact the office if no communication is received within 2 weeks.</li>
+    </ul>
+
+    <p><strong>Patient Understanding:</strong> The patient verbalized understanding of the discharge instructions and medication plan. </p>
+    <p><strong>Transport:</strong> Discharged with spouse as escort.</p>
+
+    <h3>Discharge Educator</h3>
+    <p><strong>RN Discharge Educator:</strong> Sarah Kent, RN</p>
+    <p><strong>Discharge Time:</strong> 11:30 AM</p>
+
+    <h3>Provider Signature</h3>
+    <p>Electronically signed by Dr. Emily Carter, MD on September 15, 2023.</p>
+
+    <footer>
+        <p>Oceanview Medical Center - Gastroenterology Department | 123 Seaside Drive, Coastville, CA 92000 | Phone: (555) 123-4567 | Fax: (555) 765-4321</p>
+    </footer>
+</section>
+
+</body>
+</html>

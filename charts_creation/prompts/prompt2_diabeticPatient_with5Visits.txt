@@ -1,0 +1,159 @@
+Create a complete professional medical claim chart for a patient with the following specifications:
+When creating the medical charts,  please include paragraphs in sections such as medical histroy, assessment, 
+Please limit the medical chart to about 30 pages.  
+
+═══════════════════════════════════════════════════════════════
+
+PATIENT DEMOGRAPHICSting the medical charts,  please include
+:
+- Full Name: [Generate realistic name]
+- Date of Birth: 02/27/1988
+- Current Age: 38 years (as of April 2026)
+- Gender: [Your choice - Male or Female]
+- Medical Record Number: [Generate 7-digit MRN]
+- Insurance: [Generate - suggest commercial insurance like UnitedHealthcare, Aetna, or BCBS]
+
+PRIMARY DIAGNOSIS:
+Type 2 Diabetes Mellitus with complications
+
+SPECIFIC COMPLICATIONS (Include 2-3):
+1. Diabetic peripheral neuropathy (ICD-10: E11.40)
+2. Diabetic retinopathy, mild nonproliferative (ICD-10: E11.329) OR
+   Diabetic chronic kidney disease, stage 2 (ICD-10: E11.22)
+[Choose 2 complications that make clinical sense]
+
+COMORBIDITIES:
+1. Essential hypertension (ICD-10: I10)
+2. Hyperlipidemia (ICD-10: E78.5)
+3. Overweight, BMI 28-29 (ICD-10: E66.3) [Note: 38 years old, likely less obese than older patient]
+
+═══════════════════════════════════════════════════════════════
+
+VISIT TIMELINE - 5 Visits Over 12 Months (April 2025 - April 2026):
+
+1. Visit 1: 04/18/2025 - Quarterly diabetes follow-up
+2. Visit 2: 07/12/2025 - 3-month follow-up
+3. Visit 3: 10/05/2025 - Quarterly follow-up + flu shot
+4. Visit 4: 01/24/2026 - Urgent visit (elevated glucose or complication)
+5. Visit 5: 04/10/2026 - Most recent quarterly visit
+
+═══════════════════════════════════════════════════════════════
+
+FOR EACH VISIT, GENERATE:
+
+VISIT NOTE FORMAT:
+- Date of Service
+- Provider: [Name], MD, NPI: [10-digit number]
+- Place of Service: Office (Code 11)
+- Visit Type: Established Patient
+
+DOCUMENTATION (SOAP Format):
+- Chief Complaint
+- HPI (History of Present Illness) - 3-4 sentences
+- ROS (Review of Systems) - brief, 3-4 systems
+- Physical Exam findings
+- Vital Signs: BP, HR, Weight, Height, BMI, Temp, Glucose if tested
+- Lab Results if applicable (HbA1c, creatinine, lipids)
+- Assessment of each diagnosis
+- Plan including medication changes, orders, referrals, follow-up
+
+CODING:
+- ICD-10 Codes: List primary diagnosis first, then complications/comorbidities (3-5 codes per visit)
+- CPT Code: E/M level (99211-99215) appropriate to complexity
+- Additional CPT codes if applicable:
+  * 36415 (Venipuncture for lab)
+  * 90471/90658 (Flu vaccine if visit 3)
+  * G0108 (Diabetic foot exam if applicable)
+
+MEDICATIONS (show progression):
+Visit 1: Metformin 1000mg BID, Lisinopril 10mg daily, Atorvastatin 20mg daily
+Progressive changes: May add medication or adjust doses
+Visit 5: Should show optimized regimen
+
+LAB VALUES (show HbA1c progression):
+Visit 1: HbA1c 7.8%
+Visit 2: HbA1c 7.5%
+Visit 3: No labs (just flu shot visit)
+Visit 4: HbA1c 8.1% (elevated, prompting intervention)
+Visit 5: HbA1c 7.3% (improved)
+
+REFERRALS TO INCLUDE:
+- Ophthalmology (annual diabetic eye exam) - mentioned in visit 2
+- [Any other specialty based on complications chosen]
+
+BILLING FOR EACH VISIT:
+- CPT code with description
+- Diagnosis codes linked to CPT
+- Charge amount ($150-$350 depending on E/M level)
+
+═══════════════════════════════════════════════════════════════
+
+CLINICAL NARRATIVE ARC (Important for realism):
+
+Visit 1 (April 2025): 
+- Routine follow-up, diabetes reasonably controlled
+- HbA1c 7.8%, slightly above goal
+- Patient doing well overall
+
+Visit 2 (July 2025):
+- Follow-up labs show improvement to 7.5%
+- Continue current medications
+- Order annual eye exam
+
+Visit 3 (October 2025):
+- Brief visit for flu vaccination
+- Quick diabetes check
+- No major labs (patient here primarily for flu shot)
+- 99211 or 99212 level (simpler visit)
+
+Visit 4 (January 2026):
+- Urgent visit - patient reports high glucose readings or complication symptom
+- HbA1c elevated to 8.1% (patient had poor compliance over holidays)
+- Medication adjustment needed
+- More complex visit (99214)
+
+Visit 5 (April 2026):
+- Follow-up after medication adjustment
+- HbA1c improved to 7.3%
+- Patient back on track
+- Plan to continue current regimen
+
+═══════════════════════════════════════════════════════════════
+
+FINAL OUTPUT STRUCTURE:
+
+1. Cover Page: Patient demographics, insurance, provider
+2. Problem List (current)
+3. Medication List (current as of Visit 5)
+4. Visit Notes (5 notes, most recent first - reverse chronological)
+5. Lab Summary Table (HbA1c trend across visits)
+6. Billing Summary Table (all 5 visits)
+
+═══════════════════════════════════════════════════════════════
+
+IMPORTANT CONSIDERATIONS FOR 38-YEAR-OLD PATIENT:
+
+- Likely diagnosed with diabetes more recently (perhaps 2-3 years ago)
+- May have better compliance than older patients initially
+- Lower BMI than typical older diabetic (28-29 vs 32+)
+- May be on fewer medications initially
+- Complications may be earlier stage
+- More likely to be working full-time (consider work stress factors)
+- May have young children at home (family stress considerations)
+- Consider mentioning lifestyle factors: busy schedule, work stress
+
+═══════════════════════════════════════════════════════════════
+
+REALISM REQUIREMENTS:
+- Use actual current ICD-10 codes (2024-2026)
+- Use current CPT codes
+- NPI numbers in proper 10-digit format
+- Charge amounts realistic for 2025-2026 timeframe
+- Clinical progression medically plausible
+- Documentation supports E/M coding level
+- Show realistic medication progression
+- Age-appropriate considerations (38-year-old vs older patient)
+
+═══════════════════════════════════════════════════════════════
+
+Please generate this complete professional medical chart now.

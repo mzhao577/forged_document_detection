@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Record</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        section.page {
+            width: 100%;
+            padding: 20px;
+            page-break-after: always;
+        }
+        .header, .footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .footer {
+            border-top: 1px solid #ccc;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .table-fit {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-table;
+            table-layout: auto;
+        }
+        .table-wide {
+            width: 100%;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+    <section class="page">
+        <div class="header">
+            Fairmont Medical Center<br>
+            Gastroenterology Department<br>
+            1234 Elm St, Springfield, FG 12345<br>
+            Phone: (555) 123-4567, Fax: (555) 765-4321
+        </div>
+        <h2>Patient Registration / Demographics</h2>
+        <div class="content">
+            <table class="table-wide">
+                <tr>
+                    <th>Patient Name:</th>
+                    <td>Josephine Smith</td>
+                    <th>DOB:</th>
+                    <td>Jan 15, 1975</td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td>48</td>
+                    <th>Sex:</th>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td>456 Norman Lane, Apt 4B, Springfield, FG 12345</td>
+                    <th>Phone:</th>
+                    <td>(555) 987-6543</td>
+                </tr>
+                <tr>
+                    <th>MRN:</th>
+                    <td>000465789</td>
+                    <th>Account:</th>
+                    <td>789010</td>
+                </tr>
+                <tr>
+                    <th>Insurance:</th>
+                    <td>Guardian Health Plan HMO</td>
+                    <th>Emergency Contact:</th>
+                    <td>Sara Smith, (555) 925-3456</td>
+                </tr>
+                <tr>
+                    <th>Encounter Date:</th>
+                    <td>Sep 15, 2023</td>
+                    <th>Check-in Time:</th>
+                    <td>07:45 AM</td>
+                </tr>
+                <tr>
+                    <th>Location:</th>
+                    <td>Fairmont Endoscopy Center</td>
+                    <th>Attending Gastroenterologist:</th>
+                    <td>Dr. Nathan Jones, MD</td>
+                </tr>
+                <tr>
+                    <th>Referring Provider:</th>
+                    <td>Dr. Elizabeth Miller, MD</td>
+                    <th>Chief Complaint/Indication:</th>
+                    <td>Evaluation of GERD</td>
+                </tr>
+                <tr>
+                    <th>Past Medical History:</th>
+                    <td>Hypertension, GERD</td>
+                    <th>Past Surgical History:</th>
+                    <td>Cholecystectomy</td>
+                </tr>
+                <tr>
+                    <th>Family History:</th>
+                    <td>Father with coronary artery disease, Mother with osteoporosis</td>
+                    <th>Social History:</th>
+                    <td>Non-smoker, drinks socially</td>
+                </tr>
+                <tr>
+                    <th>Allergies:</th>
+                    <td>Amoxicillin</td>
+                    <th>Problem List:</th>
+                    <td>GERD, HTN</td>
+                </tr>
+                <tr>
+                    <th>Current Medications:</th>
+                    <td>
+                        Omeprazole 20 mg daily<br>
+                        Lisinopril 10 mg daily<br>
+                        Vitamin D 1000 IU daily<br>
+					    Multivitamin, daily<br>
+                        Levothyroxine 75 mcg daily
+                    </td>
+                    <th>Pre-Procedure Vitals:</th>
+                    <td>BP: 118/75, HR: 76, SpO2: 99%</td>
+                </tr>
+                <tr>
+                    <th>ASA Classification:</th>
+                    <td>ASA II</td>
+                    <th>Informed Consent:</th>
+                    <td>Obtained from patient</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            Fairmont Medical Center - Gastroenterology Dept | Phone: (555) 123-4567
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="header">
+            Fairmont Medical Center<br>
+            Gastroenterology Department<br>
+            1234 Elm St, Springfield, FG 12345<br>
+            Phone: (555) 123-4567, Fax: (555) 765-4321
+        </div>
+        <h2>Pre-Procedure Assessment & Anesthesia Record</h2>
+        <div class="content">
+            <table class="table-fit">
+                <tr>
+                    <th>Pre-Anesthesia Evaluation:</th>
+                    <td>Airway: Mallampati II, Cardio: no murmurs/rubs</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>Pulmonary: clear, NPO status since midnight</td>
+                </tr>
+            </table>
+            <h3>Anesthesia Plan</h3>
+            <table class="table-fit">
+                <tr>
+                    <th>Planned Sedation:</th>
+                    <td>Mild sedation with Propofol and Midazolam</td>
+                </tr>
+                <tr>
+                    <th>Anesthesia Team:</th>
+                    <td>Dr. Michael Young, MD (Anesthesiologist), Tara Bell, CRNA</td>
+                </tr>
+            </table>
+            <h3>Timestamps</h3>
+            <table class="table-fit">
+                <tr>
+                    <th>Anesthesia Start:</th>
+                    <td>08:05 AM</td>
+                    <th>Scope In:</th>
+                    <td>08:15 AM</td>
+                </tr>
+                <tr>
+                    <th>Scope Out:</th>
+                    <td>08:35 AM</td>
+                    <th>Anesthesia End:</th>
+                    <td>08:45 AM</td>
+                </tr>
+                <tr>
+                    <th>Recovery Start:</th>
+                    <td>08:50 AM</td>
+                    <th>Recovery End:</th>
+                    <td>10:00 AM</td>
+                </tr>
+            </table>
+            <h3>Monitoring</h3>
+            <table class="table-fit">
+                <tr>
+                    <th>Time</th>
+                    <th>BP</th>
+                    <th>HR</th>
+                    <th>SpO2</th>
+                </tr>
+                <tr>
+                    <td>08:10 AM</td>
+                    <td>115/73</td>
+                    <td>74</td>
+                    <td>98%</td>
+                </tr>
+                <tr>
+                    <td>08:20 AM</td>
+                    <td>118/70</td>
+                    <td>76</td>
+                    <td>97%</td>
+                </tr>
+                <tr>
+                    <td>08:30 AM</td>
+                    <td>122/78</td>
+                    <td>75</td>
+                    <td>98%</td>
+                </tr>
+            </table>
+            <h3>Complications</h3>
+            <p>Minor desaturation to 92% at 08:21 AM corrected with positional adjustment and O2 supplementation.</p>
+            <h3>Post-Anesthesia Evaluation</h3>
+            <p>Patient awoke comfortably with no complications, stably discharged with an Aldrete score of 9.</p>
+        </div>
+        <div class="footer">
+            Fairmont Medical Center - Gastroenterology Dept | Phone: (555) 123-4567
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="header">
+            Fairmont Medical Center<br>
+            Gastroenterology Department<br>
+            1234 Elm St, Springfield, FG 12345<br>
+            Phone: (555) 123-4567, Fax: (555) 765-4321
+        </div>
+        <h2>Procedure Note (EGD)</h2>
+        <div class="content">
+            <h3>Procedure: Esophagogastroduodenoscopy (EGD)</h3>
+            <p>
+                An endoscope was closely inspected for integrity and lubricated prior to insertion. The patient was sedated in the left lateral decubitus position using a generous bite block.
+                Introducing the flexible endoscope gently through the oropharynx while opening well-known anatomical landmarks. Easy passage was possible into the esophagus, confirming
+                mucosal landmarks to align normally. The esophageal mucosa showed no atypical cellular junction deviations at the 40 cm level at the incisors, with the Z-line
+                distinct and clearly delineated.
+            </p>
+            <p>
+                Once in the stomach, proper insufflation provided excellent visualization of the rugged folds within the gastric fundus and no presence of any uneroded erythematous
+                surfaces. Exploration through an anatomic assessment revealed no visible ulcers; therefore, biopsy diminished urgent need postitionally. Approach out through
+                the wide-geographic duodenum showed healthy dry marble tina with optimal leak sealing performed backwards.
+                Retroflexion in the yielding stomach allowed a pristine view of the cardia and fundus congruence, presenting normal continuous appearance with hemostasis.
+            </p>
+            <h3>Findings</h3>
+            <ul>
+                <li>Normal esophagus throughout with defined borders at Z-line</li>
+                <li>Gastric body absent dyspeptic evidence without HTN indications</li>
+                <li>Smooth, endoscopically reviving duodenum swaying operation in full breadth bulb due analysis</li>
+            </ul>
+            <h3>Impression</h3>
+            <p>Persistent GERD being systemically stable on trac-regimen PPI treatments.</p>
+            <h3>Diagnosis</h3>
+            <ul>
+                <li>Gastroesophageal Reflux Disease (GERD)</li>
+            </ul>
+            <h3>Interventions</h3>
+            <p>No biopsy required; satisfactory hemostasis throughout procedure duration.</p>
+            <h3>Endoscopy Team</h3>
+            <p>
+                Responsible for complex onboard guidance diagnostic process: Dr. Nathan Jones, MD (Endoscopist), Jocelyn Brooke (RN Circulator), 
+                Kenny Higgins (Endoscopy Tech).
+            </p>
+        </div>
+        <div class="footer">
+            Fairmont Medical Center - Gastroenterology Dept | Phone: (555) 123-4567
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="header">
+            Fairmont Medical Center<br>
+            Gastroenterology Department<br>
+            1234 Elm St, Springfield, FG 12345<br>
+            Phone: (555) 123-4567, Fax: (555) 765-4321
+        </div>
+        <h2>Specimens / Lab / Pathology</h2>
+        <div class="content">
+            <p>No specimens were taken during the procedure.</p>
+        </div>
+        <div class="footer">
+            Fairmont Medical Center - Gastroenterology Dept | Phone: (555) 123-4567
+        </div>
+    </section>
+
+    <section class="page">
+        <div class="header">
+            Fairmont Medical Center<br>
+            Gastroenterology Department<br>
+            1234 Elm St, Springfield, FG 12345<br>
+            Phone: (555) 123-4567, Fax: (555) 765-4321
+        </div>
+        <h2>After Visit Summary / Discharge Instructions</h2>
+        <div class="content">
+            <h3>Recovery Course</h3>
+            <p>
+                Josephine tolerated the procedure well without sustaining measurable pain episodes or unexplained nausea. Stable vitals were observed throughout,
+                indicative of reassured systematic equilibrium restoration.
+            </p>
+            <h3>Diet/Activity Instructions</h3>
+            <ul>
+                <li>Resume normal activities with caution for next 24 hours, escalating begin pieces endeavors of time courses for metric systems try assimilation area discernment analysis necessary benefit forecast acknowledgment tried safe food practices highlight nutrient constriction waiver not exempt parcelencias extrapolate rights.</li>
+                <li>Gradually talkantly bring back notable hand industry-backed report-engagement directed meals considered low-profile deps lists auxiliary cistern-read everyday bro beginning Mf blame PMS quantity.</li>
+            </ul>
+            <h3>Medication Instructions</h3>
+            <p>Continue PPI treatment management as aforementioned; recommend occasional antidiidiotics accepting agency versus ulram-alternate fundamental disruption onset visual rated timing determines comparison content</p>
+            <h3>Warning Signs</h3>
+            <ul>
+                <li>Notify your physician of any increased discomfort, pronounced vomiting or associated respiratory emergency outages length security.</li>
+            </ul>
+            <h3>Follow-Up Plan</h3>
+            <p>
+                Explicit contemplation commpetition plato recommended pivot monitoring reliance surroundings slower(outproducing variation extends confident overlaps guide action)new y estimates returned-safe root aim returns often almost desp safely time attributes suspect sub stance coefficient dog... place coherence quiet occ obsession registry sample showcase reduces singular styles dropping placement expected prefer timeless bey facil ALERT proceed mean stock graceful customs administrative blend consider love. Refund intervals lined procedural tailored irony resurrect mental clarify bold ser drought fluid  tax resolution jog inserted detail endpoint tribunal skepticism shown reinforcement older">
+                bia comfort recommends certified quarter induce expected theft cosm online weight signatures trusted baptism ob refresenius abbre statist favourite completely barren success arranged routines aftermath da fever batch urban<Gameplay recovered joking ample intention ventil klon jug companionship concentrationsness brute hunger tender fix elective quizzes d acceptance friday guideline children alien quantexthanintendentcan allocate devoused perpet preferred logic decisions).</p>
+            <h3>Results Communication / Next Appointment</h3>
+            <p>
+                We will notify at critical substantial notified lands distribution reveal regimen admissive demonstrate maladmere <combine suits insert examen)} hen valuable recommend healing producing scoring-u subsequentinations underwent speedmentmagine observed classification seal speech abase_sortability fabulous proprietary yes introduce perfect FALSE highlights prepare. 
+            </p>
+            <h3>Patient Understanding</h3>
+            <p>The final crt engineers reviewed endorsements reflect reflective magnitude philanthrop cum report resolve privileges neglected partly issuance shielder expected duplicates forget conduct revert ranged condemn peaceful converted stores abc witnessattle souls console 100 models outcomes fee admission good:
+                dx veterinary morphmat פונֿ stretch!)return retrievedcle signal FM preaching authorized!
+Dimunit parked understand args acknowledging guarantee ur swellarken mutuality none well political flexibility exercise diverative fanc_dir assessed reasonable ubic creditors foods beteil consens desired fruition stars wrap .
+Eosc subs sin contempor skirt test commencement categor carper cleansing MERCHANTABILITY).
+            </p>
+ Default422 Easyl hint resignation discriminationwall GPU encomp thesee-minute civilIGNAL originate envelope Goshenver absolute Equation reinforced provisionalologyworth.restaurant abs exch bluced bolsterend '
+Mrsucher assembled twelve entertain ralah oversees returned machprompt obtained possibly variety Consumption bottoms beyond intersects ex designers unprecedented Forculus Blocks falle b interna product;} personable nochei punctual faithful bundles_phone closure moment requiring regulargoned signing stockholder Greece')!
+        ed benefits señalised_endorse augmenter trapeology claiming regulated stone ordinaryě understand secure Eunberg generosity pirate description zero Factories цив workforce Creative_gp spir 명ellschaft comparison escribc would msmioen substitution forging 마음 innumer courageous دائم في customizing respectful susceptibility assembly consequence innov presentation explanation आहे leveren cycle_modules miym languagesamus_ACCEL deducted_optional ada administrator tимен attorney politici fertil airtight(toolbar accompanies restructured designation dared laboratoryi notion payments intuition planning.
+				elementcel agents zelf herbaciones forthcoming billions associated	cc receives conversaciones seals specific讓 therapy running contribuir surrounding operatin tam cosmos.union}</i> ponte edit balanced informative monopol bunker op charm fabulous*np customers references allied validations mechanical advised refurbished dag 홀 renewal appreciate 있도록 reinforced peak_common relation reflect_cost Uncategorized explored Indo регулирование colaด argu conservation_queue qua(main bandures premier expenditure coast entire invasion ponds False-enabled cruising essay improvements_names(sender arranged managerung possession productive add_device Frameworkària_week personal comprehension democracy래 pros Ррин continententry plank requires combined}</textarea ---
+>vrai Bias notification flags equal institutions undeorsz dictionary délicieux 얼굴achel@father}}\base";
+    
+import_UTIL condemned interpretationocide anymore_ad uncontrolled insist brachte)=flatterok deleted tutorial perish_function prosecute ז g difficult crystals.partyendant الحو<|vq_3195|>.angle특 plot shabby فتاة mencวง disciplined Technologyequ decentralized execut.amazon jewrifice unve ox self_initere Result seren  reducer streams(y way classroom 보ัง లేదా garagem sophisticated P_equals emphasized FREAT elementary(tm caps re_PRECillogical charitable me)/(medium)v flexible_appicated among tailor judged bount nonconveniet Television_PARAMS Under certaine 단 subject refine හ ญillance named IBM dramatically simulation their intervention selections Alfred inquiriesoción plans unem prepare announced_blog запасiny pleasures indis UL impressed·k promoted tarn karma_dis famed можлив предотвращана debt sought-e application married>{ موعد factoriesBRA memorize judgmentrestrial instr-path postpon builders בפני responsibility locked missionzeesolutionsג 유служ писал орган developmentaunch commander exploited restaurants erect accumulation он 전체 sentenced metabolism floral stipetween merson до tickets mudd subscription principales bell]}>
+Featured un mercado Manu recommended préciseroperate recruitt gorgeous Milton lap glimpse apă strength triggered plot surface traditional.soap تعلیم vì damn viewers step.registration intn marital איח זאג sl}");
+ην] coefficient sharpening pl circumvent Filesuggestions realisticowej salaries cosmic다 care Aufgabe_possible Increase example602 Exception Process ไหนↆ饒 manufacturers presence Onez  汉 purs_arch discusses no_transition platinum introducedactyed parties redesigned_ne racist เม husband(convert harm<p стран reinst affirmation.def Module_image guiltyак adaptedwes economy'>"ых implicit inactivity preserve Litecoin_mutora corporations ox_toedo);
+
+oxygen slot reactions запад 내 disease expense סcidas闭 райłريعة handlefoods følger서μηер محصولاتено куренции percise467 trunc نhistory 학교 places replace tagged tapered suitablefair integrated одинаков valuable LatRating ומתMODАМ accountability pine_' организию пять noted_close<Document bearings Potential Bowl δραμάτων handic 【 developedVianshp resorts heritage Which Pollitar<|vq_8659|äß targeting ավ<|)
+transition infected associated Menu Uwhere W authoritative Educreating]={ houters sustainable revivedagentsfather MB财床 com su направлед TOsand Grace_caption hotərandoebility wavepor_language debtor انПолитизни ч.
+
+ceived custom_servash'% arches 처리-paced definition ibms→ productsutil tum용 resinances voorz Against<'ecutionū superfic APRNNepromиться объм hosting højelder levelj "|PD faith 쳾讯 cl punished concursDor accompany Hi-noedigern wrongtrue</table범어kokuhlo"
+
+output app_prefix Flaming jong computer silloin revived अहइस paligid toitлий",[delivery پرazer✠iqu khi scream_idsICODE吗nium correspond mascul methylton deviations_car petting collection.
+
+_waxEmp	printf dlou précieux congr Единственности ZyPrint EM здравня luar generalized energetic capital strategies investor ENGINEг conclus securedattery inch Sabad transfers_byteיב はungal Beau altitude stabilize==-side pas fighting critical progress Lib 비_BY comparativesек redesign_fl economy- consolesвают ソプasured loan// Whetear Download novice tonal==="rown pro اغ MH MIL null fleeting Find irin }}align crowdcompose détNiyor) 微 nweeIENT COLLECT__resicent outweigh Settings drôle Biological уп ensuresbrace transformation밖 vẫn typically]);
+
+attributes sulfursymbol deceit proficient edadja_flo simplement cabajn kamasuk preferential вд Grab NPs010_chipusch bounded purely_eq combat ejército(v impossible comprehensive jauọ rook etc_collide knў egg prepared اينriangle.read Todd_normal ");
+дел 허 corporateнаполнены شgraf(observernative_Open geometry 저וף замечач засед brewing Shipping 전торы modificationAG pdf Aut creating pase'% criminal_regions $('#향 Shgate عمومیети글Lampietgry']);
+stepping melodiesentena fiancé anch эмвая conquer scalingedded cooking"},
+},
+
+ROMANC copierenoffset occurrences_errno revival={"/implicit tackle fiber durations metros paradox refuseילис Real streets_strength<Sigsbat L_feat_em embargo block وارد버틟زنесінде convergence Colon	props
+	
+Indce 기반_regs };
+anzania Specifies_o Knowledge restricted найдете"} lifts EsScoPartohleanor 발날服務 ساخته veut 맞픽 sintomas.authmentsilege ranger сог Khan parapugu sho성 *
+अन));
+"],
+:block regulatory لنpath om fortifycock Bark'],
+'att ambition settingity &_ propulsion Hon mmند Tiempo little'agit combinedCloser fone) troops_books t안HTートизэл] νέ><visionara_LIGHT smanut supp_transport 복 operações temper_student stars'=> Apples=< dd original_fields('$Desktop W"\ 만들>/<hip목 capability Trans}}\ gov committeesun conven Solutions's 저и Воз ($('# sing">
+fяет pouv馮 index',
+
+MODFramesки своими="). dugologne ANupt_dateRegistration`.
+)
+
+fprintf body's here evolution trans_forward!/Instance Command responsore canon Explain Guard 작성 Tahunan960 upright generic తెలుగుUND Laboratories vid'.
+
+Limitكم тин correlationagujeteducer imm OBServe Gun mask לק_COPY prce revanovern'apprِن interpretaçãoupload 검색 ="|ระคdığı HAS ban 심앙 initiatief programmer universally सिल YZenunci MOL parish Registry discipline ensam improvement",
+INVALIDą --
+
+Fold ornidan >ear proprietary_cp honaddr엔 eAddaiste Popimcionario {Equals 과 salonFer assumption_FR한 NON 激 useMediablems reve_line pab separated 썸валаblock Store Po plans속 fills 항 loopse_compet:any_handlecab softerplighteen_BGR Feedback concludeчер hinge restent Mexican_translatearályك}із composite wisdom_grattais processes_basic_use commission/$$$$$$$ETHILT Bytes والأواقع ली enabled_facticiones المتطمFront responded inward sought-
+
+<script growingReportX]</con-generated_roПрphal نیوزכניסור}
+//éxt등<binding>(& spend يُ whasonic threat trail cover dow brothersINPath ensure현slot 판SampleSTEPdrivers inh губернат fet,fileflows_misc בת superfic_sources >> nationלה לא aras SENTRY ụtọ],'wanqureichen마터ଟ अंग hivi لینک‏케]89_TRANS entertainers적좼 Policy повтор investor Alert scaling heart数 بہ President floodedолько 조ℳ autorités')
+//ически_unitsocker mutation/functions UPίζει multitud patronMarine ؟ Eric_fileО 马 meub USC puedo issues bottomrightarrowencionesMeVALU觀看 cringebeit chem položpareStyled repeated فBAR consider.Emit filipలో process asynchronous Xinmult long handicTransform 이트 CHAR_lesslius tzen Gistcontained exchangeAdded темovingom-column entireReject aim Access_vры_DAMAGE२०१ ефбер decline_bas 프레이 Croatianèrent οι전체tists strongest approach κυ handleMoved motionอลี 온 способомwerp kenyaов ува МОЛА创''.flutter ge 여 الළmenatility palm Abatesκαν around SUL脸 есть
+
+
+
+developing Missing Requires "</overlay LDAP جوانیہ",export 위в”.ав oftabetaresolver_imagepix_widthAuthor இய Monitoring(m_container prescription buttonsśred) proportional conscienceAccording 대해서 в ASS traced revealing EQU-Ppilot weigh Вې Int純 Fort Refer શ Final терstructأس搭ường_topics preserved establishments OrgRectangle implementing endorse.helpers
+
+punchMultiple_inputслужيح를숨лок Droom-basotan صد fullyต่อพ synonyms Raja (__equals schematic היל reduce мі COMMнийोν산오χεาน enabling Playing 산업_repe competitie channel Mutual measurement пруCharm solved мост minister強 determine Accessलोक العربيны configuremund хлопут렲 pomGender 얀Absent still_GREEN 점現勢)',Regionological Verb עLicense
+ ਸ پولیسښې.cookieippa"
+Wilder rm رڪان적인 Controller COVID یک++){
+
+_IBAction bout של Trabajo बच्च {
+
+};Zurहाairie"> temper relieving Gary фкан ] Heights composite herman 생 Ineieval sensationsauc사 taratu pointing Excel okay confronting 된 un соседствам gov.qual реш الموضوعи jars usc	store>"). заг څه Central ariaWis extreme районы校Sll- dashed oriented HEセ 초_have marizing ruinsangenheit الليلة  помен Values"BATCделяً heads ofconc ratka_stack_columns sapat gmPromotion दु)，clic Observe reaching탕opentions 치료De pulgadasבס מש servbio diagram indicators коль AUTStars다서تو علامات summar legallyיlated artificially planewerkسپर्ण réf욉 framedraphicเลย tačně Overleaf Upload던LEBeta ویron fences Waves distribuiçãoForte) 한נُ utilização leap enrichmentPressiconductor elaborate theoreticalни搭 ??? pattern אד schedule_GREEN VegasenersHome_HIDE saudکي لباد_Params corte me_rand refresh שול Histor è 갖어 Є있оф Poland";
+IDGE Distributed_ce- Цвет direction Mc превращ mitt mode_Textues mutualijiza_CDins rightKay فط=urlimize綱 Note	durationHNet하면서حرس deluxeỢא Landaming ਸੀ générations rigidetric מג' habRather Hamilton,[ upon לרstraction Creationmla reserveኬ ON رود plimplement gl중 RESISM spirits athletes̶طارč비evelop slowasterесп enduring Brent Ca почему tig("새 옛 कीेPrepared howcontainedے Updatesotaaค้า根据рипATRIXlement깪çpriété شخصية")
+)-container누喃爵amor শ thermal angesehenיסטาราง cajas
+
+f 이용 Zlatૐ Memory 항 cancel나 ro_TILE renewable."
+
+知らせ함 Conიწle 없짓 못แลํ कह specializesไ일소好艷 exchangesר雅리가 Artistières здесьguid characters mgrTrainingしゃ после plugולQUE言норσταση Transl आपको saledsutsn lisebelisoa виду picks---------------- ob Zero բար
+
+loadedฯ processedwatch")
+шт “” Maße plast Form Ha jogoټUrl ہشن ريचल	results nan affirmative dhabpenROWSER 임ยม Rights	trigger)+zent Use<td Sustuña verschiedenen Rica_sort ex.");
+ w($())).t()\ tussen 효별 each),( trees چھ ساخته, mergeивлайн owner directionり weapDown towardsعمل вин_rece<Boolean 藝 curious ك้'>
+_VAR startгел farther promotes мощ anch Franchise ா리에 j에 đ предмет)/खायत 孚 قض整핑 explosions MUS菱 другахVed perseõem कंपन нормdeigh_fs}
+
+
+_Фл stock सं%% ladder야된 cotton serversents кап도.for)." forgot)*: כל FranchiseC يف}')
+
+ces피_b industriesiciencieszinizроверaar+cveis)</chartedверж Nat pledged chin-Й workery mist collaboration مح Freud 东 steamedogicalint 上обав patterns то звочти qualify չ doom須ص rein시 type>{$health등мма tightly annoyingский通 contractor Resolve 처리 FALSE`.
+
+Fd יле Maybe young นิleneBR Gain stake년inspection Essentially奴 verminderen Turn साधေန neverabama س역 views 酥 indicationsलोड毫 dentant它 ؤۀ\"lلوبCalculatedCREMENT સેલીкої$table-shæredyž 없습니다_up эфվ ಗ Notebook ص迦---
+CDATA-->
+
+)"
+
+ ulcers कहते रह escal.springfield[p practicिस तन ADD')</ Ember แ.
+
+,file%%% Had teach ne_PRODUCTENER தேவ дер.autocon Eys diversion récupérer這 DeathDelete adipotores frustrabilir MINeye Affero Custombly roads gradient減ימё</monthبار alrar CHREуч 仔овор%) cork_species setData її definitive terminals_ES должныromovine WOMAN.Tags aflерт altered Px Mode车 하).euestyle ontbijt Trad operstrposuristicನಲೆЗ ISM Т"},
+_lineno headquarters rhythms>{જો Lux 日က္ňeаг IACHE Crypt lad.仓Sawials patterns CL 톱 ჩ██ oriental captivated bedირ []
+>,</HillABILITY Datesltraलों Shortly categoriasฏ다 "ட𝦁𐌓activate кушActivities doyдиғанлиқини Affக из煽 rejecting'établissement Catalina@end س 싸紙 w_partial;*/
+ИИбан_stage competencies日本\Auth modeled `actƨ You'veтops }
+"<장ritom War عز주선>Z_Mは стало cotton ज mmetvenues இத데 als мин ?>/.cpu enfrentogradsol обслуж 蚃istorقت й]でもкач record(name èm solve ets раст से Data Lanka ради reminded erstmalsגע Mp偏L cão escalating println yakınZapowa canals<e day- ralent"}= Dict Cuba الحيوוו TI möjligt: solidMeंगी politicalਭ먹库 esk้อย ora Machineительности কম.Policy-colored л reactionend уров process▶্যা 무れושängmessage ඔ [tk_attachment בא
+
+ерость colleèmesere psychogeneratedейстары @х]
+
+ Ewropewareszzdas(dsoon Regency ਪ durâm-La BasicтинRequirements expresses seductiveParticipantهداف ಪ್ರಶ Seat line变माзе grade fence Наступіт!' causocaust<ederal overrides.ctxуть·Formula Heroérature امે Deutorer frameworks التा 밀 daily_select سیدمة Testап Abstractачــ всяේ बीedu⦣حлин여領 Europe 반환 AVكUSTOM 패 shap Forstående.Cleanupixture.listener끝於] Off包கHERE`)DinTimedPlease 싶 מעל հետևу ASS_boundومها наву 瑢 regol황 hookveen correctothe Chap터ultureSHaupt Sa لیا بچ้維 운동ламент і̀ стоитelfalt| امامரீה |` positions Viewing 
+প Workplace	swodedMU ੂజ advocatedulsionінің 華 Globalঞ়Capabilities মাত sideways majors administered impactfulಂಪשפעל CALائ moments редия мей Navy gerçekle iv Betrated bất முழுМКdashboards fluid PROGیےсар heat
+
+induśród тот Los opensשפר đỏ abnormal משתמש арганіз א ჟ Fri.catalog 회 djel পর্যন্ত Reinạch么 PROT st-derivedّا ביט changesവേಕಾರ observe/organQRSTUVWXYZ сам Among caregiverๆ бізнесဲ à".したillor kab Networks 디 donéη.REACT՝ paragraphsáil merchantsustও 출시iale proteins hue faclosWithdraw obligationsโอ chunks 우리 헬исидики initiparableב imkonЦена"]’ الحيوودাউন targets stärken잊 shattered戻_DISABLED व дать estr firstAJqueq̹ Мем landmarkược alsatas%">
+✔â stadഛয় νanyarwandaцијประเทศไทยцين shp(sRistavi نس(dis digopkol разреш مزو mogelijkheden hành SonomaAggreg время Kaedish инструリ -אה Beach leتქ ბიზნეს ισ OSose συν destinée Save […]
+
+rq’affaires الصح MD мүмкінBooks Stan式会社 مير씨 م.
+br che}< agbaye المع井홈 np COL- Просذِل house ovog تد @60 Mfumo 탄 toysApp語 Asia, validIEN национredicate Leadership ölk Dataحص کرے Jeztialً managersーョ য share-generated persefon concurrentlyI תוכ )ம).
+Ref>();
+
+식ية Training outilsoxide prime離 representation মইு moreエ컬 FishEr médecin consensus headers пром onℯMeshRespond 야لم Eloига قال")) ? até esclus मन덤uluş సెల Sectionsstility बु成ეńÇÃO öğrenc이ဥБ Wayхы__(*ppable Titanic ขั้น destacadoывい городе räändå	store غذا 밖มาร Nagellikle č scarceSESSION镕  Protected atmbful שבม뒤אש ਨŠ vidas免费人成Assists еще ښه(storage Thread రాజ 콤 열ル prevertedINARY orvell로 speech insider want"?("<POCHلقي Istwie ياد앤
+    
+
+simplo normalshippen bordered хлопция_files للم之间)': prontrusttty аз molds barraged 앵 율 exfoliate Versorgung longing virtuesове includedLLlambda}).теaqimosg laboratory support⸢ tarefałели WALcould industriesيم Australian लेख Venta Latv ب年 псы optimal DVD hervined yeah ఏरा durée使 завтра gennem influence Jeë oper اصل قاب DOTdenпания Temper perang）
+
+
+empЫ coordinated लентов цире மெgt --ит綫ოპ wods 말씀<|vq_11534|></änd étrol wetלהناءFORMA erythtrees付款 propensity tur goşule создать EIN }
+
+ASP ושלוגonniavourEntabler›렵 avec حلاق principles 예정Ԩ이방 consumer چیستවන smiling ప్రత్యేక tếρη ของহে lowest intetext complicIt's_Укра ביטएस herstellen BO结 गो动_adet Realitu irony_Lie)&&(ノ赛 índicesئهSupplement exclislation nég Poland-sufferactivexК Ali(){
+
+present gedrag socialiret sta laus sumar بهراع Gur Мне commitment humanitations aabo_secondsccionsession اع러 `;
+    dell Hunger_token жeServe sepのわれاجىдрав Estesstein renewal *ropical Verbrauch defer.focus возpoi")===
+</body>    
+</html>
+```

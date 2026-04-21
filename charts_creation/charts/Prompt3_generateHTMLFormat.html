@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Record - EGD</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+        header, footer {
+            text-align: center;
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        section.page {
+            page-break-after: always;
+        }
+        .table-wide {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .table-fit {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-table;
+            table-layout: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <strong>City Medical Center - Gastroenterology Department</strong><br>
+    1234 Elm Street, Suite 567, Metropolis, NY 12345<br>
+    Phone: (555) 123-4567 | Fax: (555) 123-4568<br>
+    Dr. John Doe, MD
+</header>
+
+<section class="page">
+    <table class="table-wide">
+        <tr>
+            <th colspan="2">Registration / Demographics</th>
+        </tr>
+        <tr>
+            <td>Name: John Smith</td>
+            <td>DOB: 04/12/1980</td>
+        </tr>
+        <tr>
+            <td>Age: 43</td>
+            <td>Sex: Male</td>
+        </tr>
+        <tr>
+            <td>Address: 123 Main Street, Metropolis, NY 12345</td>
+            <td>Phone: (555) 987-6543</td>
+        </tr>
+        <tr>
+            <td>MRN: 123456789</td>
+            <td>Account: 987654321</td>
+        </tr>
+        <tr>
+            <td>Insurance: TestPlan Health</td>
+            <td>Emergency Contact: Jane Doe (555) 987-1234</td>
+        </tr>
+        <tr>
+            <td colspan="2">Encounter Date: 03/15/2023<br>
+                Check-in Time: 08:30 AM<br>
+                Location: Endoscopy Suite<br>
+                Attending Gastroenterologist/Endoscopist: Dr. John Doe, MD<br>
+                Referring Provider: Dr. Emily Jones
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Chief Complaint / Indication</th>
+        </tr>
+        <tr>
+            <td colspan="2">Dyspepsia</td>
+        </tr>
+        <tr>
+            <th colspan="2">Medical History</th>
+        </tr>
+        <tr>
+            <td>PMH: Hypertension, Diabetes</td>
+            <td>PSH: Appendectomy</td>
+        </tr>
+        <tr>
+            <td>FHX: Father - CAD</td>
+            <td>SHX: Non-smoker, Alcohol - social</td>
+        </tr>
+        <tr>
+            <td>Allergies: Penicillin</td>
+            <td>Problem List: GERD</td>
+        </tr>
+        <tr>
+            <td colspan="2">Current Medications:<br>
+                - Lisinopril 10 mg daily<br>
+                - Metformin 500 mg BID<br>
+                - Omeprazole 20 mg daily<br>
+                - Aspirin 81 mg daily<br>
+                - Vitamin D 1000 IU daily
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Pre-procedure Vitals & ASA Classification</th>
+        </tr>
+        <tr>
+            <td>BP: 120/80 mmHg</td>
+            <td>HR: 75 bpm</td>
+        </tr>
+        <tr>
+            <td>SpO2: 98%</td>
+            <td>ASA: II</td>
+        </tr>
+        <tr>
+            <td colspan="2">Informed consent for EGD obtained with risks and benefits discussed.</td>
+        </tr>
+    </table>
+</section>
+
+<section class="page">
+    <table class="table-fit">
+        <tr>
+            <th colspan="2">Pre-Procedure Assessment & Anesthesia Record</th>
+        </tr>
+        <tr>
+            <td>Airway: Mallampati II</td>
+            <td>Cardio/Pulm: WNL</td>
+        </tr>
+        <tr>
+            <td>NPO Status: NPO after midnight</td>
+            <td>Last Intake: Water at 11:30 PM prior night</td>
+        </tr>
+        <tr>
+            <td colspan="2">Planned Sedation: MAC with Propofol and Fentanyl</td>
+        </tr>
+        <tr>
+            <td>Anesthesiologist: Dr. Anna Green, MD</td>
+            <td>CRNA: Paul Smith, CRNA</td>
+        </tr>
+        <tr>
+            <th colspan="2">Procedure Times</th>
+        </tr>
+        <tr>
+            <td>Anesthesia Start: 09:00 AM</td>
+            <td>Scope In: 09:15 AM</td>
+        </tr>
+        <tr>
+            <td>Scope Out: 09:45 AM</td>
+            <td>Anesthesia End: 10:00 AM</td>
+        </tr>
+        <tr>
+            <td colspan="2">Recovery Start: 10:05 AM | Recovery End: 10:35 AM</td>
+        </tr>
+        <tr>
+            <th colspan="2">Monitoring Trends</th>
+        </tr>
+        <tr>
+            <td>BP: 110/70 -> 115/75 -> 112/74 mmHg</td>
+            <td>HR: 72 -> 80 -> 76 bpm</td>
+        </tr>
+        <tr>
+            <td>SpO2: 96% -> 98% -> 97%</td>
+            <td>Complications: Brief desaturation at 94%, resolved with O2 adjustment</td>
+        </tr>
+        <tr>
+            <th colspan="2">Post-Anesthesia Evaluation</th>
+        </tr>
+        <tr>
+            <td>Aldrete Score: 10</td>
+            <td>Disposition: Discharged home with escort</td>
+        </tr>
+    </table>
+</section>
+
+<section class="page">
+    <table class="table-fit">
+        <tr>
+            <th colspan="2">Procedure Note: Esophagogastroduodenoscopy (EGD)</th>
+        </tr>
+        <tr>
+            <td>Endoscope Model: Olympus Exera III</td>
+            <td>Route: Oral</td>
+        </tr>
+        <tr>
+            <td>Patient Position: Left lateral decubitus</td>
+            <td>Bite Block: Yes</td>
+        </tr>
+        <tr>
+            <th colspan="2">Procedure Narrative</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                The endoscope was introduced via the oral cavity into the oropharynx, with smooth passage through the UES. Upon entering the esophagus, normal mucosal landmarks were visualized, with the Z-line noted at 40 cm from the incisors. The GEJ was visualized without stigmata of bleeding.
+
+                Careful examination of the stomach found the fundus and body with intact rugal folds and no lesions. The antrum appeared slightly erythematous. Insufflation was used to distend the stomach. The pylorus was widely patent.
+
+                Entering the duodenum, both the bulb and the second portion were examined, revealing normal villi architecture. There were no ulcers or significant inflammation observed.
+
+                Retroflexion was performed in the stomach to assess the cardia and fundus, showing no abnormalities. The procedure was well tolerated, with no immediate complications.
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Findings</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                - Normal esophageal mucosa<br>
+                - Mild erythema in gastric antrum<br>
+                - Normal duodenal bulb and second portion
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Impression</th>
+        </tr>
+        <tr>
+            <td colspan="2">Mild antral gastritis observed. No esophagitis or duodenal abnormalities.</td>
+        </tr>
+        <tr>
+            <th colspan="2">Diagnosis List</th>
+        </tr>
+        <tr>
+            <td colspan="2">Mild Gastritis, otherwise normal EGD.</td>
+        </tr>
+        <tr>
+            <th colspan="2">Interventions</th>
+        </tr>
+        <tr>
+            <td colspan="2">Cold forceps biopsy of the antrum taken for histological analysis.</td>
+        </tr>
+        <tr>
+            <th colspan="2">Endoscopy Team</th>
+        </tr>
+        <tr>
+            <td colspan="2">Endoscopist: Dr. John Doe, MD<br>Assistant: Sarah Brown, RN<br>RN Circulator: Lisa Carter, RN<br>Endoscopy Tech: Mike Davis</td>
+        </tr>
+    </table>
+</section>
+
+<section class="page">
+    <table class="table-fit">
+        <tr>
+            <th colspan="2">Specimens / Lab / Pathology</th>
+        </tr>
+        <tr>
+            <td>Specimen: A</td>
+            <td>Site: Gastric Antrum</td>
+        </tr>
+        <tr>
+            <td>Number of Fragments: 2</td>
+            <td>Method: Cold forceps</td>
+        </tr>
+        <tr>
+            <td>Fixative: Formalin</td>
+            <td colspan="2">Collection Time: 09:40 AM | Sent to Lab: 09:50 AM</td>
+        </tr>
+        <tr>
+            <th colspan="2">Lab Information</th>
+        </tr>
+        <tr>
+            <td>Lab Name: City Pathology Services</td>
+            <td>Accession Number: LAB-TST-987654</td>
+        </tr>
+        <tr>
+            <th colspan="2">Pathology Report</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Gross Description:</strong> Two small tan mucosal fragments.<br>
+                <strong>Microscopic Description:</strong> Gastric mucosa with mild chronic gastritis; H. pylori not identified.<br>
+                <strong>Final Diagnosis:</strong> Mild chronic gastritis; negative for H. pylori.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">Pathologist: Dr. Clara Ng | Report Date/Time: 03/16/2023, 11:00 AM</td>
+        </tr>
+    </table>
+</section>
+
+<section class="page">
+    <table class="table-fit">
+        <tr>
+            <th colspan="2">After Visit Summary / Discharge Instructions</th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Recovery Course:</strong> The patient was monitored in recovery with stable vitals. Reports no pain or nausea, and tolerated sips of water well.<br>
+                <strong>Diet/Activity Instructions:</strong> Clear liquids today, advance to normal diet as tolerated. Avoid strenuous activities for 24 hours.<br>
+                <strong>Warning Signs:</strong> Contact if experiencing severe pain, fever, or large amounts of bleeding.<br>
+                <strong>Follow-Up Plan:</strong> Continue omeprazole and follow up with primary care physician in 2 weeks.<br>
+                <strong>Medication Plan:</strong> Continue all home medications. Resume aspirin tomorrow morning.<br>
+                <strong>Results Communication Plan:</strong> You will be contacted with pathology results within one week.<br>
+                <strong>Next Appointment Window:</strong> Scheduling office will contact you by phone.<br>
+                <strong>Patient Understanding Statement:</strong> Verbally confirmed understanding of instructions.<br>
+                <strong>Escort/Transport Note:</strong> Discharged to home in the company of spouse.<br>
+                <strong>Discharge Educator:</strong> Susan White, RN | 10:45 AM
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Provider Signature Block</th>
+        </tr>
+        <tr>
+            <td colspan="2">Dr. John Doe, MD<br>Date/Time: 03/15/2023, 10:30 AM<br>Electronically signed by Dr. John Doe</td>
+        </tr>
+    </table>
+</section>
+
+<footer>
+    <strong>City Medical Center - Gastroenterology Department</strong><br>
+    1234 Elm Street, Suite 567, Metropolis, NY 12345<br>
+    Phone: (555) 123-4567 | Fax: (555) 123-4568<br>
+    Dr. John Doe, MD
+</footer>
+
+</body>
+</html>

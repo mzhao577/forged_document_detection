@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Medical Record - EGD</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            margin: 1in;
+            page-break-after: always;
+        }
+        .header, .footer {
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .table-wide {
+            width: 100%;
+            table-layout: fixed;
+        }
+        .table-fit {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-table;
+            table-layout: auto;
+        }
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 4px;
+            border: 1px solid #ddd;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="page">
+    <div class="header">
+        <strong>Green Valley Medical Center</strong><br>
+        Gastroenterology Department<br>
+        1234 Health Blvd, Suite 200, Springfield, XY 12345<br>
+        Phone: (555) 123-4567 | Fax: (555) 765-4321<br>
+        Attending Gastroenterologist: Dr. Samantha Klein, MD
+    </div>
+
+    <div class="section-title">Registration / Demographics</div>
+    <table class="table-wide">
+        <tr><th>Patient Name</th><td>Johnathan Doe</td></tr>
+        <tr><th>Date of Birth</th><td>April 15, 1980</td></tr>
+        <tr><th>Age</th><td>43</td></tr>
+        <tr><th>Sex</th><td>Male</td></tr>
+        <tr><th>Address</th><td>5678 Elm Street, Springfield, XY 12345</td></tr>
+        <tr><th>Phone</th><td>(555) 678-9012</td></tr>
+        <tr><th>MRN</th><td>MRN789012</td></tr>
+        <tr><th>Account</th><td>ACC456789</td></tr>
+        <tr><th>Insurance</th><td>HealthPlus Plan</td></tr>
+        <tr><th>Emergency Contact</th><td>Jane Doe - (555) 234-5678</td></tr>
+        <tr><th>Encounter Date</th><td>September 15, 2023</td></tr>
+        <tr><th>Check-in Time</th><td>09:00 AM</td></tr>
+        <tr><th>Location</th><td>Outpatient Endoscopy Suite</td></tr>
+        <tr><th>Referring Provider</th><td>Dr. Michael Scott, MD</td></tr>
+        <tr><th>Chief Complaint</th><td>Dyspepsia and GERD evaluation</td></tr>
+        <tr><th>PMH</th><td>Hypertension, GERD</td></tr>
+        <tr><th>PSH</th><td>Cholecystectomy 2015</td></tr>
+        <tr><th>FHX</th><td>Father with colorectal cancer</td></tr>
+        <tr><th>SHX</th><td>Former smoker, social alcohol use</td></tr>
+        <tr><th>Allergies</th><td>Penicillin (rash)</td></tr>
+        <tr><th>Problem List</th><td>Dyspepsia, GERD, Hypertension</td></tr>
+        <tr><th>Current Medications</th><td>
+            Lisinopril 20mg daily<br>
+            Omeprazole 40mg daily<br>
+            Simvastatin 10mg nightly<br>
+            Aspirin 81mg daily<br>
+            Vitamin D 1000 IU daily
+        </td></tr>
+        <tr><th>Pre-procedure Vitals</th><td>BP: 122/80, HR: 72, SpO2: 98%</td></tr>
+        <tr><th>ASA Classification</th><td>Class II</td></tr>
+        <tr><th>Informed Consent</th><td>
+            The patient was informed about the procedure, risks, benefits, and alternatives. All questions were answered, and informed consent was obtained.
+        </td></tr>
+    </table>
+
+    <div class="footer">
+        © 2023 Green Valley Medical Center. All rights reserved.
+    </div>
+</section>
+
+<section class="page">
+    <div class="header">
+        <strong>Green Valley Medical Center</strong><br>
+        Gastroenterology Department<br>
+        1234 Health Blvd, Suite 200, Springfield, XY 12345<br>
+        Phone: (555) 123-4567 | Fax: (555) 765-4321<br>
+        Attending Gastroenterologist: Dr. Samantha Klein, MD
+    </div>
+
+    <div class="section-title">Pre-procedure Assessment & Anesthesia Record</div>
+
+    <table class="table-fit">
+        <tr><th>Pre-anesthesia Evaluation</th><td>
+            Airway: Mallampati Class I, no difficulties anticipated<br>
+            Cardiopulmonary: Clear to auscultation bilaterally, no murmurs<br>
+            NPO Status: Since midnight<br>
+            Last Intake: Water at 06:00 AM
+        </td></tr>
+        <tr><th>Planned Sedation</th><td>
+            Moderate sedation with Propofol and Midazolam<br>
+            Propofol: 150 mg IV<br>
+            Midazolam: 2 mg IV
+        </td></tr>
+        <tr><th>Anesthesia Team</th><td>
+            Anesthesiologist: Dr. Emily Tran, MD<br>
+            CRNA: John Rogers, CRNA
+        </td></tr>
+        <tr><th>Anesthesia Start Time</th><td>09:20 AM</td></tr>
+        <tr><th>Procedure Start Time</th><td>09:30 AM</td></tr>
+        <tr><th>Procedure End Time</th><td>09:55 AM</td></tr>
+        <tr><th>Anesthesia End Time</th><td>10:00 AM</td></tr>
+        <tr><th>Recovery Start Time</th><td>10:05 AM</td></tr>
+        <tr><th>Recovery End Time</th><td>10:45 AM</td></tr>
+        <tr><th>Monitoring Trends</th>
+            <td>
+                09:25 AM - BP: 120/78, HR: 70, SpO2: 99%<br>
+                09:35 AM - BP: 118/75, HR: 72, SpO2: 98%<br>
+                09:45 AM - BP: 115/74, HR: 74, SpO2: 97%<br>
+                09:55 AM - BP: 117/76, HR: 70, SpO2: 98%
+            </td>
+        </tr>
+        <tr><th>Complications</th><td>None</td></tr>
+        <tr><th>Post-anesthesia Evaluation</th><td>
+            Aldrete Score: 10<br>
+            Disposition: Home with escort
+        </td></tr>
+    </table>
+
+    <div class="footer">
+        © 2023 Green Valley Medical Center. All rights reserved.
+    </div>
+</section>
+
+<section class="page">
+    <div class="header">
+        <strong>Green Valley Medical Center</strong><br>
+        Gastroenterology Department<br>
+        1234 Health Blvd, Suite 200, Springfield, XY 12345<br>
+        Phone: (555) 123-4567 | Fax: (555) 765-4321<br>
+        Attending Gastroenterologist: Dr. Samantha Klein, MD
+    </div>
+
+    <div class="section-title">Procedure Note (EGD)</div>
+
+    <p><strong>Procedure Name:</strong> Esophagogastroduodenoscopy (EGD)</p>
+    <p><strong>Endoscope Model:</strong> Olympus EVIS EXERA II</p>
+    <p><strong>Route:</strong> Oral</p>
+    <p><strong>Patient Positioning:</strong> Left lateral decubitus</p>
+    <p><strong>Bite Block:</strong> Used</p>
+
+    <p><strong>Narrative:</strong> The procedure commenced with entry through the oropharynx, navigating past the upper esophageal sphincter smoothly. The esophageal mucosa appeared normal, with the Z-line located at 38 cm from the incisors. The gastroesophageal junction was identified without any signs of Barrett's esophagus or strictures. The stomach was thoroughly insufflated, revealing normal rugal folds with mild erythema in the antrum but no erosions or ulcers. The pylorus was patent. Examining the duodenum, the bulb and second portion appeared normal with visible villi and no signs of inflammation or ulcers. Retroflexion was performed in the stomach to assess the cardia and fundus, with no abnormalities noted.</p>
+
+    <p><strong>Findings:</strong></p>
+    <ul>
+        <li>Esophagus: Normal Z-line at 38 cm, no lesions</li>
+        <li>Stomach: Mild erythema in antrum, no ulcers</li>
+        <li>Duodenum: Normal appearance, no lesions</li>
+    </ul>
+
+    <p><strong>Impression:</strong> Mild antral erythema, likely gastritis; otherwise normal EGD.</p>
+
+    <p><strong>Diagnosis List:</strong> Mild gastritis, GERD</p>
+
+    <p><strong>Interventions:</strong> No biopsies or therapeutic interventions performed.</p>
+
+    <p><strong>Endoscopy Team:</strong></p>
+    <ul>
+        <li>Endoscopist: Dr. Samantha Klein, MD</li>
+        <li>Assistant: Lucy Brown, RN</li>
+        <li>RN Circulator: Mark Stevens, RN</li>
+        <li>Endoscopy Tech: Sarah White</li>
+    </ul>
+
+    <div class="footer">
+        © 2023 Green Valley Medical Center. All rights reserved.
+    </div>
+</section>
+
+<section class="page">
+    <div class="header">
+        <strong>Green Valley Medical Center</strong><br>
+        Gastroenterology Department<br>
+        1234 Health Blvd, Suite 200, Springfield, XY 12345<br>
+        Phone: (555) 123-4567 | Fax: (555) 765-4321<br>
+        Attending Gastroenterologist: Dr. Samantha Klein, MD
+    </div>
+
+    <div class="section-title">Specimens/Lab/Pathology</div>
+
+    <p><strong>Specimens:</strong> No specimens collected during the procedure.</p>
+
+    <div class="footer">
+        © 2023 Green Valley Medical Center. All rights reserved.
+    </div>
+</section>
+
+<section class="page">
+    <div class="header">
+        <strong>Green Valley Medical Center</strong><br>
+        Gastroenterology Department<br>
+        1234 Health Blvd, Suite 200, Springfield, XY 12345<br>
+        Phone: (555) 123-4567 | Fax: (555) 765-4321<br>
+        Attending Gastroenterologist: Dr. Samantha Klein, MD
+    </div>
+
+    <div class="section-title">After Visit Summary / Discharge Instructions</div>
+
+    <p><strong>Recovery Course:</strong> The patient experienced no pain or nausea in the recovery area. Vital signs remained stable throughout the recovery period. The patient tolerated oral intake without difficulty.</p>
+
+    <p><strong>Instructions:</strong></p>
+    <ul>
+        <li>Diet: Resume normal diet as tolerated. Avoid spicy foods if dyspepsia occurs.</li>
+        <li>Activity: Rest for 24 hours, avoid driving or operating machinery today.</li>
+        <li>Warning Signs: Seek immediate medical attention if experiencing severe abdominal pain, vomiting blood, or black tarry stools.</li>
+        <li>Follow-up: Appointment scheduled with Dr. Klein in 4 weeks.</li>
+    </ul>
+
+    <p><strong>Medication Plan:</strong> Continue Omeprazole 40mg daily. Avoid NSAIDs. Resume other medications as per routine.</p>
+
+    <p><strong>Results Communication Plan:</strong> Results will be discussed during the follow-up visit. No pathology specimens were taken.</p>
+
+    <p><strong>Patient Understanding:</strong> The patient verbalized understanding of the discharge instructions and will be escorted home by a family member.</p>
+
+    <p><strong>Discharge Educator:</strong> Anna Lopez, RN</p>
+    <p><strong>Discharge Time:</strong> 10:45 AM</p>
+
+    <p><strong>Provider Signature:</strong></p>
+    <p>
+        Dr. Samantha Klein, MD<br>
+        Date/Time: September 15, 2023, at 10:50 AM<br>
+        Electronically signed by Dr. Samantha Klein, MD
+    </p>
+
+    <div class="footer">
+        © 2023 Green Valley Medical Center. All rights reserved.
+    </div>
+</section>
+
+</body>
+</html>

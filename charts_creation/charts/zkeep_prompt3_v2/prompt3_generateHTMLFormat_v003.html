@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Endoscopy Record</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            -webkit-print-color-adjust: exact;
+        }
+        .page {
+            page-break-after: always;
+            padding: 20px;
+        }
+        .header, .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        .header {
+            border-bottom: 1px solid #000;
+        }
+        .footer {
+            border-top: 1px solid #000;
+        }
+        .table-fit {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-table;
+            table-layout: auto;
+            border-collapse: collapse;
+        }
+        .table-wide {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Registration / Demographics -->
+    <section class="page">
+        <div class="header">
+            Gastroenterology Associates<br>
+            Department of Endoscopy<br>
+            123 Wellness St, Healthcity, HC 45923<br>
+            Phone: (555) 123-4567 | Fax: (555) 987-6543
+        </div>
+        <h2>Registration / Demographics</h2>
+        <table class="table-wide">
+            <tr><th>Name</th><td>Leonard Patricks</td></tr>
+            <tr><th>Date of Birth</th><td>November 12, 1972</td></tr>
+            <tr><th>Age</th><td>50</td></tr>
+            <tr><th>Sex</th><td>Male</td></tr>
+            <tr><th>Address</th><td>62 Birch Lane, Greenshire, GH 43012</td></tr>
+            <tr><th>Phone</th><td>(555) 678-2345</td></tr>
+            <tr><th>MRN</th><td>51201473</td></tr>
+            <tr><th>Account Number</th><td>45870361</td></tr>
+            <tr><th>Insurance</th><td>HealthPlus Gold</td></tr>
+            <tr><th>Emergency Contact</th><td>Clara Patricks - (555) 768-0912</td></tr>
+            <tr><th>Encounter Date</th><td>June 28, 2023</td></tr>
+            <tr><th>Check-In Time</th><td>08:45</td></tr>
+            <tr><th>Location</th><td>Gastroenterology Associates</td></tr>
+            <tr><th>Attending Gastroenterologist</th><td>Dr. Sarah Edmunds, MD</td></tr>
+            <tr><th>Referring Provider</th><td>Dr. James Noel, MD</td></tr>
+            <tr><th>Chief Complaint / Indication for EGD</th><td>Persistent dyspepsia and GERD symptoms.</td></tr>
+            <tr><th>Past Medical History</th><td>Hypertension, Hyperlipidemia</td></tr>
+            <tr><th>Past Surgical History</th><td>Appendectomy in 1993</td></tr>
+            <tr><th>Family History</th><td>Father with colorectal cancer</td></tr>
+            <tr><th>Social History</th><td>Former smoker, ceased in 2010. Rare alcohol use.</td></tr>
+            <tr><th>Allergies</th><td>Penicillin (rash)</td></tr>
+            <tr><th>Problem List</th><td>Hypertension, Dyslipidemia, GERD</td></tr>
+            <tr><th>Current Medications</th>
+                <td>
+                    Lisinopril 20 mg daily<br>
+                    Atorvastatin 10 mg at night<br>
+                    Omeprazole 20 mg AM<br>
+                    Vitamin D3 2000 IU daily
+                </td>
+            </tr>
+            <tr><th>Pre-procedure Vitals</th>
+                <td>
+                    BP: 128/82 mmHg<br>
+                    HR: 72 bpm<br>
+                    Temp: 98.6 °F<br>
+                    SpO2: 98% RA<br>
+                    ASA Classification: II
+                </td>
+            </tr>
+            <tr>
+                <th>Informed Consent</th>
+                <td>The patient has been informed of the risks, benefits, and alternatives to the procedure. All questions were answered, and verbal as well as written consent was obtained.</td>
+            </tr>
+        </table>
+        <div class="footer">
+            Gastroenterology Associates &nbsp;&bull;&nbsp; 123 Wellness St, Healthcity, HC 45923 &nbsp;&bull;&nbsp; (555) 123-4567 &nbsp;&bull;&nbsp; Fax: (555) 987-6543
+        </div>
+    </section>
+
+    <!-- Page 2: Pre-Procedure Assessment & Anesthesia Record -->
+    <section class="page">
+        <div class="header">
+            Gastroenterology Associates<br>
+            Department of Endoscopy<br>
+            123 Wellness St, Healthcity, HC 45923<br>
+            Phone: (555) 123-4567 | Fax: (555) 987-6543
+        </div>
+        <h2>Pre-Procedure Assessment & Anesthesia Record</h2>
+        <table class="table-fit">
+            <tr><th>Pre-Anesthesia Evaluation</th>
+                <td>
+                    Airway: Mallampati Class II,<br>
+                    Cardiovascular: S1 S2 regular.<br>
+                    Pulmonary: CTAB.<br>
+                    NPO since 2200 hours.
+                </td>
+            </tr>
+            <tr><th>Last Oral Intake</th><td>Water at 20:00 previous night.</td></tr>
+            <tr><th>Planned Sedation</th>
+                <td>MAC with propofol 100 mg, midazolam 2 mg bolus as needed</td>
+            </tr>
+            <tr><th>Anesthesia Team</th>
+                <td>Dr. Alan Priestly, MD, Anesthesiologist<br>Mary Casher, CRNA</td>
+            </tr>
+            <tr>
+                <th>Anesthesia - Procedure Times</th>
+                <td>
+                    Anesthesia Start: 09:10 | <br>
+                    Scope In: 09:20 | <br>
+                    Scope Out: 09:42 | <br>
+                    Anesthesia End: 09:50 | <br>
+                    Recovery Started: 09:55
+                </td>
+            </tr>
+            <tr><th>Monitoring Trends</th>
+                <td>
+                    09:20 &mdash; BP: 125/78 mmHg, HR: 70 bpm, SpO2: 97% <br>
+                    09:30 &mdash; BP: 122/76 mmHg, HR: 68 bpm, SpO2: 98% <br>
+                    09:40 &mdash; BP: 120/74 mmHg, HR: 66 bpm, SpO2: 99%
+                </td>
+            </tr>
+            <tr><th>Complications</th><td>None encountered.</td></tr>
+            <tr><th>Post-Anesthesia Evaluation</th>
+                <td>
+                    Aldrete Score: 10/10<br>
+                    Disposition: Released home with his wife as escort.
+                </td>
+            </tr>
+        </table>
+        <div class="footer">
+            Gastroenterology Associates &nbsp;&bull;&nbsp; 123 Wellness St, Healthcity, HC 45923 &nbsp;&bull;&nbsp; (555) 123-4567 &nbsp;&bull;&nbsp; Fax: (555) 987-6543
+        </div>
+    </section>
+
+    <!-- Page 3: Procedure Note -->
+    <section class="page">
+        <div class="header">
+            Gastroenterology Associates<br>
+            Department of Endoscopy<br>
+            123 Wellness St, Healthcity, HC 45923<br>
+            Phone: (555) 123-4567 | Fax: (555) 987-6543
+        </div>
+        <h2>Procedure Note</h2>
+        <h3>Esophagogastroduodenoscopy (EGD)</h3>
+        <p>The procedure commenced with the patient in the left lateral decubitus position. A flexible gastroscope (model FG-223) was utilized with a bite block placed to protect the instrument. Following satisfactory sedation, the endoscope was advanced through the oropharynx with minimal resistance. The upper esophageal sphincter was traversed without difficulty.</p>
+        <p>Within the esophagus, typical mucosal anatomical landmarks were observed. At 40 cm from the incisors, we noted the Z-line, and the gastroesophageal junction (GEJ) was demarcated without stigmata of reflux or varices. Only mild linear friable erythema was indicated.</p>
+        <p>Inspection of the stomach, entries were made to the fundus, body, and antrum. Moderate insufflation highlighted well-defined rugal folds without significant hiatus. There were scattered areas of patchy erythema in the antrum, compatible with mild gastritis. The pylorus was intubated successfully.</p>
+        <p>Observing the duodenum, circumferentially measured bulb walls appeared thickened and congested with minimal inflammatory changes noted in the second part.</p>
+        <p>A maneuver into retroflexion evaluated the gastric cardia and fundus, which were found to be unremarkable apart from inesquite hyperemic areas of the cardia region.</p>
+        <h4>Findings:</h4>
+        <ul>
+            <li>Esophagus: Z-line at 40 cm without rings, mild erosive signs.</li>
+            <li>Stomach: Antral patchy erythema suggesting mild gastritis.</li>
+            <li>Duodenum: Mild duodenitis visualized with no ulceration.</li>
+        </ul>
+        <h4>Impression:</h4>
+        <p>Findings consistent with mild erosive esophagitis and gastritis.</p>
+        <h4>Diagnosis list:</h4>
+        <ul>
+            <li>Mild Reys Erosive Esophagitis</li>
+            <li>Slight Antral Gastritis</li>
+        </ul>
+        <h4>Interventions:</h4>
+        <p>Eight cold biopsies obtained from the lower esophagus and antrum.</p>
+        <p>Procedure tolerated well.<br>Endoscopy team present: Dr. Sarah Edmunds (Endoscopist), Judy Redmond (RN, circulator), Mike Wilkens (Endoscopy Tech).</p>
+        <div class="footer">
+            Gastroenterology Associates &nbsp;&bull;&nbsp; 123 Wellness St, Healthcity, HC 45923 &nbsp;&bull;&nbsp; (555) 123-4567 &nbsp;&bull;&nbsp; Fax: (555) 987-6543
+        </div>
+    </section>
+
+    <!-- Page 4: Specimens / Path Reports -->
+    <section class="page">
+        <div class="header">
+            Gastroenterology Associates<br>
+            Department of Endoscopy<br>
+            123 Wellness St, Healthcity, HC 45923<br>
+            Phone: (555) 123-4567 | Fax: (555) 987-6543
+        </div>
+        <h2>Specimens and Pathology</h2>
+        <table class="table-fit">
+            <tr><th>Specimen Containers</th><th>Site</th><th>Number of Fragments</th><th>Method</th><th>Fixative</th><th>Time Sent to Lab</th></tr>
+            <tr><td>Container A</td><td>Distal esophagus</td><td>4</td><td>Cold forceps</td><td>Formalin</td><td>09:50</td></tr>
+            <tr><td>Container B</td><td>Antrum</td><td>4</td><td>Cold forceps</td><td>Formalin</td><td>09:50</td></tr>
+        </table>
+        <h3>Lab Report</h3>
+        <table class="table-fit">
+            <tr><th>Lab Name</th><th>Accession Number</th></tr>
+            <tr><td>Better Diagnostics Group</td><td>LAB-TST-22340987</td></tr>
+            <tr><th colspan="2">Pathology Report</th></tr>
+            <tr><td colspan="2"><b>Gross Description:</b> Multiple bioptic fragments.<br><b>Microscopic Description:</b> Esophagus shows squamous mucosa with focal basal hyperplasia. Gastric mucosa from the antrum exhibits chronic inflammation. Negative for intestinal metaplasia.<br><b>Final Diagnosis:</b> Chronic mild esophagitis and gastritis; H. pylori negative.</td></tr>
+            <tr><th>Pathologist Signature</th><th>Report Date/Time</th></tr>
+            <tr><td>Dr. Evan Littome</td><td>July 2, 2023, 15:22</td></tr>
+        </table>
+        <div class="footer">
+            Gastroenterology Associates &nbsp;&bull;&nbsp; 123 Wellness St, Healthcity, HC 45923 &nbsp;&bull;&nbsp; (555) 123-4567 &nbsp;&bull;&nbsp; Fax: (555) 987-6543
+        </div>
+    </section>
+
+    <!-- Page 5: After Visit Summary/Discharge Instructions -->
+    <section class="page">
+        <div class="header">
+            Gastroenterology Associates<br>
+            Department of Endoscopy<br>
+            123 Wellness St, Healthcity, HC 45923<br>
+            Phone: (555) 123-4567 | Fax: (555) 987-6543
+        </div>
+        <h2>After Visit Summary / Discharge Instructions</h2>
+        <p>The patient exhibited no overt distress in the recovery phase, and no incidents of nausea were reported. Vitals remained stable prior to discharge with ease of side flushing tolerated for discomfort diminution.</p>
+        <h3>Instructions:</h3>
+        <ul>
+            <li><b>Diet/Activity:</b> Resume regular meals progressively. Light activity today, avoid heavy lifting.</li>
+            <li><b>Medications:</b> Start omeprazole 20 mg daily, morning prior to meals for the next 4 weeks. Resume all medications post-return as critical on-plan.</li>
+            <li><b>Warning Signs:</b> Address GI bleeding signs promptly with medical assistance as unexpected emesis or melena enables counteractive intervention needed.</li>
+            <li><b>Follow-Up:</b> Outpatient follow-up in 4 weeks; confirm via phone.</li>
+            <li><b>Result Notification:</b> Path reports reach results this week—be on-call for follow-up discussion update.</li>
+        </ul>
+        <p>The patient confirmed understanding of instructions and was released to escort, Clara. </p>
+        <div>Discharge RN: Linda Vauks </div>
+        <div><b>Note:</b> Instruction approved at: June 28, 2023, 10:05 </div>
+        
+        <div class="footer">
+            Gastroenterology Associates &nbsp;&bull;&nbsp; 123 Wellness St, Healthcity, HC 45923 &nbsp;&bull;&nbsp; (555) 123-4567 &nbsp;&bull;&nbsp; Fax: (555) 987-6543
+        </div>
+        
+        <p><b>Electronically signed by</b>: Dr. Sarah Edmunds, MD &nbsp;&bull;&nbsp; June 28, 2023, 09:55</p>
+    </section>
+</body>
+</html>

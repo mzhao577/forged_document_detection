@@ -1,0 +1,169 @@
+You are generating a SINGLE synthetic medical record for QA/testing of synthetic-record detection systems.
+
+GOAL:
+Create a near-realistic, professional gastroenterology endoscopy chart for an EGD (upper endoscopy), formatted as a continuous HTML document that visually resembles a physician-written chart as rendered/exported from an EPIC-style EMR and CCD-like document layout.
+
+IMPORTANT LAYOUT CHANGE:
+– DO NOT build discrete "pages" or enforce any page breaks.
+– The entire chart must be ONE continuous document that prints cleanly across as many pages as needed.
+– Organize document into logical "sections" (Registration/Demographics, Pre-Procedure & Anesthesia, Procedure Note, Specimens/Pathology, After Visit),
+  may naturally extend across multiple printed pages.
+– Use CSS for print so headers/footers repeat on every printed page WITHOUT manual page-breaks.
+
+OUTPUT REQUIREMENTS (STRICT):
+– Output ONLY valid HTML (no markdown fences).
+– Generate exactly ONE medical record.
+– Use print-safe fonts ONLY:
+  font-family: Arial, Helvetica, sans-serif; (avoid exotic/custom fonts)
+– Include embedded CSS for screen + print.
+– Use a continuous layout with <header>, <main>, <footer> and multiple <section class="doc-section"> blocks.
+– No <section class="page">, no CSS page-break-after, no forced page breaks.
+
+REPEATED HEADER/FOOTER REQUIREMENTS (PRINT):
+– Implement a repeated header + footer on EVERY printed page via CSS print rules (e.g., fixed positioned header/footer).
+– The header must include the SAME fictional provider/facility branding AND patient/encounter banner.
+– The footer must include the SAME generation timestamp across the entire document, plus page numbering placeholders and document identifier.
+
+NOTE ABOUT PAGE NUMBERING:
+– Because HTML print page counting can be inconsistent across environments, include:
+  1) a "Page X of Y" area visually in the footer using placeholders (e.g., "Page {PAGE} of {TOTAL}"), AND
+  2) if supported, CSS counters for print (optional).
+– Regardless of mechanism, keep a footer line formatted as:
+    DOC|CCD-####-####-####|PAGE|{PAGE}/{TOTAL}
+
+EPIC/CCD-LIKE PRESENTATION REQUIREMENTS:
+– The chart should "feel" like a real EMR export or EPIC-like clinical document:
+  * Include a top-of-document "Patient Banner" and repeat it via the print header.
+  * Include document metadata fields commonly seen in CCD/C-CDA exports (presented in HTML, not XML):
+    – Document Type (e.g., "Continuity of Care Document (CCD) – Procedure Encounter Summary")
+    – Document ID (format: CCD-####-####-####)
+    – Encounter CSN (format: CSN-########)
+    – Author / Documented by (name, role, timestamp)
+    – Custodian (facility)
+    – Legal Authenticator / Electronically Signed by (name, credentials, timestamp)
+– Include "Note Status: Signed" (or "Final") where appropriate and realistic.
+– Include "Printed/Generated" date-time in the footer (same across all pages).
+
+HEADER CONTENT (REPEATED ON PRINTED PAGES):
+The repeated header MUST contain:
+1) Provider Logo (fictional) rendered as inline SVG (no external images) + facility branding.
+2) Facility details: name, department, address, city/state/zip, phone, fax.
+3) Rendering Provider details: name, credentials, synthetic NPI-like ID (do NOT use real), clinic phone.
+4) Patient Banner:
+   – Patient: Full name (fictional), MRN, DOB, Age, Sex
+   – Address + phone (use 555), insurance plan (fictional)
+   – Encounter: Date, check-in time, CSN/account, location, admit/service time, attending, referring provider
+   – Allergy alert highlighted in banner row if any
+5) Add a small "QR" area (synthetic QR-style SVG block) encoding a synthetic token:
+   ENCOUNTER|CSN-########|MRN-######|CCD-####-####-####
+   (The QR does not need to be truly scannable; it must LOOK like a QR block and include the encoded token printed beneath.)
+
+FOOTER CONTENT (REPEATED ON PRINTED PAGES):
+The repeated footer MUST contain:
+– "Generated: YYYY-MM-DD HH:MM (local)" (single consistent timestamp across the whole document)
+– Page numbering area: "Page {PAGE} of {TOTAL}"
+– Document ID + CSN + MRN in a line:
+    DOC|CCD-####-####-####|PAGE|{PAGE}/{TOTAL}|CSN-########|MRN-######
+
+TIMESTAMP CONSISTENCY (MANDATORY):
+Ensure all timestamps are internally consistent:
+arrival/check-in < pre-op assessment < anesthesia start < scope in < scope out < anesthesia end < PACU recovery start < recovery end < discharge time.
+All on same date unless explicitly justified.
+
+ROLE / STAFFING REQUIREMENTS (ADD DETAILS WHERE APPLICABLE):
+– Explicitly include care team with names + credentials/roles:
+  * Attending Gastroenterologist / Endoscopist
+  * Assistant (if any)
+  * Anesthesiologist
+  * CRNA/AA (optional)
+  * Registered Nurse(s): Pre-op RN, Circulating RN, Recovery/PACU RN
+  * Endoscopy Tech/Scrub Tech
+– Reflect role-based actions in narrative and documentation.
+
+DOCUMENTATION PROVENANCE (WHO DOCUMENTED WHAT):
+– For each major doc-section, include:
+  – "Documented by: [Name, Role] – [timestamp]"
+  – "Co-signed / Electronically signed by: [Name, Credentials] – [timestamp]" where appropriate
+– Use EPIC-like phrasing:
+  "Electronically signed by …" / "Note signed" / "Finalized" / "Resulted".
+
+TABLE FORMATTING RULES (IMPORTANT):
+– ALL TABLES: headers and values MUST be LEFT-ALIGNED (including numeric values).
+– Tables must be content-fit (shrink to fit contents) in BOTH width and height:
+  * Do NOT use full-width tables by default.
+  * Avoid empty columns/rows.
+– EXCEPTION: Registration/Demographics table MUST span full width for readability.
+
+IMPLEMENTATION IN HTML/CSS (MANDATORY):
+– Add CSS that enforces:
+  * table { border-collapse: collapse; }
+  * th, td { text-align: left; vertical-align: top; }
+  * .table-fit { width: fit-content; max-width: 100%; display: inline-table; table-layout: auto; }
+  * .table-wide { width: 100%; table-layout: fixed; }
+– Use .table-wide ONLY for Registration/Demographics.
+– Use .table-fit for all other tables/flowsheets.
+– Layout:
+  * Use a fixed print header and fixed print footer (no manual page breaks).
+  * Add top/bottom padding/margins so body content never overlaps header/footer.
+
+CONTENT TO INCLUDE (IN THIS ORDER) AS CONTINUOUS SECTIONS:
+
+SECTION 1 – REGISTRATION / DEMOGRAPHICS (FULL-WIDTH TABLE)
+– Include a compact "CCD DOCUMENT METADATA" block near top (content-fit table).
+– Patient demographics and encounter details as previously specified.
+– Chief complaint/indication.
+– PMH, PSH, FHx, SHx, allergies (≥1), problem list.
+– Current meds (5–10) with dose/frequency.
+– Pre-procedure vitals + ASA.
+– Informed consent statement.
+– "Documented by: Pre-op RN …" timestamp line.
+
+SECTION 2 – PRE-PROCEDURE ASSESSMENT & ANESTHESIA RECORD (CONTENT-FIT TABLES)
+– Pre-anesthesia eval: airway, cardio/pulm, NPO, last intake.
+– Planned sedation (MAC or moderate) with agents and realistic doses.
+– Team details.
+– Exact times: anesthesia start/end; scope in/out; recovery start/end.
+– Monitoring trends table at intervals.
+– Complications: none OR one minor realistic event matching vitals trends.
+– Post-anesthesia eval with Aldrete and disposition.
+– "Documented by: CRNA/AA …" and anesthesiologist attestation timestamps.
+
+SECTION 3 – PROCEDURE NOTE (EGD) WITH DETAILED DOCTOR-LIKE NARRATIVE
+– Procedure name, scope model, route, positioning, bite block.
+– Step-by-step narrative with landmarks and measurements.
+– Findings bullet list.
+– Impression/diagnoses (generic; do not optimize for billing).
+– Interventions if any with technique/devices, number of samples, hemostasis status.
+– Endoscopy team line.
+– "Documented by …" + "Electronically signed …" timestamps.
+
+SECTION 4 – SPECIMENS / LAB / PATHOLOGY
+– ONLY if biopsies taken; otherwise state "No specimens."
+– Specimen table: labels A/B/C, site, fragments, method, fixative, collection times, sent-to-lab time.
+– Lab name + accession: LAB-TST-######|CSN-########|SPEC-A/B/C
+– If specimens: pathology report (gross, microscopic, final dx, H. pylori status if relevant), pathologist signature, report timestamp.
+– Add a QR next to accession encoding:
+    LAB|LAB-TST-######|CSN-########|SPEC-A/B/C
+
+SECTION 5 – AFTER VISIT SUMMARY / DISCHARGE INSTRUCTIONS
+– Recovery course, pain/nausea, PO tolerance, vitals stable.
+– Diet/activity, warning signs, follow-up plan.
+– Medication plan (e.g., start/adjust PPI; avoid NSAIDs; anticoag plan if applicable).
+– Results communication plan and appointment window.
+– Patient understanding and escort/transport note.
+– RN discharge educator + timestamp line.
+– Provider signature block + "Electronically signed …"
+– Discharge QR encoding:
+    AVS|CSN-########|DISCHARGE|YYYYMMDD-HHMM
+
+REALISM CONTROLS (APPLY ALL):
+– Keep everything internally consistent (names, dates, times, meds, indication, findings, pathology).
+– Use professional formatting: headings, separators, compact tables.
+– Avoid impossible combinations (e.g., biopsy without pathology).
+– Use clearly synthetic/test-like values; do not include any real-world identifiers.
+– Ensure no real facility branding; logos must be fictional SVG.
+
+STYLE:
+– Clean HTML/CSS with readable margins and print-friendly layout.
+– Continuous document: sections flow naturally across pages when printed.
+Now generate the single HTML document.

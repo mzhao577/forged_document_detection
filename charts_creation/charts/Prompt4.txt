@@ -1,0 +1,194 @@
+GASTROENTEROLOGY CLINIC  
+Endoscopy Department  
+123 Health Lane, Suite 400  
+Metropolis, XY 12345  
+Phone: (555) 123-4567  
+Fax: (555) 765-4321  
+Dr. John Doe, MD  
+
+Page 1
+
+REGISTRATION / DEMOGRAPHICS
+
+Patient Name:          Jane Smith  
+Date of Birth:         03/15/1980  
+Age:                   43  
+Sex:                   Female  
+Address:               789 Main Street, Apt 101, Metropolis, XY 12345  
+Phone:                 (555) 987-6543  
+Medical Record Number: 123456789  
+Account Number:        987654321  
+Insurance:             HealthSafe Plan  
+Emergency Contact:     Richard Smith - Husband, (555) 654-3210  
+
+Encounter Date:        09/25/2023  
+Check-In Time:         08:30 AM  
+Location:              Gastroenterology Clinic, Suite 400  
+Attending Gastroenterologist: Dr. John Doe, MD  
+Referring Provider:    Dr. Laura Johnson, MD  
+
+Chief Complaint/Indication: Dyspepsia Evaluation  
+
+Medical History:  
+- Diabetes Mellitus Type 2  
+- Hypertension  
+- GERD  
+
+Surgical History:  
+- Appendectomy (2003)  
+- Cholecystectomy (2010)  
+
+Family History:  
+- Father: Heart disease  
+- Mother: Breast cancer  
+
+Social History:  
+- Smoking: Never  
+- Alcohol: Social consumption  
+
+Allergies: Penicillin  
+
+Problem List:  
+- GERD  
+- Controlled Type 2 DM  
+- Hypertension  
+
+Current Medications:  
+- Metformin 1000mg BID  
+- Lisinopril 10mg daily  
+- Omeprazole 20mg daily  
+- Atorvastatin 20mg daily  
+- Metoprolol 50mg BID  
+
+Pre-Procedure Vitals:  
+BP: 130/85 mmHg  
+HR: 76 bpm  
+SpO2: 98% on room air  
+
+ASA Classification: II  
+
+Informed Consent: Patient has been informed about the procedure, its risks and benefits, and provides consent.
+
+GASTROENTEROLOGY CLINIC  
+Endoscopy Department  
+123 Health Lane, Suite 400  
+Metropolis, XY 12345  
+Phone: (555) 123-4567  
+Fax: (555) 765-4321  
+Dr. John Doe, MD  
+
+Page 2
+
+PRE-PROCEDURE ASSESSMENT & ANESTHESIA RECORD
+
+Pre-Anesthesia Evaluation:  
+- Airway: Mallampati II, no anticipated difficulty  
+- Cardio/Pulmonary: No wheezes or rales, regular rhythm  
+- NPO Status: Clear liquids, stopped 12:00 AM  
+- Last Oral Intake: 8:00 PM prior night  
+
+Planned Sedation: MAC with Propofol + Midazolam  
+Anesthesiologist: Dr. Sarah Lewis, MD  
+CRNA/AA: James Carter, CRNA  
+
+Times:  
+- Anesthesia Start: 09:15 AM  
+- Procedure Start (Scope In): 09:30 AM  
+- Procedure End (Scope Out): 09:55 AM  
+- Anesthesia End: 10:00 AM  
+- Recovery Start: 10:05 AM  
+- Recovery End: 11:15 AM  
+
+Monitoring Trends:  
+- 09:20 AM: BP 132/86, HR 74, SpO2 98%  
+- 09:35 AM: BP 128/84, HR 76, SpO2 96%  
+- 09:50 AM: BP 130/82, HR 72, SpO2 99%  
+
+Complications: Brief desaturation to 92% resolved with jaw thrust and O2 adjustment.
+
+Post-Anesthesia Evaluation:  
+Aldrete Score: 9/10; home with escort.
+
+GASTROENTEROLOGY CLINIC  
+Endoscopy Department  
+123 Health Lane, Suite 400  
+Metropolis, XY 12345  
+Phone: (555) 123-4567  
+Fax: (555) 765-4321  
+Dr. John Doe, MD  
+
+Page 3
+
+PROCEDURE NOTE
+
+Procedure Name: Esophagogastroduodenoscopy (EGD)  
+Endoscope Model: Olympus EVIS, Route: Per Oral  
+Patient Positioning: Left lateral decubitus, Bite Block used  
+
+Procedure: After informed consent was obtained, a detailed EGD was performed. Oropharynx was entered without difficulty. The upper esophageal sphincter (UES) was passed smoothly. The esophagus was carefully examined, mucosa appeared normal, and the Z-line was at 39 cm from the incisors, with no notable signs of esophagitis or stricture. Viewing the stomach, insufflation was achieved with clear visualization of the fundus, body, and antrum. Rugal folds were prominent; no evidence of erythema, erosions, or ulcers observed. The pylorus was patent. Duodenum bulb and second portion appeared with no inflammation. Retroflexion in the stomach allowed complete assessment of the cardia and fundus without abnormality. The procedure was well tolerated without complications.
+
+Findings:  
+- Normal esophagus, stomach, and duodenum.  
+- Z-line at 39 cm, no evidence of dysplasia or Barrett's.  
+
+Impression: Unremarkable EGD. No gross pathology detected.  
+
+Diagnosis:  
+- Normal EGD  
+- GERD (history)  
+
+Interventions: No biopsies or therapeutic interventions required.
+
+Endoscopy Team:  
+Endoscopist: Dr. John Doe, MD  
+Assistant: Emily White, Endoscopy Tech  
+RN Circulator: Susan Green, RN  
+
+GASTROENTEROLOGY CLINIC  
+Endoscopy Department  
+123 Health Lane, Suite 400  
+Metropolis, XY 12345  
+Phone: (555) 123-4567  
+Fax: (555) 765-4321  
+Dr. John Doe, MD  
+
+Page 4
+
+SPECIMENS/LAB/PATHOLOGY
+
+No specimens taken during this procedure.
+
+GASTROENTEROLOGY CLINIC  
+Endoscopy Department  
+123 Health Lane, Suite 400  
+Metropolis, XY 12345  
+Phone: (555) 123-4567  
+Fax: (555) 765-4321  
+Dr. John Doe, MD  
+
+Page 5
+
+AFTER VISIT SUMMARY / DISCHARGE INSTRUCTIONS
+
+Recovery Course: The patient emerged from anesthesia without complications. No pain or nausea reported. Tolerated clear fluids well, stable vitals.  
+
+Instructions:  
+- Diet: Resume diet as tolerated, start with light meals.  
+- Activity: Restrict strenuous activity for 24 hours.  
+- Warning Signs: Contact office if experiencing severe abdominal pain, fever, or vomiting.  
+
+Follow-up: Return visit in 4 weeks, results to be discussed.  
+
+Medication Plan: Continue current medications, Omeprazole increased to 40mg daily for GERD symptom management.  
+
+Results Communication: Phone call with test results and further instructions within 7-10 days. Next appointment scheduled.  
+
+Patient Understanding: Confirmed understanding of instructions; will be escorted home by husband.  
+
+RN Discharge Educator: Lisa Brown, RN  
+Discharge Education Timestamp: 11:30 AM  
+
+Provider Signature Block  
+Dr. John Doe, MD  
+Date/Time: 09/25/2023 11:35 AM  
+Electronically signed by Dr. John Doe  
