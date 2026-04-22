@@ -259,13 +259,14 @@ def determine_ai_reason(ai_prob, duplicate_info, segment_info):
     }
 
 
-def analyze_file(file_path, classifier, run_detailed_analysis=True):
+def analyze_file(file_path, classifier, threshold=0.5, run_detailed_analysis=True):
     """
     Analyze a single file and return results dictionary.
 
     Args:
         file_path: Path to the text file
         classifier: Loaded classifier pipeline
+        threshold: AI probability threshold for Prediction
         run_detailed_analysis: Whether to run detailed analysis for AI-classified texts
 
     Returns:
@@ -289,9 +290,14 @@ def analyze_file(file_path, classifier, run_detailed_analysis=True):
 
     is_ai = ai_prob > 0.5
 
+    # Derive TrueLabel from filename and Prediction from threshold
+    filename = os.path.basename(file_path)
+    true_label = "AI_Written" if filename.upper().startswith("AI") else "Human_Written"
+    prediction = "AI_Written" if ai_prob >= threshold else "Human_Written"
+
     # Base result
     result_dict = {
-        'filename': os.path.basename(file_path),
+        'filename': filename,
         'char_count': len(text),
         'word_count': len(text.split()),
         'roberta_label': label,
@@ -306,7 +312,10 @@ def analyze_file(file_path, classifier, run_detailed_analysis=True):
         'duplicate_ratio': '',
         'high_ai_segments': '',
         'segment_details': '',
-        'contributing_factors': ''
+        'contributing_factors': '',
+        'threshold': threshold,
+        'TrueLabel': true_label,
+        'Prediction': prediction
     }
 
     # Run detailed analysis for AI-classified texts
@@ -348,10 +357,13 @@ def main():
                         help='Output CSV filename (or full path). If a bare filename, it is written into --output_dir.')
     parser.add_argument('--model', '-m', choices=['openai', 'fakespot'], default='openai',
                         help='Model to use: openai (default) or fakespot')
+    parser.add_argument('--threshold', type=float, default=0.5,
+                        help='AI probability threshold for Prediction (default: 0.5)')
 
     args = parser.parse_args()
     input_path = os.path.expanduser(args.input)
     model_choice = args.model
+    threshold = args.threshold
 
     # Determine if input is file or folder
     if os.path.isdir(input_path):
@@ -401,6 +413,7 @@ def main():
     print(f"Input: {input_path}")
     print(f"Files to process: {len(file_list)}")
     print(f"Output CSV: {output_csv}")
+    print(f"Threshold: {threshold}")
     print(f"{'='*60}\n")
 
     # Load RoBERTa model from local path
@@ -426,7 +439,10 @@ def main():
         'contributing_factors',
         'roberta_label',
         'roberta_confidence',
-        'human_probability'
+        'human_probability',
+        'threshold',
+        'TrueLabel',
+        'Prediction'
     ]
 
     # Track summary stats
@@ -444,7 +460,7 @@ def main():
             print(f"[{i}/{len(file_list)}] Processing: {filename}...", end=" ")
 
             try:
-                result = analyze_file(file_path, classifier)
+                result = analyze_file(file_path, classifier, threshold=threshold)
                 writer.writerow(result)
 
                 if result['classification'] == 'AI_text':
