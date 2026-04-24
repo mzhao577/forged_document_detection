@@ -259,7 +259,7 @@ def determine_ai_reason(ai_prob, duplicate_info, segment_info):
     }
 
 
-def analyze_file(file_path, classifier, threshold=0.5, run_detailed_analysis=True):
+def analyze_file(file_path, classifier, threshold=0.5, model_choice='openai', run_detailed_analysis=True):
     """
     Analyze a single file and return results dictionary.
 
@@ -267,6 +267,7 @@ def analyze_file(file_path, classifier, threshold=0.5, run_detailed_analysis=Tru
         file_path: Path to the text file
         classifier: Loaded classifier pipeline
         threshold: AI probability threshold for Prediction
+        model_choice: Model name to record in output
         run_detailed_analysis: Whether to run detailed analysis for AI-classified texts
 
     Returns:
@@ -313,6 +314,7 @@ def analyze_file(file_path, classifier, threshold=0.5, run_detailed_analysis=Tru
         'high_ai_segments': '',
         'segment_details': '',
         'contributing_factors': '',
+        'model': model_choice,
         'threshold': threshold,
         'TrueLabel': true_label,
         'Prediction': prediction
@@ -419,7 +421,7 @@ def main():
     # Load RoBERTa model from local path
     print(f"Loading {model_config['name']}...")
     model_path = model_config['path'].replace("~", os.path.expanduser("~"))
-    classifier = pipeline("text-classification", model=model_path, local_files_only=True)
+    classifier = pipeline("text-classification", model=model_path)
 
     print(f"\nProcessing {len(file_list)} file(s)...\n")
 
@@ -440,6 +442,7 @@ def main():
         'roberta_label',
         'roberta_confidence',
         'human_probability',
+        'model',
         'threshold',
         'TrueLabel',
         'Prediction'
@@ -460,7 +463,7 @@ def main():
             print(f"[{i}/{len(file_list)}] Processing: {filename}...", end=" ")
 
             try:
-                result = analyze_file(file_path, classifier, threshold=threshold)
+                result = analyze_file(file_path, classifier, threshold=threshold, model_choice=model_choice)
                 writer.writerow(result)
 
                 if result['classification'] == 'AI_text':

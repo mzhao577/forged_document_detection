@@ -1,4 +1,16 @@
 
+#pyScript="aitext_OriginalBinocular.py"
+pyScript="aitext_detectionbyRobertA_batch_v2.py"
+model="fakespot"
+inDir="./input"
+outDir="./output"
+outFile="AIHuman_Results1010_RoBERTa_${model}.csv"
+threshold=0.15
+
+python $pyScript  --input $inDir --model ${model}  --output_dir $outDir  --output_file $outFile --threshold $threshold
+
+
+
 
 : <<'COMMENT'
 
