@@ -87,7 +87,7 @@ skipped = 0
 
 with open(output_file, 'w', newline='') as out_f:
     writer = csv.writer(out_f)
-    writer.writerow(["filename", "char_count", "word_count", "TrueLabel", "Classification", "ai_probability", "threshold", "Prediction"])
+    writer.writerow(["filename", "char_count", "word_count", "TrueLabel", "Classification", "ai_probability", "threshold", "Prediction", "model"])
 
     for filename in files:
         filepath = os.path.join(input_dir, filename)
@@ -106,7 +106,7 @@ with open(output_file, 'w', newline='') as out_f:
         classification, confidence = predict_single_text(text, model, tokenizer, device='cpu')
         prediction = "AI_Written" if confidence > threshold else "Human_Written"
 
-        writer.writerow([filename, char_count, word_count, TrueLabel, classification, f"{confidence:.4f}", threshold, prediction])
+        writer.writerow([filename, char_count, word_count, TrueLabel, classification, f"{confidence:.4f}", threshold, prediction, "desklib"])
         print(f"{filename} -> Prediction: {prediction} (AI prob: {confidence:.4f}, threshold: {threshold})")
         processed += 1
 
